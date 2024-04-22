@@ -1,0 +1,23 @@
+$mbs: 'only screen and (max-width: 360px)';
+$mbm: 'only screen and (max-width: 375px)';
+$mbl: 'only screen and (max-width: 450px)';
+$tb: 'only screen and (max-width: 768px)';
+$lp: 'only screen and (max-width: 1024px)';
+$lpl: 'only screen and (max-width: 1440px)';
+$lpk: 'only screen and (max-width: 2560px)';
+
+@mixin respond-to($target) {
+  @media #{$target} {
+    @content;
+  }
+}
+
+@mixin font-size($target, $lineHeight: $target + 2) {
+  font-size: #{$target}px;
+  line-height: #{$lineHeight}px;
+
+  @include respond-to($mbl) {
+    font-size: #{$target / 4}vw;
+    line-height: #{$lineHeight / 4}vw;
+  }
+}

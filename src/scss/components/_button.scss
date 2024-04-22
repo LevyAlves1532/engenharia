@@ -1,0 +1,42 @@
+.Button {
+  width: fit-content;
+  padding: 20px 40px;
+  background-color: $third;
+  color: $white;
+  @include font-size(16);
+  font-weight: 600;
+  font-family: $fontTitle;
+  border: 1px solid transparent;
+  transition: all ease 0.8s;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &:hover {
+    background-color: $fifth;
+    color: $third;
+  }
+
+  &--secondary {
+    background-color: $first;
+    color: $fourth;
+
+    &:hover {
+      background-color: $fourth;
+      color: $first;
+    }
+  }
+
+  &--outline {
+    border-color: $third;
+    color: $third;
+    background-color: rgba(0, 0, 0, 0.25);
+
+    &:hover {
+      border-color: $fifth;
+      background-color: $fifth;
+      color: $third;
+    }
+  }
+}
