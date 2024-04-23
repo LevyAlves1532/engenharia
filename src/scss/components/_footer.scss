@@ -1,0 +1,166 @@
+.Footer {
+  width: 100%;
+  padding: 80px 0;
+  background-color: $fifth;
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    &_content {
+      margin-bottom: 60px;
+
+      display: flex;
+      gap: 60px;
+
+      @include respond-to($lp) {
+        flex-wrap: wrap;
+      }
+
+      @include respond-to($mbl) {
+        flex-direction: column;
+      }
+
+      .FooterApresentation {
+        flex: 2;
+
+        @include respond-to($lp) {
+          width: 100%;
+          
+          flex: unset;
+        }
+
+        &__logo {
+          margin-bottom: 20px;
+
+          a {
+            width: fit-content;
+
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            p {
+              @include font-size(16);
+              font-family: $fontTitle;
+              font-weight: 600;
+              color: $second;
+              letter-spacing: 1px;
+            }
+          }
+        }
+
+        &__text {
+          p {
+            @include font-size(14, 24);
+          }
+        }
+      }
+
+      .FooterLinks {
+        flex: 1;
+
+        &__title {
+          margin-bottom: 20px;
+
+          p {
+            @include font-size(16);
+            font-family: $fontTitle;
+            font-weight: 600;
+            color: $second;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          }
+        }
+
+        &__list {
+          ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            a {
+              width: fit-content;
+              @include font-size(16);
+              color: $third;
+              transition: all ease 0.8s;
+
+              &:hover {
+                color: $second;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+
+      .FooterSocial {
+        flex: 1;
+
+        &__header {
+          margin-bottom: 20px;
+
+          p {
+            @include font-size(16);
+            font-family: $fontTitle;
+            font-weight: 600;
+            color: $second;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+          }
+
+          span {
+            @include font-size(14, 24);
+          }
+        }
+
+        &__button {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          a {
+            padding: 20px;
+            border-radius: 999px;
+            background-color: $third;
+            transition: all ease 0.8s;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+              width: 24px;
+              height: 24px;
+              fill: $white;
+              transition: all ease 0.8s;
+            }
+
+            &:hover {
+              background-color: $white;
+
+              svg {
+                fill: $third;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &_copyright {
+      padding-top: 60px;
+      border-top: 2px solid $white;
+      text-align: right;
+
+      p {
+        @include font-size(12);
+        color: $third;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}

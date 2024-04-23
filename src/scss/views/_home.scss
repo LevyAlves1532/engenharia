@@ -101,345 +101,6 @@
     }
   }
 
-  .HomeAbout {
-    padding: 80px 0;
-
-    display: block;
-
-    &__container {
-      max-width: 1024px;
-      width: 100%;
-      margin: 0 auto;
-
-      display: flex;
-
-      .HomeAboutImage {
-        flex: 0.8;
-
-        @include respond-to($tb) {
-          display: none;
-        }
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center;
-        }
-      }
-
-      .HomeAboutInfo {
-        flex: 1.2;
-        padding: 40px;
-
-        @include respond-to($tb) {
-          padding: 0 20px;
-        }
-
-        &__label {
-          margin-bottom: 20px;
-
-          p {
-            @include font-size(16);
-            font-family: $fontTitle;
-            text-transform: uppercase;
-            color: $third;
-            font-weight: 600;
-            letter-spacing: 1px;
-          }
-        }
-
-        &__title {
-          max-width: 367px;
-          margin-bottom: 20px;
-
-          h2 {
-            @include font-size(34);
-            text-transform: uppercase;
-          }
-        }
-
-        &__text {
-          margin-bottom: 40px;
-
-          p {
-            @include font-size(16, 26);
-          }
-        }
-
-        &__data {
-          margin-bottom: 40px;
-          
-          display: flex;
-          gap: 20px;
-
-          @include respond-to($mbl) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-          }
-
-          &_numbers {
-            flex: 1;
-
-            @include respond-to($mbl) {
-              display: flex;
-              justify-content: center;
-            }
-
-            div {
-              width: fit-content;
-              text-align: center;
-
-              span {
-                margin-bottom: 10px;
-                @include font-size(34);
-                font-weight: 600;
-                color: $third;
-              }
-
-              p {
-                @include font-size(16);
-                font-family: $fontTitle;
-                color: $third;
-
-                @include respond-to($mbl) {
-                  white-space: nowrap;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .HomeValues {
-    padding: 60px 0;
-    background-image: url('https://img.freepik.com/fotos-gratis/apertar-de-maos-de-empresarios_587448-5043.jpg?t=st=1713808073~exp=1713811673~hmac=290bd2969d78df3164a12346e41a6661a57e845a940156a28f4f87389c6ee794&w=1380');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    // background-attachment: fixed;
-
-    display: block;
-
-    position: relative;
-
-    &::before {
-      width: 100%;
-      height: 100%;
-      content: '';
-      background-color: rgba(0, 0, 0, 0.45);
-
-      display: block;
-
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    &__container {
-      max-width: 1280px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 20px;
-
-      position: relative;
-
-      &_title {
-        margin-bottom: 40px;
-        text-align: center;
-
-        h2, span {
-          @include font-size(44);
-          color: $white;
-          text-transform: uppercase;
-          font-family: $fontTitle;
-
-          display: inline;
-
-          span {
-            color: $fourth;
-          }
-        }
-      }
-
-      .HomeValuesList {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-
-        @include respond-to($lp) {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        @include respond-to($mbl) {
-          grid-template-columns: 1fr;
-        }
-
-        &__card {
-          padding: 20px;
-          border: 1px solid rgba(255, 255, 255, 0.45);
-          transition: all ease 0.8s;
-
-          &_title {
-            margin-bottom: 10px;
-
-            p {
-              @include font-size(16);
-              font-weight: 600;
-              color: $white;
-              transition: all ease 0.8s;
-            }
-          }
-
-          &_text {
-            p {
-              @include font-size(14, 24);
-              color: $white;
-              transition: all ease 0.8s;
-            }
-          }
-
-          &:hover {
-            border-color: $fifth;
-            background-color: $fifth;
-
-            p {
-              color: $second;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .HomeGoals {
-    padding: 60px 0;
-
-    &__container {
-      max-width: 1024px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 20px;
-
-      .HomeGoalsHeader {
-        margin-bottom: 40px;
-
-        &__label {
-          margin-bottom: 20px;
-
-          p {
-            @include font-size(16);
-            font-family: $fontTitle;
-            text-transform: uppercase;
-            color: $third;
-            font-weight: 600;
-            letter-spacing: 1px;
-          }
-        }
-
-        &__title {
-          display: flex;
-          gap: 20px;
-          align-items: center;
-
-          h3 {
-            @include font-size(24);
-          }
-
-          &::after {
-            flex: 1;
-            height: 3px;
-            background-color: rgba(0, 0, 0, 0.25);
-            content: '';
-
-            display: block;
-          }
-        }
-      }
-
-      .HomeGoalsList {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-
-        @include respond-to($tb) {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        @include respond-to($mbl) {
-          grid-template-columns: 1fr;
-        }
-
-        &__card {
-          padding: 20px;
-          padding-top: 0;
-          border: 3px solid $third;
-          transition: all ease 0.8s;
-
-          &_icon {
-            width: fit-content;
-            padding: 30px 15px;
-            margin-bottom: 20px;
-            background-color: $third;
-            transition: all ease 0.8s;
-
-            svg {
-              width: 24px;
-              fill: $white;
-              transition: all ease 0.8s;
-            }
-          }
-
-          &_title {
-            margin-bottom: 20px;
-
-            p {
-              @include font-size(18);
-              font-weight: 600;
-              font-family: $fontTitle;
-              color: $third;
-              transition: all ease 0.8s;
-            }
-          }
-
-          &_text {
-            p {
-              @include font-size(14, 24);
-              transition: all ease 0.8s;
-            }
-          }
-
-          &:hover {
-            border-color: $fifth;
-            background-color: $third;
-
-            .HomeGoalsList__card_icon {
-              background-color: $fifth;
-
-              svg {
-                fill: $third;
-              }
-            }
-
-            .HomeGoalsList__card_title {
-              p {
-                color: $fifth;
-              }
-            }
-
-            .HomeGoalsList__card_text {
-              p {
-                color: $white;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
   .HomeProjects {
     padding: 60px 0;
     background-color: $fifth;
@@ -590,6 +251,80 @@
       .HomeFeedbackButton {
         display: flex;
         justify-content: center;
+      }
+    }
+  }
+
+  .HomeContact {
+    background-color: $third;
+
+    &__container {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      display: flex;
+
+      @include respond-to($lp) {
+        padding: 0;
+      }
+
+      @include respond-to($tb) {
+        flex-direction: column;
+      }
+
+      .HomeContactCard {
+        flex: 1;
+        padding: 100px 30px;
+        background-color: $second;
+
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+
+        @include respond-to($lp) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        @include respond-to($tb) {
+          align-items: center;
+        }
+
+        &:nth-child(2n) {
+          background-color: $third;
+        }
+
+        &__icon {
+          svg {
+            width: 62px;
+            fill: $white;
+          }
+        }
+
+        &__info {
+          @include respond-to($tb) {
+            text-align: center;
+          }
+
+          p {
+            margin-bottom: 5px;
+            @include font-size(12);
+            font-family: $fontTitle;
+            color: $white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          }
+
+
+          span {
+            @include font-size(24);
+            color: $white;
+            font-weight: 600;
+          }
+        }
       }
     }
   }

@@ -1,0 +1,100 @@
+.Values {
+  padding: 60px 0;
+  background-image: url('https://img.freepik.com/fotos-gratis/apertar-de-maos-de-empresarios_587448-5043.jpg?t=st=1713808073~exp=1713811673~hmac=290bd2969d78df3164a12346e41a6661a57e845a940156a28f4f87389c6ee794&w=1380');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  display: block;
+
+  position: relative;
+
+  &::before {
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: rgba(0, 0, 0, 0.45);
+
+    display: block;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    position: relative;
+
+    &_title {
+      margin-bottom: 40px;
+      text-align: center;
+
+      h2, span {
+        @include font-size(44);
+        color: $white;
+        text-transform: uppercase;
+        font-family: $fontTitle;
+
+        display: inline;
+
+        span {
+          color: $fourth;
+        }
+      }
+    }
+
+    .ValuesList {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+
+      @include respond-to($lp) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include respond-to($mbl) {
+        grid-template-columns: 1fr;
+      }
+
+      &__card {
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        transition: all ease 0.8s;
+
+        &_title {
+          margin-bottom: 10px;
+
+          p {
+            @include font-size(16);
+            font-weight: 600;
+            color: $white;
+            transition: all ease 0.8s;
+          }
+        }
+
+        &_text {
+          p {
+            @include font-size(14, 24);
+            color: $white;
+            transition: all ease 0.8s;
+          }
+        }
+
+        &:hover {
+          border-color: $fifth;
+          background-color: $fifth;
+
+          p {
+            color: $second;
+          }
+        }
+      }
+    }
+  }
+}

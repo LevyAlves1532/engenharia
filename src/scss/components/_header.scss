@@ -6,6 +6,51 @@
   left: 0;
   z-index: 10;
 
+  .HeaderSocial {
+    @include respond-to($tb) {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      @include respond-to($tb) {
+        justify-content: center;
+      }
+
+      li {
+        &:first-child {
+          a {
+            svg {
+              width: 13px;
+            }
+          }
+        }
+
+        a {
+          svg {
+            width: 22px;
+            fill: $white;
+            transition: all ease 0.8s;
+
+            @include respond-to($tb) {
+              fill: $second;
+            }
+          }
+
+          &:hover {
+            svg {
+              transform: rotate(360deg);
+              fill: $fourth;
+            }
+          }
+        }
+      }
+    }
+  }
+
   &__bar {
     padding: 10px 0;
     background-color: $second;
@@ -54,56 +99,6 @@
 
             svg {
               fill: $fourth;
-            }
-          }
-        }
-      }
-
-      .HeaderSocial {
-        @include respond-to($tb) {
-          transform: translateX(-50%);
-          transition: all ease 0.8s;
-
-          opacity: 0;
-          pointer-events: none;
-
-          position: absolute;
-          top: calc(100vh - 58px);
-          left: 50%;
-          z-index: 1;
-        }
-
-        ul {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-
-          li {
-            &:first-child {
-              a {
-                svg {
-                  width: 13px;
-                }
-              }
-            }
-
-            a {
-              svg {
-                width: 22px;
-                fill: $white;
-                transition: all ease 0.8s;
-
-                @include respond-to($tb) {
-                  fill: $second;
-                }
-              }
-
-              &:hover {
-                svg {
-                  transform: rotate(360deg);
-                  fill: $fourth;
-                }
-              }
             }
           }
         }
@@ -188,10 +183,10 @@
           }
 
           @include respond-to($tb) {
-            padding-bottom: 40px;
+            padding-bottom: 60px;
           }
 
-          ul {
+          .HeaderMenuList {
             display: flex;
             gap: 10px;
 
@@ -231,6 +226,14 @@
                   color: $fifth;
                 }
               }
+            }
+          }
+
+          .HeaderSocial {
+            display: none;
+
+            @include respond-to($tb) {
+              display: block;
             }
           }
         }

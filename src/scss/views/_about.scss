@@ -1,0 +1,141 @@
+.WrapperAbout {
+  padding-top: 128px;
+
+  .AboutMe {
+    padding: 60px 0;
+    background-color: $fifth;
+
+    &__container {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &_image {
+        margin-bottom: 20px;
+
+        img {
+          width: 340px;
+          height: 340px;
+          border-radius: 999px;
+          object-fit: cover;
+          object-position: center;
+          padding: 20px;
+          transition: all ease 0.8s;
+
+          border: 3px solid $third;
+
+          &:hover {
+            padding: 40px;
+          }
+
+          @include respond-to($mbl) {
+            width: 280px;
+            height: 280px;
+          }
+        }
+      }
+
+      &_info {
+        margin-bottom: 40px;
+        text-align: center;
+
+        span {
+          @include font-size(18, 28);
+          font-family: $fontTitle;
+          font-weight: 600;
+          color: $third;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        h1 {
+          @include font-size(44, 54);
+          font-family: $fontTitle;
+          text-transform: uppercase;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+
+        p {
+          @include font-size(24, 34);
+          font-weight: 600;
+        }
+      }
+
+      &_text {
+        text-align: center;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        p {
+          @include font-size(16, 26);
+        }
+      }
+    }
+  }
+
+  .AboutProject {
+    padding: 60px 0;
+
+    &__container {
+      max-width: 1024px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      &_title {
+        margin-bottom: 40px;
+        text-align: center;
+
+        h3 {
+          @include font-size(34);
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+
+      &_list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+
+        @include respond-to($tb) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include respond-to($mbl) {
+          grid-template-columns: 1fr;
+        }
+
+        .Project {
+          border: 2px solid $third;
+
+          &__image {
+            border-bottom: 2px solid $third;
+
+            @include respond-to($lp) {
+              height: 40vw;
+            }
+
+            @include respond-to($mbl) {
+              height: 95vw;
+            }
+          }
+
+          &__info {
+            &_text {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

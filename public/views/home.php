@@ -22,162 +22,11 @@
     </div>
   </section>
 
-  <seciton class="HomeAbout">
-    <div class="HomeAbout__container">
-      <div class="HomeAboutImage">
-        <img src="https://img.freepik.com/fotos-gratis/vista-frontal-fora-da-mesa-do-escritorio_23-2149034544.jpg?t=st=1713804999~exp=1713808599~hmac=8292beb063a04cd5813152fd7f7d3da559c1a7ffa832777ab30bb00340d16fa3&w=740" alt="">
-      </div>
+  <?php include 'components/about.php'; ?>
 
-      <div class="HomeAboutInfo">
-        <div class="HomeAboutInfo__label">
-          <p>Latest Projects</p>
-        </div>
+  <?php include 'components/values.php'; ?>
 
-        <div class="HomeAboutInfo__title">
-          <h2>We are qualified in every working departments</h2>
-        </div>
-
-        <div class="HomeAboutInfo__text">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati veniam libero in saepe dolor, nulla recusandae possimus autem molestiae. Quidem voluptatibus, magnam veritatis quis ut reiciendis impedit labore delectus soluta?</p>
-        </div>
-
-        <div class="HomeAboutInfo__data">
-          <div class="HomeAboutInfo__data_numbers">
-            <div>
-              <span>+25</span>
-              <p>More Clients</p>
-            </div>
-          </div>
-
-          <div class="HomeAboutInfo__data_numbers">
-            <div>
-              <span>+100</span>
-              <p>More Projects</p>
-            </div>
-          </div>
-
-          <div class="HomeAboutInfo__data_numbers">
-            <div>
-              <span>+100</span>
-              <p>More Feedbacks</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="HomeAboutInfo__button">
-          <a href="#" class="Button Button--secondary">Get Started</a>
-        </div>
-      </div>
-    </div>
-  </seciton>
-
-  <seciton class="HomeValues">
-    <div class="HomeValues__container">
-      <div class="HomeValues__container_title">
-        <h2>Us <span>values</span></h2>
-      </div>
-
-      <div class="HomeValuesList">
-        <div class="HomeValuesList__card">
-          <div class="HomeValuesList__card_title">
-            <p>Commitment</p>
-          </div>
-
-          <div class="HomeValuesList__card_text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nam ut quia ad numquam itaque repellat a quis ipsam voluptatem est consequatur dolorum aliquam corporis quaerat, saepe id accusantium blanditiis?</p>
-          </div>
-        </div>
-
-        <div class="HomeValuesList__card">
-          <div class="HomeValuesList__card_title">
-            <p>Perfectionism</p>
-          </div>
-
-          <div class="HomeValuesList__card_text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nam ut quia ad numquam itaque repellat a quis ipsam voluptatem est consequatur dolorum aliquam corporis quaerat, saepe id accusantium blanditiis?</p>
-          </div>
-        </div>
-
-        <div class="HomeValuesList__card">
-          <div class="HomeValuesList__card_title">
-            <p>Camaraderie</p>
-          </div>
-
-          <div class="HomeValuesList__card_text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nam ut quia ad numquam itaque repellat a quis ipsam voluptatem est consequatur dolorum aliquam corporis quaerat, saepe id accusantium blanditiis?</p>
-          </div>
-        </div>
-
-        <div class="HomeValuesList__card">
-          <div class="HomeValuesList__card_title">
-            <p>Reliability</p>
-          </div>
-
-          <div class="HomeValuesList__card_text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nam ut quia ad numquam itaque repellat a quis ipsam voluptatem est consequatur dolorum aliquam corporis quaerat, saepe id accusantium blanditiis?</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </seciton>
-
-  <section class="HomeGoals">
-    <div class="HomeGoals__container">
-      <div class="HomeGoalsHeader">
-        <div class="HomeGoalsHeader__label">
-          <p>Our Goals</p>
-        </div>
-
-        <div class="HomeGoalsHeader__title">
-          <h3>Listen Better, Plan Better, Build Better</h3>
-        </div>
-      </div>
-
-      <div class="HomeGoalsList">
-        <div class="HomeGoalsList__card">
-          <div class="HomeGoalsList__card_icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M400 96l0 .7c-5.3-.4-10.6-.7-16-.7H256c-16.5 0-32.5 2.1-47.8 6c-.1-2-.2-4-.2-6c0-53 43-96 96-96s96 43 96 96zm-16 32c3.5 0 7 .1 10.4 .3c4.2 .3 8.4 .7 12.6 1.3C424.6 109.1 450.8 96 480 96h11.5c10.4 0 18 9.8 15.5 19.9l-13.8 55.2c15.8 14.8 28.7 32.8 37.5 52.9H544c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32H512c-9.1 12.1-19.9 22.9-32 32v64c0 17.7-14.3 32-32 32H416c-17.7 0-32-14.3-32-32V448H256v32c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32V416c-34.9-26.2-58.7-66.3-63.2-112H68c-37.6 0-68-30.4-68-68s30.4-68 68-68h4c13.3 0 24 10.7 24 24s-10.7 24-24 24H68c-11 0-20 9-20 20s9 20 20 20H99.2c12.1-59.8 57.7-107.5 116.3-122.8c12.9-3.4 26.5-5.2 40.5-5.2H384zm64 136a24 24 0 1 0 -48 0 24 24 0 1 0 48 0z"/></svg>
-          </div>
-
-          <div class="HomeGoalsList__card_title">
-            <p>Cost-benefit projects</p>
-          </div>
-
-          <div class="HomeGoalsList__card_text">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem repellat sint quisquam, ab, sed vel necessitatibus, asperiores deserunt est porro modi tenetur at earum vero ex ducimus nihil placeat nostrum.</p>
-          </div>
-        </div>
-        
-        <div class="HomeGoalsList__card">
-          <div class="HomeGoalsList__card_icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M400 96l0 .7c-5.3-.4-10.6-.7-16-.7H256c-16.5 0-32.5 2.1-47.8 6c-.1-2-.2-4-.2-6c0-53 43-96 96-96s96 43 96 96zm-16 32c3.5 0 7 .1 10.4 .3c4.2 .3 8.4 .7 12.6 1.3C424.6 109.1 450.8 96 480 96h11.5c10.4 0 18 9.8 15.5 19.9l-13.8 55.2c15.8 14.8 28.7 32.8 37.5 52.9H544c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32H512c-9.1 12.1-19.9 22.9-32 32v64c0 17.7-14.3 32-32 32H416c-17.7 0-32-14.3-32-32V448H256v32c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32V416c-34.9-26.2-58.7-66.3-63.2-112H68c-37.6 0-68-30.4-68-68s30.4-68 68-68h4c13.3 0 24 10.7 24 24s-10.7 24-24 24H68c-11 0-20 9-20 20s9 20 20 20H99.2c12.1-59.8 57.7-107.5 116.3-122.8c12.9-3.4 26.5-5.2 40.5-5.2H384zm64 136a24 24 0 1 0 -48 0 24 24 0 1 0 48 0z"/></svg>
-          </div>
-
-          <div class="HomeGoalsList__card_title">
-            <p>Cost-benefit projects</p>
-          </div>
-
-          <div class="HomeGoalsList__card_text">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem repellat sint quisquam, ab, sed vel necessitatibus, asperiores deserunt est porro modi tenetur at earum vero ex ducimus nihil placeat nostrum.</p>
-          </div>
-        </div>
-
-        <div class="HomeGoalsList__card">
-          <div class="HomeGoalsList__card_icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M400 96l0 .7c-5.3-.4-10.6-.7-16-.7H256c-16.5 0-32.5 2.1-47.8 6c-.1-2-.2-4-.2-6c0-53 43-96 96-96s96 43 96 96zm-16 32c3.5 0 7 .1 10.4 .3c4.2 .3 8.4 .7 12.6 1.3C424.6 109.1 450.8 96 480 96h11.5c10.4 0 18 9.8 15.5 19.9l-13.8 55.2c15.8 14.8 28.7 32.8 37.5 52.9H544c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32H512c-9.1 12.1-19.9 22.9-32 32v64c0 17.7-14.3 32-32 32H416c-17.7 0-32-14.3-32-32V448H256v32c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32V416c-34.9-26.2-58.7-66.3-63.2-112H68c-37.6 0-68-30.4-68-68s30.4-68 68-68h4c13.3 0 24 10.7 24 24s-10.7 24-24 24H68c-11 0-20 9-20 20s9 20 20 20H99.2c12.1-59.8 57.7-107.5 116.3-122.8c12.9-3.4 26.5-5.2 40.5-5.2H384zm64 136a24 24 0 1 0 -48 0 24 24 0 1 0 48 0z"/></svg>
-          </div>
-
-          <div class="HomeGoalsList__card_title">
-            <p>Cost-benefit projects</p>
-          </div>
-
-          <div class="HomeGoalsList__card_text">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem repellat sint quisquam, ab, sed vel necessitatibus, asperiores deserunt est porro modi tenetur at earum vero ex ducimus nihil placeat nostrum.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <?php include 'components/goals.php'; ?>
 
   <section class="HomeProjects">
     <div class="HomeProjects__container">
@@ -381,6 +230,43 @@
 
       <div class="HomeFeedbackButton">
         <a href="#" class="Button Button--secondary">Go to Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="HomeContact">
+    <div class="HomeContact__container">
+      <div class="HomeContactCard">
+        <div class="HomeContactCard__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
+        </div>
+
+        <div class="HomeContactCard__info">
+          <p>We are open monday-friday</p>
+          <span>7:00 am - 9:00 pm</span>
+        </div>
+      </div>
+
+      <div class="HomeContactCard">
+        <div class="HomeContactCard__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M280 0C408.1 0 512 103.9 512 232c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-101.6-82.4-184-184-184c-13.3 0-24-10.7-24-24s10.7-24 24-24zm8 192a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm-32-72c0-13.3 10.7-24 24-24c75.1 0 136 60.9 136 136c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-48.6-39.4-88-88-88c-13.3 0-24-10.7-24-24zM117.5 1.4c19.4-5.3 39.7 4.6 47.4 23.2l40 96c6.8 16.3 2.1 35.2-11.6 46.3L144 207.3c33.3 70.4 90.3 127.4 160.7 160.7L345 318.7c11.2-13.7 30-18.4 46.3-11.6l96 40c18.6 7.7 28.5 28 23.2 47.4l-24 88C481.8 499.9 466 512 448 512C200.6 512 0 311.4 0 64C0 46 12.1 30.2 29.5 25.4l88-24z"/></svg>
+        </div>
+
+        <div class="HomeContactCard__info">
+          <p>Make a question?</p>
+          <span>+55 (47) 9 9196-6719</span>
+        </div>
+      </div>
+
+      <div class="HomeContactCard">
+        <div class="HomeContactCard__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M408 120c0 54.6-73.1 151.9-105.2 192c-7.7 9.6-22 9.6-29.6 0C241.1 271.9 168 174.6 168 120C168 53.7 221.7 0 288 0s120 53.7 120 120zm8 80.4c3.5-6.9 6.7-13.8 9.6-20.6c.5-1.2 1-2.5 1.5-3.7l116-46.4C558.9 123.4 576 135 576 152V422.8c0 9.8-6 18.6-15.1 22.3L416 503V200.4zM137.6 138.3c2.4 14.1 7.2 28.3 12.8 41.5c2.9 6.8 6.1 13.7 9.6 20.6V451.8L32.9 502.7C17.1 509 0 497.4 0 480.4V209.6c0-9.8 6-18.6 15.1-22.3l122.6-49zM327.8 332c13.9-17.4 35.7-45.7 56.2-77V504.3L192 449.4V255c20.5 31.3 42.3 59.6 56.2 77c20.5 25.6 59.1 25.6 79.6 0zM288 152a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></svg>
+        </div>
+
+        <div class="HomeContactCard__info">
+          <p>Need a repair? our address</p>
+          <span>Liza Street, NewYork</span>
+        </div>
       </div>
     </div>
   </section>

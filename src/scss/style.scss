@@ -9,7 +9,14 @@
 @import 
   "components/header",
   "components/button",
-  "components/project";
+  "components/project",
+  "components/footer",
+  "components/about",
+  "components/values",
+  "components/goals",
+  "components/input";
 
 @import
-  "views/home";
+  "views/home",
+  "views/about",
+  "views/projects";

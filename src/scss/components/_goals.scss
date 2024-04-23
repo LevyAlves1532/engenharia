@@ -1,0 +1,125 @@
+.Goals {
+  padding: 60px 0;
+
+  &__container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    .GoalsHeader {
+      margin-bottom: 40px;
+
+      &__label {
+        margin-bottom: 20px;
+
+        p {
+          @include font-size(16);
+          font-family: $fontTitle;
+          text-transform: uppercase;
+          color: $third;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+      }
+
+      &__title {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        h3 {
+          @include font-size(24);
+        }
+
+        &::after {
+          flex: 1;
+          height: 3px;
+          background-color: rgba(0, 0, 0, 0.25);
+          content: '';
+
+          display: block;
+        }
+      }
+    }
+
+    .GoalsList {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+
+      @include respond-to($tb) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include respond-to($mbl) {
+        grid-template-columns: 1fr;
+      }
+
+      &__card {
+        padding: 20px;
+        padding-top: 0;
+        border: 3px solid $third;
+        transition: all ease 0.8s;
+
+        &_icon {
+          width: fit-content;
+          padding: 30px 15px;
+          margin-bottom: 20px;
+          background-color: $third;
+          transition: all ease 0.8s;
+
+          svg {
+            width: 24px;
+            fill: $white;
+            transition: all ease 0.8s;
+          }
+        }
+
+        &_title {
+          margin-bottom: 20px;
+
+          p {
+            @include font-size(18);
+            font-weight: 600;
+            font-family: $fontTitle;
+            color: $third;
+            transition: all ease 0.8s;
+          }
+        }
+
+        &_text {
+          p {
+            @include font-size(14, 24);
+            transition: all ease 0.8s;
+          }
+        }
+
+        &:hover {
+          border-color: $fifth;
+          background-color: $third;
+
+          .GoalsList__card_icon {
+            background-color: $fifth;
+
+            svg {
+              fill: $third;
+            }
+          }
+
+          .GoalsList__card_title {
+            p {
+              color: $fifth;
+            }
+          }
+
+          .GoalsList__card_text {
+            p {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

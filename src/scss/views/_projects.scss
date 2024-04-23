@@ -1,0 +1,127 @@
+.WrapperProjects {
+  padding: 188px 0 60px;
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    .ProjectsHeader {
+      margin-bottom: 40px;
+
+      p {
+        @include font-size(20, 30);
+        font-family: $fontTitle;
+        text-transform: uppercase;
+        color: $third;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+
+      h1 {
+        @include font-size(44, 54);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+
+    .ProjectsContent {
+      display: flex;
+      gap: 40px;
+
+      @include respond-to($lp) {
+        gap: 0;
+      }
+
+      &__filter {
+        flex: 1;
+
+        @include respond-to($lp) {
+          flex: unset;
+        }
+
+        .ProjectsContentFilter {
+          @include respond-to($lp) {
+            max-height: 60vh;
+            padding: 20px;
+            background-color: $white;
+            border-radius: 10px;
+            border: 1px solid $third;
+            overflow-y: auto;
+  
+            position: fixed;
+            right: 20px;
+            bottom: 106px;
+            z-index: 1;
+          }
+
+          &__title {
+            margin-bottom: 20px;
+
+            p {
+              @include font-size(16);
+              color: $second;
+              font-weight: 600;
+            }
+          }
+
+          &__inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .Button {
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+
+      &__products {
+        flex: 3;
+
+        &_search {
+          margin-top: 38px;
+          margin-bottom: 20px;
+        }
+
+        &_list {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+      }
+    }
+  }
+
+  .ProjectsButtonFilter {
+    display: none;
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    @include respond-to($lp) {
+      display: block;
+    }
+
+    .Button {
+      padding: 20px;
+      border-radius: 999px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        fill: $white;
+        transition: all ease 0.8s;
+      }
+
+      &:hover {
+        svg {
+          fill: $third;
+        }
+      }
+    }
+  }
+}
