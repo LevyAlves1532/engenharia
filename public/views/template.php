@@ -17,6 +17,10 @@
     <?php $this->loadViewInTemplate($viewName, $viewData); ?>
 
     <!-- AQUI COLOCAREMOS O FOOTER -->
+    <script>
+      var BASE_URL = "<?= BASE ?>";
+    </script>
+
     <script src="<?= BASE ?>assets/js/libs/jquery.min.js"></script>
     <script src="<?= BASE ?>assets/js/main.min.js"></script>
 

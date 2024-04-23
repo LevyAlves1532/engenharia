@@ -510,4 +510,87 @@
       }
     }
   }
+
+  .HomeFeedback {
+    padding: 60px 0;
+
+    &__container {
+      max-width: 1024px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      .HomeFeedbackTitle {
+        margin-bottom: 40px;
+        text-align: center;
+
+        h3 {
+          @include font-size(34);
+          color: $black;
+        }
+      }
+
+      .HomeFeedbackList {
+        margin-bottom: 40px;
+
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        @include respond-to($tb) {
+          flex-direction: column;
+        }
+
+        &__card {
+          border: 2px solid $third;
+          padding: 20px;
+          transition: all ease 0.8s;
+
+          &:hover {
+            transform: scale(1.02);
+          }
+
+          &_image {
+            margin-bottom: 10px;
+
+            display: flex;
+            gap: 20px;
+            align-items: center;
+
+            img {
+              width: 80px;
+              height: 80px;
+              border-radius: 999px;
+            }
+
+            div {
+              p {
+                margin-bottom: 10px;
+                @include font-size(16);
+                font-weight: 600;
+                color: $third;
+                font-family: $fontTitle;
+              }
+
+              span {
+                @include font-size(16);
+                color: $third;
+              }
+            }
+          }
+
+          &_info {
+            p {
+              @include font-size(14, 24);
+            }
+          }
+        }
+      }
+
+      .HomeFeedbackButton {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
 }
