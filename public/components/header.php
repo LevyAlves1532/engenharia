@@ -43,11 +43,11 @@
 
         <nav>
           <ul class="HeaderMenuList">
-            <li class="active-link-menu"><a href="<?= BASE ?>">Inicio</a></li>
+            <li><a href="<?= BASE ?>">Inicio</a></li>
             <li><a href="<?= BASE ?>sobre">Sobre</a></li>
             <li><a href="<?= BASE ?>projetos">Projetos</a></li>
-            <li><a href="#">Geotecnia</a></li>
-            <li><a href="#">Portfolio</a></li>
+            <li><a href="<?= BASE ?>geotecnia">Geotecnia</a></li>
+            <li><a href="<?= BASE ?>portfolio">Portfolio</a></li>
             <li><a href="#">Contato</a></li>
           </ul>
 

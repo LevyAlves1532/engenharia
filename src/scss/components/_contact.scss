@@ -1,0 +1,73 @@
+.Contact {
+  background-color: $third;
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    display: flex;
+
+    @include respond-to($lp) {
+      padding: 0;
+    }
+
+    @include respond-to($tb) {
+      flex-direction: column;
+    }
+
+    .ContactCard {
+      flex: 1;
+      padding: 100px 30px;
+      background-color: $second;
+
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+
+      @include respond-to($lp) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      @include respond-to($tb) {
+        align-items: center;
+      }
+
+      &:nth-child(2n) {
+        background-color: $third;
+      }
+
+      &__icon {
+        svg {
+          width: 62px;
+          fill: $white;
+        }
+      }
+
+      &__info {
+        @include respond-to($tb) {
+          text-align: center;
+        }
+
+        p {
+          margin-bottom: 5px;
+          @include font-size(12);
+          font-family: $fontTitle;
+          color: $white;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+
+        span {
+          @include font-size(24);
+          color: $white;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

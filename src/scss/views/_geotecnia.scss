@@ -1,0 +1,153 @@
+.WrapperGeotecnia {
+  padding-top: 128px;
+
+  .GeotecniaGoals {
+    padding: 60px 0;
+    
+    &__container {
+      max-width: 1024px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      &_title {
+        margin-bottom: 40px;
+        text-align: center;
+
+        h2 {
+          @include font-size(44, 54);
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+      }
+
+      &_list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .GeotecniaGoalsCard {
+          text-align: center;
+
+          &__title {
+            margin-bottom: 10px;
+
+            p {
+              @include font-size(20, 30);
+              font-weight: 600;
+              color: $third;
+              text-transform: uppercase;
+            }
+          }
+
+          &__text {
+            p {
+              @include font-size(16, 26);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .GeotecniaSeparatorImage {
+    height: 19vw;
+    max-height: 250px;
+    background-image: url('https://img.freepik.com/vetores-gratis/fundo-do-mapa-topografico_23-2148594890.jpg?t=st=1713971000~exp=1713974600~hmac=96781ba25f05e58321dfc0c776b2599fc3f9a0c382d0217a7ce0cc30e88eca70&w=1380');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include respond-to($tb) {
+      height: 32vw;
+    }
+  }
+
+  .GeotecniaServices {
+    padding: 80px 0;
+    background-color: $fifth;
+
+    &__container {
+      max-width: 1024px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      .GeotecniaServicesBlock {
+        display: flex;
+        gap: 60px;
+
+        @include respond-to($tb) {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        &__image {
+          flex: 1;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: contain;
+          }
+        }
+
+        &__info {
+          flex: 2;
+          padding: 40px 0;
+
+          @include respond-to($tb) {
+            padding-top: 0;
+          }
+          
+          &_header {
+            margin-bottom: 20px;
+
+            span {
+              @include font-size(16, 26);
+              color: $third;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              font-weight: 600;
+              font-family: $fontTitle;
+            }
+
+            p {
+              @include font-size(34, 44);
+              text-transform: uppercase;
+              font-family: $fontTitle;
+              font-weight: 600;
+
+              @include respond-to($mbl) {
+                @include font-size(24, 34);
+              }
+            }
+          }
+
+          &_text {
+            margin-bottom: 40px;
+
+            p {
+              @include font-size(16, 26);
+            }
+          }
+        }
+
+        &--invert {
+          flex-direction: row-reverse;
+
+          @include respond-to($tb) {
+            flex-direction: column;
+            gap: 20px;
+          }
+        }
+      }
+    }
+  }
+}
