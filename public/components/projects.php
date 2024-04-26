@@ -11,7 +11,7 @@
     </div>
 
     <div class="ProjectsList">
-      <a href="#" class="Project">
+      <a href="<?= BASE ?>projetos/produto/general-construction" class="Project">
         <div class="Project__image">
           <img src="https://img.freepik.com/fotos-gratis/renderizacao-3d-do-modelo-de-casa-isometrica_23-2150799647.jpg?t=st=1713817554~exp=1713821154~hmac=f793eba460c8d491ed4ab22085b3df9dc786476bcece379887d84029dc1b97c6&w=740" alt="">
 
@@ -57,7 +57,7 @@
         </div>
       </a>
 
-      <a href="#" class="Project">
+      <a href="<?= BASE ?>projetos/produto/general-construction" class="Project">
         <div class="Project__image">
           <img src="https://img.freepik.com/fotos-gratis/renderizacao-3d-do-modelo-de-casa-isometrica_23-2150799647.jpg?t=st=1713817554~exp=1713821154~hmac=f793eba460c8d491ed4ab22085b3df9dc786476bcece379887d84029dc1b97c6&w=740" alt="">
 
@@ -107,7 +107,7 @@
         </div>
       </a>
 
-      <a href="#" class="Project">
+      <a href="<?= BASE ?>projetos/produto/general-construction" class="Project">
         <div class="Project__image">
           <img src="https://img.freepik.com/fotos-gratis/renderizacao-3d-do-modelo-de-casa-isometrica_23-2150799647.jpg?t=st=1713817554~exp=1713821154~hmac=f793eba460c8d491ed4ab22085b3df9dc786476bcece379887d84029dc1b97c6&w=740" alt="">
 

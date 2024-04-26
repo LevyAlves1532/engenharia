@@ -15,13 +15,13 @@
 
              <div class="ProjectsContentFilter__inputs">
               <label class="Input">
-                <span class="Input__label">Width Max</span>
+                <span class="Input__label">Square meters</span>
                 <div class="Input__content">
                   <div class="Input__content_icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M32 32C14.3 32 0 46.3 0 64v96c0 17.7 14.3 32 32 32s32-14.3 32-32V96h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H32zM64 352c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7 14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H64V352zM320 32c-17.7 0-32 14.3-32 32s14.3 32 32 32h64v64c0 17.7 14.3 32 32 32s32-14.3 32-32V64c0-17.7-14.3-32-32-32H320zM448 352c0-17.7-14.3-32-32-32s-32 14.3-32 32v64H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32V352z"/></svg>
                   </div>
                   <div class="Input__content_input">
-                    <input type="number" placeholder="24x24">
+                    <input type="number" placeholder="200m²">
                   </div>
                 </div>
               </label>
@@ -115,7 +115,7 @@
         </div>
 
         <div class="ProjectsContent__products_list">
-          <a href="#" class="Project">
+          <a href="<?= BASE ?>projetos/produto/general-construction" class="Project">
             <div class="Project__image">
               <img src="https://img.freepik.com/fotos-gratis/renderizacao-3d-do-modelo-de-casa-isometrica_23-2150799647.jpg?t=st=1713817554~exp=1713821154~hmac=f793eba460c8d491ed4ab22085b3df9dc786476bcece379887d84029dc1b97c6&w=740" alt="">
 
@@ -165,7 +165,7 @@
             </div>
           </a>
           
-          <a href="#" class="Project">
+          <a href="<?= BASE ?>projetos/produto/general-construction" class="Project">
             <div class="Project__image">
               <img src="https://img.freepik.com/fotos-gratis/renderizacao-3d-do-modelo-de-casa-isometrica_23-2150799647.jpg?t=st=1713817554~exp=1713821154~hmac=f793eba460c8d491ed4ab22085b3df9dc786476bcece379887d84029dc1b97c6&w=740" alt="">
 
@@ -211,7 +211,7 @@
             </div>
           </a>
 
-          <a href="#" class="Project">
+          <a href="<?= BASE ?>projetos/produto/general-construction" class="Project">
             <div class="Project__image">
               <img src="https://img.freepik.com/fotos-gratis/renderizacao-3d-do-modelo-de-casa-isometrica_23-2150799647.jpg?t=st=1713817554~exp=1713821154~hmac=f793eba460c8d491ed4ab22085b3df9dc786476bcece379887d84029dc1b97c6&w=740" alt="">
 

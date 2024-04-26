@@ -48,7 +48,7 @@
             <li><a href="<?= BASE ?>projetos">Projetos</a></li>
             <li><a href="<?= BASE ?>geotecnia">Geotecnia</a></li>
             <li><a href="<?= BASE ?>portfolio">Portfolio</a></li>
-            <li><a href="#">Contato</a></li>
+            <li><a href="<?= BASE ?>contato">Contato</a></li>
           </ul>
 
           <div class="HeaderSocial">

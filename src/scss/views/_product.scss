@@ -1,0 +1,55 @@
+.WrapperProduct {
+  padding-top: 128px;
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+
+    display: flex;
+    gap: 40px;
+
+    &_info {
+      width: calc(60% - 20px);
+
+      .ProductCarousel {
+        width: 100%;
+        margin-bottom: 20px;
+
+        &__images {
+          img {
+            height: 38vw;
+            max-height: 482px;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+
+        &__dots {
+          .slick-track {
+            margin: 0;
+
+            img {
+              height: 7vw;
+              max-height: 97px;
+              object-fit: cover;
+              object-position: center;
+              background-color: $third;
+              cursor: pointer;
+              transition: all ease 0.8s;
+
+              &:hover {
+                padding: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &_form {
+      width: calc(40% - 20px);
+    }
+  }
+}

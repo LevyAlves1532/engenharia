@@ -61,4 +61,55 @@
       }
     }
   }
+
+  .PortfolioFeedback {
+    padding: 60px 0;
+    
+
+    &__container {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      &_title {
+        margin-bottom: 40px;
+        text-align: center;
+
+        h2 {
+          @include font-size(34, 44);
+          text-transform: uppercase;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+      }
+
+      &_list {
+        .slick-dots {
+          bottom: -50px;
+
+          li {
+            button {
+              &::before {
+                font-size: 24px;
+                color: $third;
+              }
+            }
+          }
+        }
+
+        .Feedback {
+          margin-right: 20px;
+
+          @include respond-to($mbl) {
+            margin-right: 0;
+          }
+
+          &:hover {
+            transform: unset;
+          }
+        }
+      }
+    }
+  }
 }

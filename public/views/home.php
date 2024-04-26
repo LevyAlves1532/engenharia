@@ -16,8 +16,8 @@
       </div>
 
       <div class="HomeFeedbackList">
-        <div class="HomeFeedbackList__card">
-          <div class="HomeFeedbackList__card_image">
+        <div class="Feedback">
+          <div class="Feedback__image">
             <img src="https://img.freepik.com/fotos-gratis/retrato-de-um-jovem-barbudo-atraente-da-espanha-em-uma-elegante-camisa-cinza_181624-58370.jpg?t=st=1713833183~exp=1713836783~hmac=cbbf55d9d22c9352e6d84c9a8fce244dee4d9d328924f97dbd83ca6ae669feda&w=740" alt="">
 
             <div>
@@ -26,13 +26,13 @@
             </div>
           </div>
 
-          <div class="HomeFeedbackList__card_info">
+          <div class="Feedback__info">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vero vitae, similique nisi saepe veritatis architecto optio amet, possimus dolor magni laborum vel illo molestiae nam non. Corrupti, laboriosam eveniet.</p>
           </div>
         </div>
-
-        <div class="HomeFeedbackList__card">
-          <div class="HomeFeedbackList__card_image">
+        
+        <div class="Feedback">
+          <div class="Feedback__image">
             <img src="https://img.freepik.com/fotos-gratis/retrato-de-um-jovem-barbudo-atraente-da-espanha-em-uma-elegante-camisa-cinza_181624-58370.jpg?t=st=1713833183~exp=1713836783~hmac=cbbf55d9d22c9352e6d84c9a8fce244dee4d9d328924f97dbd83ca6ae669feda&w=740" alt="">
 
             <div>
@@ -41,7 +41,7 @@
             </div>
           </div>
 
-          <div class="HomeFeedbackList__card_info">
+          <div class="Feedback__info">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora vero vitae, similique nisi saepe veritatis architecto optio amet, possimus dolor magni laborum vel illo molestiae nam non. Corrupti, laboriosam eveniet.</p>
           </div>
         </div>

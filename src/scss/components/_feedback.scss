@@ -1,0 +1,44 @@
+.Feedback {
+  border: 2px solid $third;
+  padding: 20px;
+  transition: all ease 0.8s;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  &__image {
+    margin-bottom: 10px;
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 999px;
+    }
+
+    div {
+      p {
+        margin-bottom: 10px;
+        @include font-size(16);
+        font-weight: 600;
+        color: $third;
+        font-family: $fontTitle;
+      }
+
+      span {
+        @include font-size(16);
+        color: $third;
+      }
+    }
+  }
+
+  &__info {
+    p {
+      @include font-size(14, 24);
+    }
+  }
+}

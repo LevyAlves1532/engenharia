@@ -1,0 +1,91 @@
+.WrapperContact {
+  padding-top: 128px;
+
+  .ContactFaq {
+    padding: 60px 0;
+
+    &__container {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      &_title {
+        margin-bottom: 40px;
+        text-align: center;
+
+        h1 {
+          @include font-size(44, 54);
+          font-weight: 600;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+      }
+
+      &_list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .ContactFaqItem {
+          border: 2px solid $third;
+
+          &__button {
+            padding: 20px;
+            
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+
+            p {
+              @include font-size(16);
+              font-family: $fontTitle;
+              color: $third;
+              font-weight: 600;
+            }
+
+            svg {
+              width: 24px;
+              height: 24px;
+              fill: $third;
+              transition: all ease 0.8s;
+            }
+          }
+
+          &__content {
+            height: 0;
+            overflow: hidden;
+            transition: all ease 0.8s;
+
+            &_body {
+              border-top: 2px solid $third;
+              padding: 20px;
+
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+
+              p {
+                @include font-size(16, 26);
+              }
+            }
+          }
+
+          &--active {      
+            .ContactFaqItem__button {
+              svg {
+                transform: rotate(180deg);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ContactMap {
+    margin-bottom: -5px;
+  }
+}

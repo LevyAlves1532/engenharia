@@ -173,9 +173,11 @@
             height: calc(100vh - 100%);
             background-color: $fifth;
             transition: all ease 0.8s;
-
             opacity: 0;
             pointer-events: none;
+
+            display: flex;
+            flex-direction: column;
 
             position: absolute;
             top: 100%;
@@ -183,7 +185,7 @@
           }
 
           @include respond-to($tb) {
-            padding-bottom: 60px;
+            padding-bottom: 10vh;
           }
 
           .HeaderMenuList {
@@ -191,7 +193,7 @@
             gap: 10px;
 
             @include respond-to($lp) {
-              height: 100%;
+              flex: 1;
 
               flex-direction: column;
               justify-content: center;
