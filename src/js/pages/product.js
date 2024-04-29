@@ -11,7 +11,6 @@ $(function() {
     slidesToScroll: 1,
     infinite: false,
     asNavFor: '#slick-product-images',
-    dots: true,
     focusOnSelect: true,
   });
 });

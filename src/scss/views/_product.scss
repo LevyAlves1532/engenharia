@@ -10,8 +10,16 @@
     display: flex;
     gap: 40px;
 
+    @include respond-to($tb) {
+      flex-direction: column;
+    }
+
     &_info {
       width: calc(60% - 20px);
+
+      @include respond-to($tb) {
+        width: 100%;
+      }
 
       .ProductCarousel {
         width: 100%;
@@ -23,6 +31,10 @@
             max-height: 482px;
             object-fit: cover;
             object-position: center;
+
+            @include respond-to($tb)  {
+              height: 63vw;
+            }
           }
         }
 
@@ -39,6 +51,10 @@
               cursor: pointer;
               transition: all ease 0.8s;
 
+              @include respond-to($tb) {
+                height: 12vw;
+              }
+
               &:hover {
                 padding: 10px;
               }
@@ -46,10 +62,102 @@
           }
         }
       }
+
+      .ProductDescription {
+        &__title {
+          margin-bottom: 20px;
+
+          h1 {
+            @include font-size(24, 34);
+            color: $third;
+            letter-spacing: 1px;
+          }
+        }
+
+        &__text {
+          margin-bottom: 40px;
+
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          p {
+            @include font-size(16, 26);
+          }
+        }
+      }
     }
 
     &_form {
       width: calc(40% - 20px);
+
+      @include respond-to($tb) {
+        width: 100%;
+      }
+
+      .ProductPrices {
+        padding: 20px;
+        border: 1px solid $gray;
+
+        &__discount {
+          margin-bottom: 10px;
+
+          p {
+            width: fit-content;
+            padding: 10px 30px;
+            background-color: $third;
+            @include font-size(16);
+            color: $white;
+            font-weight: 600;
+          }
+        }
+
+        &__price {
+          margin-bottom: 20px;
+
+          p {
+            @include font-size(34, 44);
+            font-weight: 600;
+
+            strike {
+              @include font-size(24);
+              color: $gray;
+            }
+          }
+        }
+
+        &__button {
+          margin-bottom: 20px;
+
+          .Button {
+            width: 100%;
+
+            justify-content: center;
+          }
+        }
+
+        &__data {
+          display: flex;
+          justify-content: space-around;
+
+          div {
+            text-align: center;
+
+            svg {
+              width: 24px;
+              height: 24px;
+              margin-bottom: 10px;
+              fill: $third;
+            }
+
+            p {
+              @include font-size(16, 26);
+              color: $third;
+              font-weight: 600;
+            }
+          }
+        }
+      }      
     }
   }
 }
