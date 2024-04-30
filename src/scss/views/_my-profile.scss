@@ -1,0 +1,141 @@
+.WrapperMyProfile {
+  padding-top: 128px;
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+
+    &_title {
+      text-align: center;
+      margin-bottom: 20px;
+
+      h1 {
+        @include font-size(34, 44);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+
+    &_content {
+      .MyProfileTabBox {
+        border: 2px solid $third;
+
+        &__tabs {
+          background-color: $third;
+          border-bottom: 2px solid $third;
+
+          button {
+            @include font-size(16);
+            color: $white;
+            font-weight: 600;
+            padding: 20px;
+            transition: all ease 0.8s;
+
+            &.active-tab {
+              background-color: $white;
+              color: $third;
+            }
+          }
+        }
+
+        &__content {
+          padding: 20px;
+
+          &_item {
+            display: none;
+
+            &.active-tab {
+              display: block;
+            }
+
+            .ProfileForm {
+              form {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .Input {
+                  &:nth-of-type(3) {
+                    .Input__content {
+                      &_icon {
+                        svg {
+                          &:nth-of-type(2) {
+                            display: none;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .MyProfileHistoric {
+              margin-bottom: 20px;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+              &__header {
+                padding-bottom: 10px;
+                border-bottom: 2px solid $third;
+                margin-bottom: 20px;
+
+                display: flex;
+                justify-content: space-between;
+
+                p {
+                  @include font-size(16);
+                  font-family: $fontTitle;
+                  color: $third;
+                  font-weight: 600;
+                }
+
+                span {
+                  @include font-size(16);
+                  color: $third;
+                }
+              }
+
+              &__list {
+                .MyProfileProduct {
+                  display: flex;
+                  gap: 20px;
+                  align-items: center;
+  
+                  &__image {
+                    img {
+                      width: 50px;
+                      height: 50px;
+                      object-fit: cover;
+                      object-position: center;
+                    }
+                  }
+
+                  &__title {
+                    flex: 1;
+
+                    p {
+                      @include font-size(16);
+                      color: $black;
+                    }
+                  }
+
+                  &__price {
+                    p {
+                      @include font-size(16);
+                      color: $third;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

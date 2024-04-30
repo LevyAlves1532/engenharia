@@ -30,6 +30,7 @@ $(function() {
     }
   });
 
+  // Open cart in menu
   $('.button-cart-open').on('click', function() {
     const headerCart = $('.HeaderCart');
     const headerCartActiveClass = 'HeaderCart--active';
@@ -41,14 +42,33 @@ $(function() {
     }
   });
 
+  // Close cart when the mouse leave cart
   $('.button-cart-open').parent().on('mouseleave', function() {
     $('.HeaderCart').removeClass('HeaderCart--active');
   });
 
+  // Close cart when click in the button close on menu
   $('#button-cart-close').on('click', function() {
     $('.HeaderCart').removeClass('HeaderCart--active');
   });
   /**
    * Header Script - End
+   */
+
+  /**
+   * Input Script - Start
+   */
+  // Visible password
+  $('input[type="password"]').parent().parent().find('button').on('click', function() {
+    const contentParent = $(this).parent();
+    const input = contentParent.find('input');
+    const svg = $(this).find('svg');
+    const isPassword = input.attr('type') === 'password';
+    input.attr('type', isPassword ? 'text' : 'password');
+    $(svg[0]).css('display', isPassword ? 'none' : 'block');
+    $(svg[1]).css('display', isPassword ? 'block' : 'none');
+  });
+  /**
+   * Input Script - End
    */
 })

@@ -1,0 +1,67 @@
+.WrapperCart {
+  padding-top: 128px;
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+
+    display: flex;
+    gap: 40px;
+
+    @include respond-to($lp) {
+      flex-direction: column;
+    }
+
+    &_products {
+      flex: 2;
+
+      .CartTitle {
+        margin-bottom: 20px;
+
+        h1 {
+          @include font-size(24, 34);
+          letter-spacing: 1px;
+        }
+      }
+
+      .CartList {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    &_info {
+      flex: 1;
+
+      .CartInfo {
+        padding: 20px;
+        border: 1px solid $gray;
+
+        &__price {
+          margin-bottom: 20px;
+
+          p {
+            @include font-size(16, 26);
+            font-weight: 600;
+
+            span {
+              @include font-size(36, 46);
+              color: $third;
+            }
+          }
+        }
+
+        &__button {
+          .Button {
+            width: 100%;
+
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

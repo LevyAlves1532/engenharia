@@ -1,0 +1,71 @@
+.WrapperAccountForm {
+  padding-top: 128px;
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+
+    .AccountFormHeader {
+      margin-bottom: 40px;
+
+      &__title {
+        text-align: center;
+        margin-bottom: 20px;
+
+        h1 {
+          @include font-size(44, 54);
+          letter-spacing: 1px;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+
+      &__text {
+        text-align: center;
+
+        p {
+          @include font-size(16, 26);
+        }
+      }
+    }
+
+    .AccountFormForms {
+      display: flex;
+      gap: 40px;
+
+      @include respond-to($tb) {
+        flex-direction: column;
+      }
+
+      &__signin,
+      &__signup {
+        flex: 1;
+
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          .Input {
+            &:nth-of-type(2),
+            &:nth-of-type(3) {
+              .Input__content {
+                &_icon {
+                  &--button {
+                    svg {
+                      &:last-child {
+                        display: none;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
