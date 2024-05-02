@@ -48,7 +48,7 @@ $(function() {
   });
 
   // Close cart when click in the button close on menu
-  $('#button-cart-close').on('click', function() {
+  $('.HeaderCartIcon__close').on('click', function() {
     $('.HeaderCart').removeClass('HeaderCart--active');
   });
   /**

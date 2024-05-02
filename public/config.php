@@ -13,7 +13,7 @@ if (!empty($match)) {
 	// $config["dbuser"] = "root";
 	// $config["dbpass"] = "";
 } else {
-	define("BASE", "");
+	define("BASE", "https://jsninjajourney.com.br/sites/engenharia-daniel/");
 	// $config["dbname"] = "";
 	// $config["host"] = "";
 	// $config["dbuser"] = "";
