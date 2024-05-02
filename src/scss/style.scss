@@ -20,7 +20,9 @@
   "components/projects",
   "components/feedback",
   "components/cart-item",
-  "components/header-options";
+  "components/header-options",
+  "components/admin/header",
+  "components/admin/menu-bar";
 
 @import
   "views/home",
@@ -32,4 +34,5 @@
   "views/product",
   "views/account-form",
   "views/cart",
-  "views/my-profile";
+  "views/my-profile",
+  "views/admin/sign-in";

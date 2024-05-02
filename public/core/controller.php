@@ -27,4 +27,15 @@ class controller
 		extract($viewData);
 		require 'views/' . $viewName . '.php';
 	}
+	
+	public function loadTemplateAdmin($viewName, $viewData = array())
+	{
+		require 'views/admin/template.php';
+	}
+
+	public function loadViewInTemplateAdmin($viewName, $viewData = array())
+	{
+		extract($viewData);
+		require 'views/admin/' . $viewName . '.php';
+	}
 }

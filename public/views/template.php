@@ -20,7 +20,6 @@
 
     <?php include "components/footer.php"; ?>
 
-    <!-- AQUI COLOCAREMOS O FOOTER -->
     <script>
       var BASE_URL = "<?= BASE ?>";
     </script>
