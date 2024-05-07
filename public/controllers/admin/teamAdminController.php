@@ -8,6 +8,16 @@ class teamAdminController extends controller {
 
   public function form($id = null)
   {
-    $this->loadTemplateAdmin('team-form');
+    $data = [];
+
+    if (!empty($id)) {
+      $data['team'] = [
+        'photo' => BASE . 'assets/images/daniel.jpg',
+        'name' => 'Daniel Alves',
+        'profession' => 'Civil Engineer'
+      ];
+    }
+
+    $this->loadTemplateAdmin('team-form', $data);
   }
 }
