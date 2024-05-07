@@ -71,4 +71,22 @@ $(function() {
   /**
    * Input Script - End
    */
+
+  /**
+   * Menu admin - Start
+   */
+  $('#open-menu-admin').on('click', function() {
+    $('.AdminTemplate__body_menu-bar').addClass('AdminTemplate__body_menu-bar--active');
+  });
+
+  $('.AdminTemplate__body_menu-bar').on('click', function(e) {
+    const activeMenuAdmClass = 'AdminTemplate__body_menu-bar--active';
+
+    if ($(e.target).hasClass(activeMenuAdmClass)) {
+      $(e.target).removeClass(activeMenuAdmClass);
+    }
+  });
+  /**
+   * Menu admin - End
+   */
 })

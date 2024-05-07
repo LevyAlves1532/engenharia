@@ -1,0 +1,103 @@
+.AdmMenuBar {
+  height: 100%;
+  overflow-y: auto;
+
+  @include respond-to($lp) {
+    max-width: 450px;
+    width: 100%;
+    background-color: $white;
+  }
+
+  &__container {
+    padding: 40px 0;
+
+    @include respond-to($lp) {
+      padding: 0;
+    }
+
+    &_logo {
+      display: none;
+      justify-content: center;
+
+      @include respond-to($lp) {
+        padding: 20px 0;
+        border-bottom: 1px solid $adm_first_dark;
+        margin: 0 !important;
+
+        display: flex;
+      }
+
+      a {
+        gap: 10px;
+
+        p {
+          @include font-size(16);
+          font-family: $fontTitle;
+          font-weight: 600;
+          color: $second;
+          letter-spacing: 1px;
+        }
+      }
+    }
+
+    &_nav {
+      padding-bottom: 80px;
+
+      @include respond-to($lp) {
+        padding: 20px;
+      }
+
+      nav {
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          .nav-link {
+            @include font-size(16);
+            padding: 15px 20px;
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.05);
+            }
+
+            svg {
+              width: 24px;
+              height: 24px;
+            }
+          }
+
+          .accordion-header {
+            margin-bottom: 20px;
+
+            .accordion-button {
+              padding: 0 20px;
+
+              display: flex;
+              justify-content: space-between;
+
+              &::after {
+                display: none;
+              }
+
+              svg {
+                transform: rotate(180deg);
+              }
+
+              &.collapsed {
+                svg {
+                  transform: rotate(0);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

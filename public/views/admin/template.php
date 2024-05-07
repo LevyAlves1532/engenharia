@@ -27,13 +27,11 @@
         </div>
 
         <div class="AdminTemplate__body_content col-8">
-
+          <!-- Conteudos -->
+          <?php $this->loadViewInTemplateAdmin($viewName, $viewData); ?>
         </div>
       </div>
     </div>
-
-    <!-- Conteudos -->
-    <?php $this->loadViewInTemplateAdmin($viewName, $viewData); ?>
     
     <script>
       var BASE_URL = "<?= BASE ?>";

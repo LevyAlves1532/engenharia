@@ -1,0 +1,13 @@
+.AdmHeaderPage {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    h1 {
+      @include font-size(34, 44);
+      font-weight: 600;
+    }
+  }
+}

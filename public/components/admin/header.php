@@ -1,13 +1,13 @@
 <header class="AdmHeader">
   <div class="AdmHeader__container container-md d-flex justify-content-between align-items-center">
     <div class="AdmHeader__container_button">
-      <button class="btn btn-outline-secondary">
+      <button class="btn btn-outline-secondary" id="open-menu-admin">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
       </button>
     </div>
 
     <div class="AdmHeader__container_logo">
-      <a href="<?= BASE ?>/admin/" class="d-flex align-items-center">
+      <a href="<?= BASE ?>admin/" class="d-flex align-items-center">
         <img src="https://www.semesb.com.br/wp-content/uploads/2019/10/cropped-logo-fundo-transparente.png" width="50" alt="">
         <p>Engenharia</p>
       </a>
