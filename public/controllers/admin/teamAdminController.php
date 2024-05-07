@@ -5,4 +5,9 @@ class teamAdminController extends controller {
   {
     $this->loadTemplateAdmin('team-list');
   }
+
+  public function form($id = null)
+  {
+    $this->loadTemplateAdmin('team-form');
+  }
 }
