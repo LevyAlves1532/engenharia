@@ -1,0 +1,23 @@
+.AdmPaymentsView {
+  .AdmPaymentsInfoUser {
+    h2 {
+      @include font-size(34, 44);
+      font-weight: 600;
+    }
+
+    .row {
+      .col-md-6 {
+        span {
+          @include font-size(18, 28);
+          font-weight: 600;
+          font-family: $fontTitle;
+          margin-bottom: 10px;
+        }
+
+        p {
+          @include font-size(16);
+        }
+      }
+    }
+  }
+}
