@@ -1,11 +1,11 @@
 .AdmMenuBar {
   height: 100%;
-  overflow-y: auto;
 
   @include respond-to($lp) {
     max-width: 450px;
     width: 100%;
     background-color: $white;
+    overflow-y: auto;
   }
 
   &__container {
@@ -41,8 +41,6 @@
     }
 
     &_nav {
-      padding-bottom: 80px;
-
       @include respond-to($lp) {
         padding: 20px;
       }

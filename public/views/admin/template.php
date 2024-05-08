@@ -7,12 +7,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="<?= BASE ?>assets/css/libs/bootstrap.min.css">
     <link rel="stylesheet" href="<?= BASE; ?>assets/css/style.css">
-    <style>
-      body {
-        height: 100vh;
-        overflow: hidden;
-      }
-    </style>
   </head>
   <body>
 
