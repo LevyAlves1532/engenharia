@@ -5,7 +5,7 @@
     <p>Usuários</p>
   </div>
 
-  <div class="AdmHeaderPage">
+  <div class="AdmHeaderPage mb-3">
     <div class="AdmHeaderPage__title">
       <h1>Usuários</h1>
     </div>
@@ -16,6 +16,23 @@
   </div>
 
   <div class="AdmUsersTable">
-
+    <table id="users-table" class="table table-dark table-hover table-striped display">
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>E-mail</th>
+              <th>Tipo</th>
+              <th>Ação</th>
+          </tr>
+      </thead>
+      <tfoot>
+          <tr>
+              <th>Name</th>
+              <th>E-mail</th>
+              <th>Tipo</th>
+              <th>Ação</th>
+          </tr>
+      </tfoot>
+  </table>
   </div>
 </main>

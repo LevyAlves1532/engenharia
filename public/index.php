@@ -1,4 +1,6 @@
 <?php
+require 'vendor/autoload.php';
+
 session_start();
 require "config.php";
 date_default_timezone_set("America/Sao_Paulo");

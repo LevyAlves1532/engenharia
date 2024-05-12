@@ -2,10 +2,14 @@
 
 class controller
 {
+	protected $mail;
 	protected $array_ajax;
 
 	public function __construct() {
+		global $mail;
+
 		$this->array_ajax = ["status" => true, "return" => []];
+		$this->mail = $mail;
 	}
 
 	public function loadView($viewName, $viewData = array())
