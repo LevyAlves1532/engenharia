@@ -33,6 +33,6 @@
               <th>Ação</th>
           </tr>
       </tfoot>
-  </table>
+    </table>
   </div>
 </main>

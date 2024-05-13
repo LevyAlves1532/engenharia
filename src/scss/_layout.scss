@@ -116,3 +116,12 @@ input {
 .dt-layout-cell {
   overflow-x: auto;
 }
+
+td {
+  vertical-align: middle;
+
+  img {
+    object-fit: cover;
+    object-position: center;
+  }
+}

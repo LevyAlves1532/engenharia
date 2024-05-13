@@ -90,3 +90,53 @@ $(function() {
    * Menu admin - End
    */
 })
+
+function validateForm(form, inputsName, validateFunc) {
+  let isValid = true;
+
+  const formData = new FormData(form);
+
+  inputsName.forEach(inputName => {
+    const validInput = validateFunc[inputName](formData.get(inputName));
+    const element = document.querySelector(`input[name="${inputName}"]`) || document.querySelector(`select[name="${inputName}"]`);
+    if (validInput.error) isValid = false;
+
+    showError(element, validInput.label);
+  });
+
+  return isValid;
+}
+
+function showError(element, label) {
+  const main = element.type === 'password' ? $(element).parent().parent() : $(element).parent();
+  const errorDiv = main.find('.error');
+
+  if (label) {
+    errorDiv.html(`<p class="text-danger mt-2">${label}</p>`);
+  } else {
+    errorDiv.html('');
+  }
+}
+
+function clearInputs(form, inputsName, validateFunc) {
+  const formData = new FormData(form);
+  let isValid = true;
+
+  inputsName.forEach(inputName => {
+    const value = formData.get(inputName);
+    
+    if (typeof value === "string" && (value.trim() === "" || value.trim() === "null")) {
+      formData.delete(inputName);
+    } else if (typeof value === "object" && (value.name === "" && value.size === 0)) {
+      formData.delete(inputName);
+    } else {
+      const validInput = validateFunc[inputName](value);
+      const element = document.querySelector(`input[name="${inputName}"]`) || document.querySelector(`select[name="${inputName}"]`);
+      if (validInput.error) isValid = false;
+
+      showError(element, validInput.label);
+    }
+  });
+
+  return isValid ? formData : null;
+}

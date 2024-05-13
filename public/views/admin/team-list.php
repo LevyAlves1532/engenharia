@@ -5,7 +5,7 @@
     <p>Time</p>
   </div>
 
-  <div class="AdmHeaderPage">
+  <div class="AdmHeaderPage mb-3">
     <div class="AdmHeaderPage__title">
       <h1>Time</h1>
     </div>
@@ -16,6 +16,23 @@
   </div>
 
   <div class="AdmTeamTable">
-
+    <table id="team-table" class="table table-dark table-hover table-striped display">
+      <thead>
+          <tr>
+              <th>Foto</th>
+              <th>Nome</th>
+              <th>Profissão</th>
+              <th>Ação</th>
+          </tr>
+      </thead>
+      <tfoot>
+          <tr>
+              <th>Foto</th>
+              <th>Nome</th>
+              <th>Profissão</th>
+              <th>Ação</th>
+          </tr>
+      </tfoot>
+    </table>
   </div>
 </main>

@@ -39,7 +39,7 @@
     <div class="col-md-6">
       <label for="user_type" class="form-label">Tipo de Usuário</label>
       <select class="form-select" name="user_type" id="user_type">
-        <option value="null" selected>Seu tipo de usuário</option>
+        <option value="null" selected disabled>Seu tipo de usuário</option>
         <?php
           if (count($types) > 0):
             foreach($types as $type):

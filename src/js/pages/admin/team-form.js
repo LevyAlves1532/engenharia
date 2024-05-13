@@ -1,9 +1,30 @@
-$(function(){
-  if (window.location.href.indexOf('/admin/users/form') > -1) {
-    const inputsName = ['name', 'email', 'password', 'user_type'];
+$(function() {
+  if (window.location.href.indexOf('/admin/team/form') > -1) {
+    const inputsName = ['photo', 'name', 'profession'];
     const statusError = { error: false, label: ''  };
 
     const validateFunc = {
+      photo: (value = '') => {
+        const status = { ...statusError };
+        const typeAcceptedFiles = ['image/png', 'image/jpg', 'image/jpeg'];
+
+        if (value.size > 2500000) {
+          status.error = true;
+          status.label = 'A imagem tem que ser abaixo de 2,5mb!';
+        }
+        
+        if (!typeAcceptedFiles.includes(value.type)) {
+          status.error = true;
+          status.label = 'O arquivo tem que ser uma imagem (png, jpg ou jpeg)!';
+        }
+
+        if (value.name === "") {
+          status.error = true;
+          status.label = 'Selecione um arquivo!'
+        }
+
+        return status;
+      },
       name: (value = '') => {
         const status = { ...statusError };
 
@@ -14,54 +35,29 @@ $(function(){
 
         return status;
       },
-      email: (value = '') => {
+      profession: (value = '') => {
         const status = { ...statusError };
 
-        if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) {
+        if (value.length < 3 || value.length > 100) {
           status.error = true;
-          status.label = 'E-mail inválido!';
-        }
-
-        if (value.trim().length === 0) {
-          status.error = true;
-          status.label = 'Preencha o campo de email!';
-        }
-
-        return status;
-      },
-      password: (value = '') => {
-        const status = { ...statusError };
-
-        if (value.length < 8 || value.length > 12) {
-          status.error = true;
-          status.label = 'Senha precisa ter entre 8 a 12 caracteres!';
-        }
-
-        return status;
-      },
-      user_type: (value = '') => {
-        const status = { ...statusError };
-
-        if (value === 'null') {
-          status.error = true;
-          status.label = 'Informe o tipo de usuário!';
+          status.label = 'Profissão precisa ter entre 3 a 100 caracteres!';
         }
 
         return status;
       },
     };
 
-    $('#users-form').on('submit', function(e) {
+    $('#team-form').on('submit', function(e) {
       e.preventDefault();
       const isAdd = $('.AdmHeaderPage__title h1').html() === 'Adicionar';
-      
+
       if (isAdd && !validateForm(this, inputsName, validateFunc)) return;
 
       const formData = !isAdd ? clearInputs(this, inputsName, validateFunc) : new FormData(this);
 
       if (formData) {
         $.ajax({
-          url: BASE_URL + `admin/users/${isAdd ? 'add' : 'edit'}`,
+          url: BASE_URL + `admin/team/${isAdd ? 'add' : 'edit'}`,
           type: 'post',
           data: formData,
           contentType: false,
@@ -69,7 +65,7 @@ $(function(){
           dataType: 'json',
           success: function(response) {
             if (response.status && isAdd) {
-              window.location.href = BASE_URL + 'admin/users';
+              window.location.href = BASE_URL + 'admin/team';
             }
           },
         });
