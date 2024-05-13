@@ -13,19 +13,22 @@
     </div>
   </div>
 
-  <form class="row g-3">
+  <form class="row g-3" id="posts-instagram-form">
+    <?= (isset($post)) ? '<input type="hidden" name="ip" value="' . base64_encode($post['id']) . '" />' : '' ?>
     <div class="col-md-12">
       <label for="cover" class="form-label">Capa</label>
-      <input class="form-control" type="file" id="cover">
+      <input class="form-control" type="file" name="cover" id="cover">
+      <div class="error"></div>
       <?= (isset($post) && !empty($post['cover'])) ? '<div class="form-text">' . $post['cover'] . '</div>' : '' ?>
     </div>
     <div class="col-md-12">
       <label for="link" class="form-label">URL do Post:</label>
-      <input type="text" class="form-control" id="link" value="<?= (isset($post) && !empty($post['link'])) ? $post['link'] : '' ?>">
+      <input type="text" class="form-control" name="link" id="link" value="<?= (isset($post) && !empty($post['link'])) ? $post['link'] : '' ?>">
+      <div class="error"></div>
     </div>
     <div class="col-md-12 d-flex justify-content-end gap-3">
-      <button type="button" class="btn btn-outline-success"><?= (isset($post)) ? 'Editar o Post' : 'Adicionar o Post +' ?></button>
-      <?= (isset($post)) ? '<button type="button" class="btn btn-outline-danger">Deletar o Post</button>' : '' ?>
+      <button type="submit" class="btn btn-outline-success"><?= (isset($post)) ? 'Editar o Post' : 'Adicionar o Post +' ?></button>
+      <?= (isset($post)) ? '<a href="' . BASE . 'admin/posts_instagram/delete/' . base64_encode($post['id']) . '" class="btn btn-outline-danger">Deletar o Post</a>' : '' ?>
     </div>
   </form>
 </main>

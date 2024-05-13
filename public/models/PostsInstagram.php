@@ -1,16 +1,16 @@
 <?php
 
-class Team extends model {
+class PostsInstagram extends model {
   public function getAll($options)
   {
     $arr = [];
-    $columns = ['photo', 'name', 'profession', 'id'];
+    $columns = ['cover', 'link', 'id'];
 
-    $sql = 'SELECT * FROM team';
+    $sql = 'SELECT * FROM posts_instagram';
 
     if (!empty($options['search']['value'])) {
-      $sql .= ' WHERE name LIKE "%' . $options['search']['value'] . '%"';
-      $sql .= ' OR profession LIKE "%' . $options['search']['value'] . '%"';
+      $sql .= ' WHERE cover LIKE "%' . $options['search']['value'] . '%"';
+      $sql .= ' OR link LIKE "%' . $options['search']['value'] . '%"';
     }
 
     if (isset($options['order']) && !empty($options['order'])) {
@@ -36,11 +36,11 @@ class Team extends model {
   {
     $arr = [];
 
-    $sql = 'SELECT COUNT(id) AS qtd_team FROM team';
+    $sql = 'SELECT COUNT(id) AS qtd_posts FROM posts_instagram';
 
     if (!empty($search)) {
-      $sql .= ' WHERE name LIKE "%' . $search . '%"';
-      $sql .= ' OR profession LIKE "%' . $search . '%"';
+      $sql .= ' WHERE cover LIKE "%' . $search . '%"';
+      $sql .= ' OR link LIKE "%' . $search . '%"';
     }
 
     $sql = $this->db->query($sql);
@@ -56,7 +56,7 @@ class Team extends model {
   {
     $arr = [];
 
-    $sql = 'SELECT * FROM team WHERE MD5(id) = :id';
+    $sql = 'SELECT * FROM posts_instagram WHERE MD5(id) = :id';
     $sql = $this->db->prepare($sql);
     $sql->bindValue(':id', md5($id));
     $sql->execute();
@@ -68,13 +68,12 @@ class Team extends model {
     return $arr;
   }
 
-  public function set($photo, $name, $profession,)
+  public function set($cover, $link)
   {
-    $sql = 'INSERT INTO team SET photo = :photo, name = :name, profession = :profession';
+    $sql = 'INSERT INTO posts_instagram SET cover = :cover, link = :link';
     $sql = $this->db->prepare($sql);
-    $sql->bindValue(':photo', $photo);
-    $sql->bindValue(':name', $name);
-    $sql->bindValue(':profession', $profession);
+    $sql->bindValue(':cover', $cover);
+    $sql->bindValue(':link', $link);
     $sql->execute();
   }
 
@@ -84,7 +83,7 @@ class Team extends model {
     $edit_params = [];
 
     if ($team !== []) {
-      $sql = 'UPDATE team SET ';
+      $sql = 'UPDATE posts_instagram SET ';
 
       foreach($keys_body as $key_body) {
         $value = $body[$key_body];
@@ -102,7 +101,7 @@ class Team extends model {
     $person_team = $this->get($id);
 
     if ($person_team !== []) {
-      $sql = 'DELETE FROM team WHERE MD5(id) = :id';
+      $sql = 'DELETE FROM posts_instagram WHERE MD5(id) = :id';
       $sql = $this->db->prepare($sql);
       $sql->bindValue(':id', md5($id));
       $sql->execute();

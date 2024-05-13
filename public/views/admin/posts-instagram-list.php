@@ -5,7 +5,7 @@
     <p>Posts instagram</p>
   </div>
 
-  <div class="AdmHeaderPage">
+  <div class="AdmHeaderPage mb-3">
     <div class="AdmHeaderPage__title">
       <h1>Posts Instagram</h1>
     </div>
@@ -13,5 +13,24 @@
     <div class="AdmHeaderPage__button">
       <a href="<?= BASE ?>admin/posts_instagram/form" class="btn btn-outline-primary">Adicionar post +</a>
     </div>
+  </div>
+
+  <div class="AdmTeamTable">
+    <table id="posts-instagram-table" class="table table-dark table-hover table-striped display">
+        <thead>
+            <tr>
+                <th>Fundo</th>
+                <th>URL</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+              <th>Fundo</th>
+              <th>URL</th>
+              <th>Ação</th>
+            </tr>
+        </tfoot>
+      </table>
   </div>
 </main>
