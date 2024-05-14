@@ -36,6 +36,7 @@
     <script src="<?= BASE ?>assets/js/libs/slick.min.js"></script>
     <script src="<?= BASE ?>assets/js/libs/bootstrap.bundle.min.js"></script>
     <script src="<?= BASE ?>assets/js/libs/data-tables.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
     <script src="<?= BASE ?>assets/js/main.min.js"></script>
 
   </body>

@@ -95,10 +95,11 @@ function validateForm(form, inputsName, validateFunc) {
   let isValid = true;
 
   const formData = new FormData(form);
-
+  
   inputsName.forEach(inputName => {
     const validInput = validateFunc[inputName](formData.get(inputName));
-    const element = document.querySelector(`input[name="${inputName}"]`) || document.querySelector(`select[name="${inputName}"]`);
+    const element = document.querySelector(`input[name="${inputName}"]`) || document.querySelector(`select[name="${inputName}"]`)
+      || document.querySelector(`textarea[name="${inputName}"]`);
     if (validInput.error) isValid = false;
 
     showError(element, validInput.label);
@@ -131,7 +132,8 @@ function clearInputs(form, inputsName, validateFunc) {
       formData.delete(inputName);
     } else {
       const validInput = validateFunc[inputName](value);
-      const element = document.querySelector(`input[name="${inputName}"]`) || document.querySelector(`select[name="${inputName}"]`);
+      const element = document.querySelector(`input[name="${inputName}"]`) || document.querySelector(`select[name="${inputName}"]`)
+        || document.querySelector(`textarea[name="${inputName}"]`);;
       if (validInput.error) isValid = false;
 
       showError(element, validInput.label);
