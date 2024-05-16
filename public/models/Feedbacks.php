@@ -109,6 +109,6 @@ class Feedbacks extends model {
       $sql->execute();
     }
 
-    return $person_team;
+    return $feedback;
   }
 }

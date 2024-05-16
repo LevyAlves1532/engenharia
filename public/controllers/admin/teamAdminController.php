@@ -1,6 +1,13 @@
 <?php
 
 class teamAdminController extends controller {
+  public function __construct()
+  {
+    if (empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+      header('Location: ' . BASE . 'admin/account/sign_in');
+    }
+  }
+
   public function index()
   {
     $this->loadTemplateAdmin('team-list');
@@ -74,20 +81,7 @@ class teamAdminController extends controller {
       $profession = addslashes($_POST['profession']);
 
       if (!empty($photo['tmp_name'])) {
-        $extension = explode('/', $photo['type'])[1];
-        $photo_name = md5(date('Y-m-d H:i:s') . round(0, 9999)) . '.' . $extension;
-
-        $folder_name = date('Y-m-d');
-        $path = 'assets/images/' . $folder_name;
-
-        if (!file_exists($path)) {
-          mkdir($path);
-        }
-
-        $path = $path . '/' . $photo_name;
-        move_uploaded_file($photo['tmp_name'], $path);
-
-        $path = BASE . $path;
+        $path = uploadFile($photo);
         $team->set($path, $name, $profession);
 
         $this->array_ajax['return'] = ['data' => 'Pessoa adicionado ao time com sucesso!'];
@@ -124,33 +118,14 @@ class teamAdminController extends controller {
         $photo = $_FILES['photo'];
 
         if (!empty($photo['tmp_name'])) {
-          $path_photo_old = parse_url($person_team['photo'], PHP_URL_PATH); // Extrair o caminho da URL
-          $filename_with_dir = basename($path_photo_old); // Obter a parte final do caminho (nome do arquivo com diretório)
-          $parent_dir = dirname($path_photo_old); // Obter o diretório pai do arquivo
-          $last_two_parts = '/' . substr($parent_dir, strrpos($parent_dir, '/') + 1) . '/' . $filename_with_dir; // Obter as duas últimas partes
+          deleteFile($person_team['photo']);  
+          $path = uploadFile($photo);
 
-          if (file_exists('assets/images' . $last_two_parts)) {
-            unlink('assets/images' . $last_two_parts);
-          }
-
-          $extension = explode('/', $photo['type'])[1];
-          $photo_name = md5(date('Y-m-d H:i:s') . round(0, 9999)) . '.' . $extension;
-  
-          $folder_name = date('Y-m-d');
-          $path = 'assets/images/' . $folder_name;
-  
-          if (!file_exists($path)) {
-            mkdir($path);
-          }
-  
-          $path = $path . '/' . $photo_name;
-          move_uploaded_file($photo['tmp_name'], $path);
-  
-          $path = BASE . $path;
           $post['photo'] = $path;
           $keys_post = array_keys($post);
           $team->up($id, $keys_post, $post);
-          exit;
+
+          $this->array_ajax['return'] = ['path' => $path];
         } else {
           $this->array_ajax['status'] = false;
           $this->array_ajax['return'] = ['error' => 'Arquivo inválido!'];  
@@ -175,15 +150,7 @@ class teamAdminController extends controller {
 
       $team = new Team();
       $person_team = $team->delete($id_decoded);
-
-      $path_photo_old = parse_url($person_team['photo'], PHP_URL_PATH); // Extrair o caminho da URL
-      $filename_with_dir = basename($path_photo_old); // Obter a parte final do caminho (nome do arquivo com diretório)
-      $parent_dir = dirname($path_photo_old); // Obter o diretório pai do arquivo
-      $last_two_parts = '/' . substr($parent_dir, strrpos($parent_dir, '/') + 1) . '/' . $filename_with_dir; // Obter as duas últimas partes
-
-      if (file_exists('assets/images' . $last_two_parts)) {
-        unlink('assets/images' . $last_two_parts);
-      }
+      deleteFile($person_team['photo']);
     }
 
     header('Location: ' . BASE . 'admin/team');

@@ -19,7 +19,7 @@
       <label for="cover" class="form-label">Capa</label>
       <input class="form-control" type="file" name="cover" id="cover">
       <div class="error"></div>
-      <?= (isset($feedback) && !empty($feedback['cover'])) ? '<div class="form-text">' . $feedback['cover'] . '</div>' : '' ?>
+      <?= (isset($feedback) && !empty($feedback['cover'])) ? '<div class="form-text" id="text-cover">' . $feedback['cover'] . '</div>' : '' ?>
     </div>
     <div class="col-md-8">
       <label for="name" class="form-label">Nome:</label>

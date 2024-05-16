@@ -52,6 +52,23 @@ class Users extends model {
     return $arr;
   }
 
+  public function getWithEmailAndPass($email, $password)
+  {
+    $arr = [];
+
+    $sql = 'SELECT users.*, user_types.name AS type, user_types.permissions FROM users INNER JOIN user_types ON user_types.id = users.id_user_type WHERE users.email = :email AND users.password = :password';
+    $sql = $this->db->prepare($sql);
+    $sql->bindValue(':email', $email);
+    $sql->bindValue(':password', md5($password));
+    $sql->execute();
+
+    if ($sql->rowCount() > 0) {
+      $arr = $sql->fetch(PDO::FETCH_ASSOC);
+    }
+
+    return $arr;
+  }
+
   public function get($id)
   {
     $arr = [];

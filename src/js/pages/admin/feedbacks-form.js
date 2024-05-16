@@ -92,7 +92,7 @@ $(function() {
             if (response.status && isAdd) {
               window.location.href = BASE_URL + 'admin/feedbacks';
             } else if (response.status && response.return.path) {
-              $('.form-text').html(response.return.path);
+              $('#text-cover').html(response.return.path);
             }
           },
         });

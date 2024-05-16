@@ -66,6 +66,8 @@ $(function() {
           success: function(response) {
             if (response.status && isAdd) {
               window.location.href = BASE_URL + 'admin/team';
+            } else if (response.status && response.return.path) {
+              $('.form-text').html(response.return.path);
             }
           },
         });

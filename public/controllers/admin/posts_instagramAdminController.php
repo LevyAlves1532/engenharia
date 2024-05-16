@@ -1,6 +1,13 @@
 <?php
 
 class posts_instagramAdminController extends controller {
+  public function __construct()
+  {
+    if (empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+      header('Location: ' . BASE . 'admin/account/sign_in');
+    }
+  }
+  
   public function index()
   {
     $this->loadTemplateAdmin('posts-instagram-list');
@@ -73,20 +80,7 @@ class posts_instagramAdminController extends controller {
       $link = addslashes($_POST['link']);
 
       if (!empty($cover['tmp_name'])) {
-        $extension = explode('/', $cover['type'])[1];
-        $photo_name = md5(date('Y-m-d H:i:s') . round(0, 9999)) . '.' . $extension;
-
-        $folder_name = date('Y-m-d');
-        $path = 'assets/images/' . $folder_name;
-
-        if (!file_exists($path)) {
-          mkdir($path);
-        }
-
-        $path = $path . '/' . $photo_name;
-        move_uploaded_file($cover['tmp_name'], $path);
-
-        $path = BASE . $path;
+        $path = uploadFile($cover);
         $posts_instagram->set($path, $link);
 
         $this->array_ajax['return'] = ['data' => 'Pessoa adicionado ao time com sucesso!'];
@@ -122,29 +116,9 @@ class posts_instagramAdminController extends controller {
         $cover = $_FILES['cover'];
 
         if (!empty($cover['tmp_name'])) {
-          $path_cover_old = parse_url($post_instagram['cover'], PHP_URL_PATH); // Extrair o caminho da URL
-          $filename_with_dir = basename($path_cover_old); // Obter a parte final do caminho (nome do arquivo com diretório)
-          $parent_dir = dirname($path_cover_old); // Obter o diretório pai do arquivo
-          $last_two_parts = '/' . substr($parent_dir, strrpos($parent_dir, '/') + 1) . '/' . $filename_with_dir; // Obter as duas últimas partes
+          deleteFile($post_instagram['cover']);
+          $path = uploadFile($cover);
 
-          if (file_exists('assets/images' . $last_two_parts)) {
-            unlink('assets/images' . $last_two_parts);
-          }
-
-          $extension = explode('/', $cover['type'])[1];
-          $photo_name = md5(date('Y-m-d H:i:s') . round(0, 9999)) . '.' . $extension;
-  
-          $folder_name = date('Y-m-d');
-          $path = 'assets/images/' . $folder_name;
-  
-          if (!file_exists($path)) {
-            mkdir($path);
-          }
-  
-          $path = $path . '/' . $photo_name;
-          move_uploaded_file($cover['tmp_name'], $path);
-  
-          $path = BASE . $path;
           $post['cover'] = $path;
           $keys_post = array_keys($post);
           $posts_instagram->up($id, $keys_post, $post);
@@ -173,15 +147,7 @@ class posts_instagramAdminController extends controller {
 
       $posts_instagram = new PostsInstagram();
       $post_instagram = $posts_instagram->delete($id_decoded);
-
-      $path_photo_old = parse_url($post_instagram['cover'], PHP_URL_PATH); // Extrair o caminho da URL
-      $filename_with_dir = basename($path_photo_old); // Obter a parte final do caminho (nome do arquivo com diretório)
-      $parent_dir = dirname($path_photo_old); // Obter o diretório pai do arquivo
-      $last_two_parts = '/' . substr($parent_dir, strrpos($parent_dir, '/') + 1) . '/' . $filename_with_dir; // Obter as duas últimas partes
-
-      if (file_exists('assets/images' . $last_two_parts)) {
-        unlink('assets/images' . $last_two_parts);
-      }
+      deleteFile($post_instagram['cover']);
     }
 
     header('Location: ' . BASE . 'admin/posts_instagram');

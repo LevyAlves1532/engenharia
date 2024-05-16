@@ -1,6 +1,13 @@
 <?php
 
 class usersAdminController extends controller {
+  public function __construct()
+  {
+    if (empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+      header('Location: ' . BASE . 'admin/account/sign_in');
+    }
+  }
+
   public function index()
   {
     $this->loadTemplateAdmin('users-list');
@@ -110,6 +117,11 @@ class usersAdminController extends controller {
 
       $id = addslashes(base64_decode($_POST['iu']));
 
+      if (!empty($_POST['user_type'])) {
+        $post['id_user_type'] = base64_decode($_POST['user_type']);
+        unset($post['user_type']);
+      }
+      
       $keys_post = array_keys($post);
 
       $users->up($id, $keys_post, $post);

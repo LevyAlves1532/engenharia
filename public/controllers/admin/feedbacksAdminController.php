@@ -1,6 +1,13 @@
 <?php
 
 class feedbacksAdminController extends controller {
+  public function __construct()
+  {
+    if (empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+      header('Location: ' . BASE . 'admin/account/sign_in');
+    }
+  }
+
   public function index()
   {
     $this->loadTemplateAdmin('feedbacks-list');
@@ -76,20 +83,7 @@ class feedbacksAdminController extends controller {
       $short_description = addslashes($_POST['short_description']);
 
       if (!empty($cover['tmp_name'])) {
-        $extension = explode('/', $cover['type'])[1];
-        $cover_name = md5(date('Y-m-d H:i:s') . round(0, 9999)) . '.' . $extension;
-
-        $folder_name = date('Y-m-d');
-        $path = 'assets/images/' . $folder_name;
-
-        if (!file_exists($path)) {
-          mkdir($path);
-        }
-
-        $path = $path . '/' . $cover_name;
-        move_uploaded_file($cover['tmp_name'], $path);
-
-        $path = BASE . $path;
+        $path = uploadFile($cover);
         $feedbacks->set($path, $name, $assessment, $short_description);
 
         $this->array_ajax['return'] = ['data' => 'Pessoa adicionado ao time com sucesso!'];
@@ -127,29 +121,9 @@ class feedbacksAdminController extends controller {
         $cover = $_FILES['cover'];
 
         if (!empty($cover['tmp_name'])) {
-          $path_cover_old = parse_url($feedback['cover'], PHP_URL_PATH); // Extrair o caminho da URL
-          $filename_with_dir = basename($path_cover_old); // Obter a parte final do caminho (nome do arquivo com diretório)
-          $parent_dir = dirname($path_cover_old); // Obter o diretório pai do arquivo
-          $last_two_parts = '/' . substr($parent_dir, strrpos($parent_dir, '/') + 1) . '/' . $filename_with_dir; // Obter as duas últimas partes
+          deleteFile($feedback['cover']);  
+          $path = uploadFile($cover);
 
-          if (file_exists('assets/images' . $last_two_parts)) {
-            unlink('assets/images' . $last_two_parts);
-          }
-
-          $extension = explode('/', $cover['type'])[1];
-          $cover_name = md5(date('Y-m-d H:i:s') . round(0, 9999)) . '.' . $extension;
-  
-          $folder_name = date('Y-m-d');
-          $path = 'assets/images/' . $folder_name;
-  
-          if (!file_exists($path)) {
-            mkdir($path);
-          }
-  
-          $path = $path . '/' . $cover_name;
-          move_uploaded_file($cover['tmp_name'], $path);
-  
-          $path = BASE . $path;
           $post['cover'] = $path;
           $keys_post = array_keys($post);
           $feedbacks->up($id, $keys_post, $post);
@@ -178,15 +152,7 @@ class feedbacksAdminController extends controller {
 
       $feedbacks = new Feedbacks();
       $feedback = $feedbacks->delete($id_decoded);
-
-      $path_cover_old = parse_url($feedback['cover'], PHP_URL_PATH); // Extrair o caminho da URL
-      $filename_with_dir = basename($path_cover_old); // Obter a parte final do caminho (nome do arquivo com diretório)
-      $parent_dir = dirname($path_cover_old); // Obter o diretório pai do arquivo
-      $last_two_parts = '/' . substr($parent_dir, strrpos($parent_dir, '/') + 1) . '/' . $filename_with_dir; // Obter as duas últimas partes
-
-      if (file_exists('assets/images' . $last_two_parts)) {
-        unlink('assets/images' . $last_two_parts);
-      }
+      deleteFile($feedback['cover']);
     }
 
     header('Location: ' . BASE . 'admin/feedbacks');
