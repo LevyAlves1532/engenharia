@@ -22,5 +22,7 @@ spl_autoload_register(function ($class) {
   }
 });
 
+require 'helpers/files.php';
+
 $core = new Core();
 $core->run();

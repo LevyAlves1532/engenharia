@@ -97,9 +97,9 @@ function validateForm(form, inputsName, validateFunc) {
   const formData = new FormData(form);
   
   inputsName.forEach(inputName => {
-    const validInput = validateFunc[inputName](formData.get(inputName));
     const element = document.querySelector(`input[name="${inputName}"]`) || document.querySelector(`select[name="${inputName}"]`)
-      || document.querySelector(`textarea[name="${inputName}"]`);
+    || document.querySelector(`textarea[name="${inputName}"]`);
+    const validInput = validateFunc[inputName](formData.get(inputName), element);
     if (validInput.error) isValid = false;
 
     showError(element, validInput.label);
@@ -131,9 +131,9 @@ function clearInputs(form, inputsName, validateFunc) {
     } else if (typeof value === "object" && (value.name === "" && value.size === 0)) {
       formData.delete(inputName);
     } else {
-      const validInput = validateFunc[inputName](value);
       const element = document.querySelector(`input[name="${inputName}"]`) || document.querySelector(`select[name="${inputName}"]`)
         || document.querySelector(`textarea[name="${inputName}"]`);;
+      const validInput = validateFunc[inputName](value, element);
       if (validInput.error) isValid = false;
 
       showError(element, validInput.label);
@@ -141,4 +141,8 @@ function clearInputs(form, inputsName, validateFunc) {
   });
 
   return isValid ? formData : null;
+}
+
+function convertInBRL(number) {
+  return number.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }

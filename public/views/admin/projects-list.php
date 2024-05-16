@@ -5,7 +5,7 @@
     <p>Projetos</p>
   </div>
 
-  <div class="AdmHeaderPage">
+  <div class="AdmHeaderPage mb-3">
     <div class="AdmHeaderPage__title">
       <h1>Projetos</h1>
     </div>
@@ -16,6 +16,23 @@
   </div>
 
   <div class="AdmProjectsTable">
-
+    <table id="projects-table" class="table table-dark table-hover table-striped display">
+      <thead>
+        <tr>
+          <th>Capa</th>
+          <th>Título</th>
+          <th>Preço</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th>Capa</th>
+          <th>Título</th>
+          <th>Preço</th>
+          <th>Ação</th>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 </main>
