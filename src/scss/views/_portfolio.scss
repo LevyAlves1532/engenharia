@@ -48,20 +48,6 @@
     }
   }
 
-  .Projects {
-    &__container {
-      max-width: 1028px;
-
-      .ProjectsList {
-        .Project {
-          &__image {
-            max-height: 300px;
-          }
-        }
-      }
-    }
-  }
-
   .PortfolioFeedback {
     padding: 60px 0;
     
@@ -85,6 +71,10 @@
       }
 
       &_list {
+        .slick-track {
+          display: flex; 
+        }
+
         .slick-dots {
           bottom: -50px;
 
@@ -99,6 +89,7 @@
         }
 
         .Feedback {
+          height: unset;
           margin-right: 20px;
 
           @include respond-to($mbl) {

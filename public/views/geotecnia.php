@@ -51,13 +51,13 @@
     </div>
   </section>
 
-  <div class="GeotecniaSeparatorImage"></div>
+  <div class="GeotecniaSeparatorImage" style="background-image: url(<?= BASE ?>assets/images/fundo_geotecnia.jpg);"></div>
 
   <div class="GeotecniaServices">
     <div class="GeotecniaServices__container">
       <div class="GeotecniaServicesBlock">
         <div class="GeotecniaServicesBlock__image">
-          <img src="https://img.freepik.com/fotos-gratis/close-up-do-contratante-no-canteiro-de-obras-apontando-para-o-plano-no-dorminhoco-de-madeira_53876-23070.jpg?t=st=1713976235~exp=1713979835~hmac=151b41a6437c1e3a6480e4c58233389cd7ff7367d9b5d5274a5e73009ad6768b&w=1380" alt="">
+          <img src="<?= BASE ?>assets/images/investigacao_geotecnia.jpg" alt="">
         </div>
 
         <div class="GeotecniaServicesBlock__info">
@@ -78,7 +78,7 @@
       
       <div class="GeotecniaServicesBlock GeotecniaServicesBlock--invert">
         <div class="GeotecniaServicesBlock__image">
-          <img src="https://img.freepik.com/fotos-gratis/engenheiro-de-site-em-um-canteiro-de-obras_53876-42833.jpg?t=st=1713976321~exp=1713979921~hmac=b0de37ae3be77b06426a5cfcb677f1f0f4895f193568b409608684850f696734&w=1380" alt="">
+          <img src="<?= BASE ?>assets/images/monitoramento_geotecnia.jpg" alt="">
         </div>
 
         <div class="GeotecniaServicesBlock__info">
@@ -99,7 +99,7 @@
 
       <div class="GeotecniaServicesBlock">
         <div class="GeotecniaServicesBlock__image">
-          <img src="https://img.freepik.com/fotos-gratis/trabalhador-por-tras-vestido-com-roupas-de-trabalho-observando-algumas-escavadeiras-no-canteiro-de-obras-ai-generative_123827-23542.jpg?t=st=1713970902~exp=1713974502~hmac=4e81cfeda3464ab3f61fb369ad678075507599c6733b5ea4aa643f0ea42ab31c&w=1380" alt="">
+          <img src="<?= BASE ?>assets/images/gestao_geotecnia.jpg" alt="">
         </div>
 
         <div class="GeotecniaServicesBlock__info">

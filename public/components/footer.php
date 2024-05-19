@@ -10,7 +10,7 @@
         </div>
 
         <div class="FooterApresentation__text">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque praesentium voluptatum magni laudantium, aliquam accusamus dolores ipsa, perspiciatis asperiores sed nulla. Possimus praesentium nemo laudantium quibusdam minus maxime vel eligendi?</p>
+          <p>Na jornada rumo à excelência, cada desafio é uma oportunidade de inovar e crescer. Juntos, construímos um futuro melhor, onde a dedicação e a paixão pela engenharia transformam sonhos em realidade. Continue acreditando, continue criando, e nunca pare de alcançar novos horizontes.</p>
         </div>
       </div>
 
@@ -33,8 +33,8 @@
 
       <div class="FooterSocial">
         <div class="FooterSocial__header">
-          <p>Follow Us</p>
-          <span>Lorem ipsum dolor sit</span>
+          <p>Siga-nos</p>
+          <span>Nos acompanhe nas redes</span>
         </div>
 
         <div class="FooterSocial__button">

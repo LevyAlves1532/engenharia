@@ -88,9 +88,15 @@
         align-items: center;
         gap: 20px;
 
+        @include respond-to($mbl) {
+          flex-direction: column;
+        }
+
         .Button {
           @include respond-to($mbl) {
+            width: 100%;
             padding: 20px 25px;
+            justify-content: center;
           }
         }
       }

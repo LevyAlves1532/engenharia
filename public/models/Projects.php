@@ -52,6 +52,20 @@ class Projects extends model {
     return $arr;
   }
 
+  public function getThree()
+  {
+    $arr = [];
+
+    $sql = 'SELECT * FROM projects ORDER BY created_at DESC LIMIT 3';
+    $sql = $this->db->query($sql);
+    
+    if ($sql->rowCount() > 0) {
+      $arr = $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return $arr;
+  }
+
   public function get($id)
   {
     $arr = [];
@@ -103,8 +117,8 @@ class Projects extends model {
       }
 
       $sql .= implode(', ', $edit_params) . ' WHERE MD5(id) = "' . md5($id) . '"';
-      // echo $sql;
-      // exit;
+      echo $sql;
+      exit;
       $this->db->query($sql);
     }
   }

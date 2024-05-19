@@ -1,47 +1,47 @@
 <seciton class="About">
   <div class="About__container">
     <div class="AboutImage">
-      <img src="https://img.freepik.com/fotos-gratis/vista-frontal-fora-da-mesa-do-escritorio_23-2149034544.jpg?t=st=1713804999~exp=1713808599~hmac=8292beb063a04cd5813152fd7f7d3da559c1a7ffa832777ab30bb00340d16fa3&w=740" alt="">
+      <img src="<?= BASE ?>assets/images/escritorio.jpg" alt="">
     </div>
 
     <div class="AboutInfo">
       <div class="AboutInfo__label">
-        <p>Latest Projects</p>
+        <p>Sobre Nós</p>
       </div>
 
       <div class="AboutInfo__title">
-        <h2>We are qualified in every working departments</h2>
+        <h2>Compromisso com a Excelência em Engenharia</h2>
       </div>
 
       <div class="AboutInfo__text">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati veniam libero in saepe dolor, nulla recusandae possimus autem molestiae. Quidem voluptatibus, magnam veritatis quis ut reiciendis impedit labore delectus soluta?</p>
+        <p>Com anos de experiência no setor, nossa empresa se destaca pela inovação e qualidade em soluções de engenharia. Nossa equipe de especialistas dedica-se a criar projetos sustentáveis e eficientes, sempre focando em superar as expectativas dos clientes. Valorizamos a transparência, a integridade e a excelência, construindo um futuro melhor através de cada projeto realizado.</p>
       </div>
 
       <div class="AboutInfo__data">
         <div class="AboutInfo__data_numbers">
           <div>
             <span>+25</span>
-            <p>More Clients</p>
+            <p>Clientes</p>
           </div>
         </div>
 
         <div class="AboutInfo__data_numbers">
           <div>
             <span>+100</span>
-            <p>More Projects</p>
+            <p>Projetos</p>
           </div>
         </div>
 
         <div class="AboutInfo__data_numbers">
           <div>
-            <span>+100</span>
-            <p>More Feedbacks</p>
+            <span>+30</span>
+            <p>Avaliações</p>
           </div>
         </div>
       </div>
 
       <div class="AboutInfo__button">
-        <a href="#" class="Button Button--secondary">Get Started</a>
+        <a href="<?= BASE ?>contato" class="Button Button--secondary">Começe Agora</a>
       </div>
     </div>
   </div>

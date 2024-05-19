@@ -52,6 +52,20 @@ class PostsInstagram extends model {
     return $arr;
   }
 
+  public function getAllNoneFilters()
+  {
+    $arr = [];
+
+    $sql = 'SELECT * FROM posts_instagram ORDER BY created_at DESC';
+    $sql = $this->db->query($sql);
+
+    if ($sql->rowCount() > 0) {
+      $arr = $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return $arr;
+  }
+
   public function get($id)
   {
     $arr = [];

@@ -3,21 +3,29 @@ class homeController extends controller
 {
 	public function index()
 	{
-		$this->loadTemplate("home", [
-			"banner" => [
-				"image" => "https://img.freepik.com/fotos-gratis/piso-vazio-do-predio-moderno_1127-3154.jpg?t=st=1713802805~exp=1713806405~hmac=b2ec6a67bdff3d0251c76975e0c8f592754f26781b11ffe7e112aa154e85e1c5&w=1380",
-				"subtitle" => "We build, we craft",
-				"title" => "Building Dreams Through Construction",
-				"text" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat quisquam, est rem ipsum adipisci voluptatibus mollitia vel, cum corporis et dolore reiciendis soluta molestiae id in quaerat. Temporibus, voluptas vitae?",
-				"button_primary" => [
-					"link" => "#",
-					"label" => "Get Started",
+		$projects = new Projects();
+		$feedbacks = new Feedbacks();
+
+		$all_feedbacks = $feedbacks->getTwo();
+		$all_projects = $projects->getThree();
+
+		$this->loadTemplate('home', [
+			'banner' => [
+				'image' => BASE . 'assets/images/banner_home.png',
+				'subtitle' => 'Soluções de Engenharia Inovadoras e Sustentáveis',
+				'title' => 'Construindo o Futuro com Excelência',
+				'text' => 'Transformamos ideias em realidade com precisão e dedicação. Com uma abordagem sustentável e inovadora, oferecemos serviços de engenharia que atendem às necessidades do presente sem comprometer as gerações futuras. Seja para projetos residenciais, comerciais ou industriais, estamos comprometidos em entregar resultados de alta qualidade que superam as expectativas.',
+				'button_primary' => [
+					'link' => BASE . 'contato',
+					'label' => 'Entre em Contato',
 				],
-				"button_secondary" => [
-					"link" => "#",
-					"label" => "See Portfolio",
+				'button_secondary' => [
+					'link' => BASE . 'portfolio',
+					'label' => 'Veja nosso Portfolio',
 				],
 			],
+			'projects' => $all_projects,
+			'feedbacks' => $all_feedbacks,
 		]);
 	}
 }

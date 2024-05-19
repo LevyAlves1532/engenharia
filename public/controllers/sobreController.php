@@ -3,6 +3,12 @@
 class sobreController extends controller {
   public function index()
   {
-    $this->loadTemplate("about");
+    $data = [];
+
+    $team = new Team();
+
+    $data['team'] = $team->getAllNoneFilters();
+
+    $this->loadTemplate("about", $data);
   }
 }

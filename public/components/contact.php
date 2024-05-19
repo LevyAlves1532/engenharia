@@ -6,8 +6,8 @@
       </div>
 
       <div class="ContactCard__info">
-        <p>We are open monday-friday</p>
-        <span>7:00 am - 9:00 pm</span>
+        <p>Estamos aberto de segunda-sexta</p>
+        <span>08:00 - 18:30</span>
       </div>
     </div>
 
@@ -17,7 +17,7 @@
       </div>
 
       <div class="ContactCard__info">
-        <p>Make a question?</p>
+        <p>Alguma dúvida?</p>
         <span>+55 (47) 9 9196-6719</span>
       </div>
     </div>
@@ -28,8 +28,8 @@
       </div>
 
       <div class="ContactCard__info">
-        <p>Need a repair? our address</p>
-        <span>Liza Street, NewYork</span>
+        <p>Nosso endereço</p>
+        <span>Liza Street, New York</span>
       </div>
     </div>
   </div>
