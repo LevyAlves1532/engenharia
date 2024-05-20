@@ -82,12 +82,13 @@ class Projects extends model {
     return $arr;
   }
 
-  public function set($cover, $title, $price, $discount_percent, $short_description, $description, $square_meters, $bathrooms, $bedrooms, $garages, $is_discount = null)
+  public function set($cover, $title, $slug, $price, $discount_percent, $short_description, $description, $square_meters, $bathrooms, $bedrooms, $garages, $is_discount = null)
   {
-    $sql = 'INSERT INTO projects SET cover = :cover, title = :title, price = :price, discount_percent = :discount_percent, short_description = :short_description, description = :description, square_meters = :square_meters, bathrooms = :bathrooms, bedrooms = :bedrooms, garages = :garages, is_discount = :is_discount';
+    $sql = 'INSERT INTO projects SET cover = :cover, title = :title, slug = :slug, price = :price, discount_percent = :discount_percent, short_description = :short_description, description = :description, square_meters = :square_meters, bathrooms = :bathrooms, bedrooms = :bedrooms, garages = :garages, is_discount = :is_discount';
     $sql = $this->db->prepare($sql);
     $sql->bindValue(':cover', $cover);
     $sql->bindValue(':title', $title);
+    $sql->bindValue(':slug', $slug);
     $sql->bindValue(':price', $price);
     $sql->bindValue(':discount_percent', $discount_percent);
     $sql->bindValue(':short_description', $short_description);
@@ -117,8 +118,8 @@ class Projects extends model {
       }
 
       $sql .= implode(', ', $edit_params) . ' WHERE MD5(id) = "' . md5($id) . '"';
-      echo $sql;
-      exit;
+      // echo $sql;
+      // exit;
       $this->db->query($sql);
     }
   }

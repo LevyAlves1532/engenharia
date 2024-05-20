@@ -83,6 +83,7 @@ class posts_instagramAdminController extends controller {
         $path = uploadFile($cover);
         $posts_instagram->set($path, $link);
 
+        $this->array_ajax['status'] = true;
         $this->array_ajax['return'] = ['data' => 'Pessoa adicionado ao time com sucesso!'];
       } else {
         $this->array_ajax['status'] = false;

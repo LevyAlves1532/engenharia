@@ -5,7 +5,7 @@ $(function() {
         console.error(error);
       });
 
-    const inputsName = ['cover', 'carousel[]', 'title', 'price', 'discount_percent', 'short_description', 'description', 'square_meters', 'bathrooms', 'bedrooms', 'garages', 'files_projects[]'];
+    const inputsName = ['cover', 'carousel[]', 'title', 'slug', 'price', 'discount_percent', 'short_description', 'description', 'square_meters', 'bathrooms', 'bedrooms', 'garages', 'files_projects[]'];
     const statusError = { error: false, label: ''  };
 
     const validateCaracProjects = (value = '', label) => {
@@ -83,6 +83,11 @@ $(function() {
           status.error = true;
           status.label = 'Título precisa ter entre 3 a 100 caracteres!';
         }
+
+        return status;
+      },
+      slug: (value = '') => {
+        const status = { ...statusError };
 
         return status;
       },
@@ -244,5 +249,23 @@ $(function() {
 
       return div;
     }
+
+    $('#title').on('keyup', function(e) {
+      let value = e.target.value;
+
+      // Substitui espaços por '-'
+      value = value.replace(/\s+/g, '-');
+
+      // Remove acentuações
+      value = value.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+      // Remove caracteres especiais (mantém apenas letras, números e '-')
+      value = value.replace(/[^a-zA-Z0-9-]/g, '');
+
+      // Converte todas as letras para minúsculas
+      value = value.toLowerCase();
+
+      $('#slug').val(value);
+    });
   }
 });

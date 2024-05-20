@@ -42,6 +42,7 @@ $(function() {
       },
       assessment: (value = '') => {
         const status = { ...statusError };
+        value = value.replace(',', '.');
 
         if (!isNaN(value) && (parseInt(value) > 5 || parseInt(value) < 0)) {
           status.error = true;
@@ -89,6 +90,7 @@ $(function() {
           processData: false,
           dataType: 'json',
           success: function(response) {
+            console.log('ok');
             if (response.status && isAdd) {
               window.location.href = BASE_URL + 'admin/feedbacks';
             } else if (response.status && response.return.path) {

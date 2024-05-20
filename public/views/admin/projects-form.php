@@ -54,17 +54,22 @@
       <input type="text" class="form-control" name="title" id="title" value="<?= (isset($project) && !empty($project['title'])) ? $project['title'] : '' ?>">
       <div class="error"></div>
     </div>
+    <div class="col-md-12">
+      <label for="title" class="form-label">Slug:</label>
+      <input type="text" class="form-control" readonly name="slug" id="slug" value="<?= (isset($project) && !empty($project['slug'])) ? $project['slug'] : '' ?>">
+      <div class="error"></div>
+    </div>
     <div class="col-md-4">
       <label for="price" class="form-label">Preço:</label>
-      <input type="text" class="form-control" name="price" id="price" value="<?= (isset($project) && !empty($project['price'])) ? $project['price'] : '' ?>">
+      <input type="text" class="form-control" name="price" id="price" value="<?= (isset($project) && !empty($project['price'])) ? str_replace('.', ',', $project['price']) : '' ?>">
       <div class="form-text total-value-show">Valor total <?= (!empty($project) && $discount > 0) ? 'R$' . number_format($total_price, 2, ',', '.') : 'R$0,00' ?></div>
       <div class="error"></div>
     </div>
     <div class="col-md-4">
       <label for="discount_percent" class="form-label">Desconto (%):</label>
       <input type="text" class="form-control" name="discount_percent" id="discount_percent" value="<?= (isset($project) && !empty($project['discount_percent'])) ? $project['discount_percent'] : '' ?>">
-      <div class="error"></div>
       <div class="form-text discount-show">Valor do desconto <?= (!empty($project) && $discount > 0) ? 'R$' . number_format($discount, 2, ',', '.') : 'R$0,00' ?></div>
+      <div class="error"></div>
     </div>
     <div class="col-md-4 d-flex align-items-center pt-4">
       <div class="form-check">
@@ -86,7 +91,7 @@
     </div>
     <div class="col-md-3">
       <label for="square_meters" class="form-label">Metros Quadrado:</label>
-      <input type="number" class="form-control" name="square_meters" id="square_meters" value="<?= (isset($project) && !empty($project['square_meters'])) ? $project['square_meters'] : '' ?>">
+      <input type="text" class="form-control" name="square_meters" id="square_meters" value="<?= (isset($project) && !empty($project['square_meters'])) ? str_replace('.', ',', $project['square_meters']) : '' ?>">
       <div class="error"></div>
     </div>
     <div class="col-md-3">

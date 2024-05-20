@@ -28,7 +28,7 @@
     </div>
     <div class="col-md-4">
       <label for="assessment" class="form-label">Avaliação:</label>
-      <input type="number" class="form-control" min="0" max="5" name="assessment" id="assessment" value="<?= (isset($feedback) && !empty($feedback['assessment'])) ? $feedback['assessment'] : '' ?>">
+      <input type="text" class="form-control" name="assessment" id="assessment" value="<?= (isset($feedback) && !empty($feedback['assessment'])) ? number_format($feedback['assessment'], 1, ',', '.') : '' ?>">
       <div class="form-text">De 0 a 5.</div>
       <div class="error"></div>
     </div>

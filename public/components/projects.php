@@ -20,7 +20,7 @@
           $discount = ($price * $discount_percent) / 100;
           $total_price = $price - $discount;  
         ?>
-          <a href="<?= BASE ?>projetos/produto/<?= base64_encode($project['id']) ?>" class="Project">
+          <a href="<?= BASE ?>projetos/produto/<?= $project['slug'] ?>" class="Project">
             <div class="Project__image">
               <img src="<?= $project['cover'] ?>" alt="">
 

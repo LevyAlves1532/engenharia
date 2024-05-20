@@ -34,7 +34,7 @@
 
                 <div>
                   <p><?= $feedback['name'] ?></p>
-                  <span><?= number_format($feedback['assessment'], 1, '.', ',') ?></span>
+                  <span><?= number_format($feedback['assessment'], 1, ',', '.') ?></span>
                 </div>
               </div>
 

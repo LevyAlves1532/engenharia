@@ -44,7 +44,7 @@ class feedbacksAdminController extends controller {
           <img src="' . $feedback['cover'] . '" width="50" height="50" class="rounded" alt="" />
         ', 
         $feedback['name'], 
-        $feedback['assessment'], 
+        number_format($feedback['assessment'], 1, ',', '.'), 
         '
           <div class="dropdown">
             <button class="btn btn-outline-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -79,13 +79,14 @@ class feedbacksAdminController extends controller {
     ) {
       $cover = $_FILES['cover'];
       $name = addslashes($_POST['name']);
-      $assessment = addslashes($_POST['assessment']);
+      $assessment = str_replace(',', '.', addslashes($_POST['assessment']));
       $short_description = addslashes($_POST['short_description']);
 
       if (!empty($cover['tmp_name'])) {
         $path = uploadFile($cover);
         $feedbacks->set($path, $name, $assessment, $short_description);
 
+        $this->array_ajax['status'] = true;
         $this->array_ajax['return'] = ['data' => 'Pessoa adicionado ao time com sucesso!'];
       } else {
         $this->array_ajax['status'] = false;
@@ -116,6 +117,10 @@ class feedbacksAdminController extends controller {
 
       $id = addslashes(base64_decode($_POST['if']));
       $feedback = $feedbacks->get($id);
+
+      if (!empty($_POST['assessment'])) {
+        $post['assessment'] = str_replace(',', '.', $_POST['assessment']);
+      }
 
       if (!empty($_FILES['cover'])) {
         $cover = $_FILES['cover'];

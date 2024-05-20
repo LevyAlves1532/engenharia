@@ -83,6 +83,7 @@ class projectsAdminController extends controller {
       !empty($_FILES['cover']) && 
       !empty($_FILES['carousel']) && 
       !empty($_POST['title']) &&
+      !empty($_POST['slug']) &&
       isset($_POST['price']) &&
       isset($_POST['discount_percent']) &&
       !empty($_POST['short_description']) &&
@@ -96,11 +97,12 @@ class projectsAdminController extends controller {
       $cover = $_FILES['cover'];
       $carousel = $_FILES['carousel'];
       $title = addslashes($_POST['title']);
-      $price = addslashes($_POST['price']);
+      $slug = addslashes($_POST['slug']);
+      $price = str_replace(',', '.', addslashes($_POST['price']));
       $discount_percent = addslashes($_POST['discount_percent']);
       $short_description = addslashes($_POST['short_description']);
       $description = addslashes($_POST['description']);
-      $square_meters = addslashes($_POST['square_meters']);
+      $square_meters = str_replace(',', '.', addslashes($_POST['square_meters']));
       $bathrooms = addslashes($_POST['bathrooms']);
       $bedrooms = addslashes($_POST['bedrooms']);
       $garages = addslashes($_POST['garages']);
@@ -117,7 +119,7 @@ class projectsAdminController extends controller {
         $files_projects = uploadMutipleFiles($files_projects);
 
         if (!empty($cover_path) && count($carousel_path) > 0 && count($files_projects) > 0) {
-          $project_id = $projects->set($cover_path, $title, $price, $discount_percent, $short_description, $description, $square_meters, $bathrooms, $bedrooms, $garages, $is_discount);
+          $project_id = $projects->set($cover_path, $title, $slug, $price, $discount_percent, $short_description, $description, $square_meters, $bathrooms, $bedrooms, $garages, $is_discount);
 
           foreach($carousel_path as $path_image) {
             $project_carousel->set($project_id, $path_image);
@@ -127,6 +129,7 @@ class projectsAdminController extends controller {
             $project_files->set($project_id, $path_file);
           }
 
+          $this->array_ajax['status'] = true;
           $this->array_ajax['return'] = ['data' => 'Projeto criado com sucesso!'];
         } else {
           $this->array_ajax['status'] = false;
@@ -193,6 +196,7 @@ class projectsAdminController extends controller {
         !empty($_FILES['cover']) || 
         !empty($_FILES['carousel']) || 
         !empty($_POST['title']) ||
+        !empty($_POST['slug']) ||
         !empty($_POST['price']) ||
         !empty($_POST['discount_percent']) ||
         !empty($_POST['short_description']) ||
@@ -218,6 +222,14 @@ class projectsAdminController extends controller {
         $post['is_discount'] = 1;
       } else {
         $post['is_discount'] = 0;
+      }
+
+      if (!empty($_POST['price'])) {
+        $post['price'] = str_replace(',', '.', $_POST['price']);
+      }
+
+      if (!empty($_POST['square_meters'])) {
+        $post['square_meters'] = str_replace(',', '.', $_POST['square_meters']);
       }
       
       if (!empty($_POST['title']) && $project['title'] !== $_POST['title'] && !$projects->is_title($_POST['title'])) {
@@ -260,6 +272,7 @@ class projectsAdminController extends controller {
       }
 
       $post['id'] = $_POST['ip'];
+      $this->array_ajax['status'] = true;
       $this->array_ajax['return'] = ['project' => $post];
     } else {
       $this->array_ajax['status'] = false;
