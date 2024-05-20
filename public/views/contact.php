@@ -6,34 +6,22 @@
       </div>
 
       <div class="ContactFaq__container_list">
-        <div class="ContactFaqItem">
-          <div class="ContactFaqItem__button">
-            <p>What is yout name?</p>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
-          </div>
+        <?php if (isset($faq) && !empty($faq) && count($faq) > 0): ?>
+          <?php foreach ($faq as $faq_item): ?>
+            <div class="ContactFaqItem">
+              <div class="ContactFaqItem__button">
+                <p><?= $faq_item['question'] ?></p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+              </div>
 
-          <div class="ContactFaqItem__content">
-            <div class="ContactFaqItem__content_body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error rerum hic magnam laudantium illum deserunt dolor exercitationem at corrupti dolorum, ea obcaecati, tenetur commodi quia modi eius accusantium dolorem incidunt.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <div class="ContactFaqItem__content">
+                <div class="ContactFaqItem__content_body">
+                  <?= $faq_item['response'] ?>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="ContactFaqItem">
-          <div class="ContactFaqItem__button">
-            <p>What is yout name?</p>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
-          </div>
-
-          <div class="ContactFaqItem__content">
-            <div class="ContactFaqItem__content_body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error rerum hic magnam laudantium illum deserunt dolor exercitationem at corrupti dolorum, ea obcaecati, tenetur commodi quia modi eius accusantium dolorem incidunt.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error rerum hic magnam laudantium illum deserunt dolor exercitationem at corrupti dolorum, ea obcaecati, tenetur commodi quia modi eius accusantium dolorem incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error rerum hic magnam laudantium illum deserunt dolor exercitationem at corrupti dolorum, ea obcaecati, tenetur commodi quia modi eius accusantium dolorem incidunt.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
-          </div>
-        </div>
+          <?php endforeach; ?>
+        <?php endif; ?>
       </div>
     </div>
   </section>

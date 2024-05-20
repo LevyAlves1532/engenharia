@@ -3,6 +3,12 @@
 class contatoController extends controller {
   public function index()
   {
-    $this->loadTemplate('contact');
+    $data = [];
+
+    $faq = new Faq();
+
+    $data['faq'] = $faq->getAllNoneFilters();
+
+    $this->loadTemplate('contact', $data);
   }
 }

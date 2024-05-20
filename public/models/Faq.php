@@ -54,7 +54,7 @@ class Faq extends model {
   {
     $arr = [];
 
-    $sql = 'SELECT * FROM feedbacks ORDER BY created_at DESC';
+    $sql = 'SELECT * FROM faq ORDER BY created_at DESC';
     $sql = $this->db->query($sql);
 
     if ($sql->rowCount() > 0) {
@@ -127,7 +127,7 @@ class Faq extends model {
     $feedback = $this->get($id);
 
     if ($feedback !== []) {
-      $sql = 'DELETE FROM feedbacks WHERE MD5(id) = :id';
+      $sql = 'DELETE FROM faq WHERE MD5(id) = :id';
       $sql = $this->db->prepare($sql);
       $sql->bindValue(':id', md5($id));
       $sql->execute();

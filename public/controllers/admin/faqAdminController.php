@@ -105,4 +105,16 @@ class faqAdminController extends controller {
 
     echo json_encode($this->array_ajax);
   }
+
+  public function delete($id)
+  {
+    if (!empty($id)) {
+      $id_decoded = base64_decode($id);
+
+      $faq = new Faq();
+      $faq->delete($id_decoded);
+    }
+
+    header('Location: ' . BASE . 'admin/faq');
+  }
 }
