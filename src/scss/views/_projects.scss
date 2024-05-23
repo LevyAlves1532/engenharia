@@ -77,6 +77,14 @@
             .Button {
               margin-top: 20px;
             }
+
+            &--clear {
+              width: fit-content;
+              text-align: left;
+              @include font-size(16);
+              font-weight: 600;
+              color: $third;
+            }
           }
         }
 
@@ -144,6 +152,8 @@
         }
 
         &_list {
+          margin-bottom: 40px;
+
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 20px;
@@ -161,6 +171,65 @@
               @include respond-to($mbl) {
                 height: 95vw;
               }
+            }
+          }
+        }
+
+        &_pagination {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          p, span {
+            @include font-size(16);
+            color: $third;
+          }
+
+          p {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+          }
+
+          div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            li, button {
+              padding: 10px;
+              border-radius: 5px;
+              background-color: $third;
+              cursor: pointer;
+            }
+
+            ul {
+              display: flex;
+              gap: 5px;
+              align-items: center;
+
+              li {
+                &.active-dot {
+                  background-color: $fifth;
+                  
+                  p {
+                    color: $third;
+                  }
+                }
+
+                p {
+                  @include font-size(16);
+                  color: $white;
+                  font-family: 600;
+                }
+              }
+            }
+
+            button {
+              padding: 6px 12px;
+              @include font-size(24);
+              color: $white;
+              font-family: 600;
             }
           }
         }

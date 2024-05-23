@@ -32,6 +32,25 @@ class Projects extends model {
     return $arr;
   }
 
+  public function getAllFilters($filters, $from_project, $limit)
+  {
+    $arr = [];
+
+    $sql = 'SELECT * FROM projects';
+
+    if (count($filters) > 0) {
+      $sql .= ' WHERE ' . implode(' AND ', $filters);
+    }
+    $sql .= ' ORDER BY created_at DESC LIMIT ' . $from_project . ', ' . $limit;
+    $sql = $this->db->query($sql);
+
+    if ($sql->rowCount() > 0) {
+      $arr = $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return $arr;
+  }
+
   public function getCount($search = '')
   {
     $arr = [];
@@ -50,6 +69,24 @@ class Projects extends model {
     }
 
     return $arr;
+  }
+
+  public function getCountFilters($filters)
+  {
+    $arr = [];
+
+    $sql = 'SELECT COUNT(id) AS qtd_projects FROM projects';
+
+    if (count($filters) > 0) {
+      $sql .= ' WHERE ' . implode(' AND ', $filters);
+    }
+    $sql = $this->db->query($sql);
+
+    if ($sql->rowCount() > 0) {
+      $arr = $sql->fetch(PDO::FETCH_ASSOC);
+    }
+
+    return $arr['qtd_projects'];
   }
 
   public function getThree()
