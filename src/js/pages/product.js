@@ -1,4 +1,31 @@
 $(function() {
+  const cart = new Cart();
+  cart.init();
+
+  const slug = $('#add-cart').attr('data-slug');
+
+  if (cart.cart.find(p => p.slug === slug)) {
+    $('#add-cart').text('Ver no Carrinho');
+    $('#add-cart').on('click', function() {
+      window.location.href = BASE_URL + 'carrinho'
+    });
+  } else {
+    $('#add-cart').on('click', function() {
+      $.ajax({
+        url: BASE_URL + 'projetos/project?slug=' + slug,
+        dataType: 'json',
+        success: (json) => {
+          cart.pushProject(json.data);
+
+          $('#add-cart').text('Ver no Carrinho');
+          $('#add-cart').on('click', function() {
+            window.location.href = BASE_URL + 'carrinho'
+          });
+        },
+      });
+    });
+  }
+
   $('#slick-product-images').slick({
     infinite: false,
     slidesToShow: 1,

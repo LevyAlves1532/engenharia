@@ -157,10 +157,6 @@
           &_list {
             padding: 20px;
 
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
             @include respond-to($tb) {
               padding-top: 60px;
               overflow-y: auto;
@@ -191,12 +187,18 @@
               }
             }
 
-            .CartItem {
-              &__image {
-                width: 80px;
-                
-                img {
-                  height: 80px;
+            .HeaderCartList {
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+
+              .CartItem {
+                &__image {
+                  width: 80px;
+                  
+                  img {
+                    height: 80px;
+                  }
                 }
               }
             }

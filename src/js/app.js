@@ -91,6 +91,9 @@ $(function() {
    */
 })
 
+/**
+ * Form - Start
+ */
 function validateForm(form, inputsName, validateFunc) {
   let isValid = true;
 
@@ -142,7 +145,16 @@ function clearInputs(form, inputsName, validateFunc) {
 
   return isValid ? formData : null;
 }
+/**
+ * Form - End
+ */
 
+/**
+ * Convert number in value br - Start
+ */
 function convertInBRL(number) {
   return number.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
+/**
+ * Convert number in value br - End
+ */

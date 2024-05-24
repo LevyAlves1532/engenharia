@@ -119,6 +119,26 @@ class Projects extends model {
     return $arr;
   }
 
+  public function getSlug($slug)
+  {
+    $arr = [];
+
+    $project_carousel = new ProjectCarousel();
+
+    $sql = 'SELECT projects.* FROM projects  WHERE projects.slug = :slug';
+    $sql = $this->db->prepare($sql);
+    $sql->bindValue(':slug', $slug);
+    $sql->execute();
+
+    if ($sql->rowCount() > 0) {
+      $arr = $sql->fetch(PDO::FETCH_ASSOC);
+
+      $arr['carousel'] = $project_carousel->getAllFromIdProject($arr['id']);
+    }
+
+    return $arr;
+  }
+
   public function set($cover, $title, $slug, $price, $discount_percent, $short_description, $description, $square_meters, $bathrooms, $bedrooms, $garages, $is_discount = null)
   {
     $sql = 'INSERT INTO projects SET cover = :cover, title = :title, slug = :slug, price = :price, discount_percent = :discount_percent, short_description = :short_description, description = :description, square_meters = :square_meters, bathrooms = :bathrooms, bedrooms = :bedrooms, garages = :garages, is_discount = :is_discount';

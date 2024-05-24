@@ -7,7 +7,19 @@ class projetosController extends controller {
 
   public function produto($slug)
   {
-    $this->loadTemplate('product');;
+    $data = [];
+
+    if (!empty($slug)) {
+      $projects = new Projects();
+
+      $project = $projects->getSlug(addslashes($slug));
+
+      if ($project === []) header('Location: ' . BASE . 'projetos');
+      $data['project'] = $project;
+      $data['slug'] = $slug;
+    }
+
+    $this->loadTemplate('product', $data);
   }
 
   public function list()
@@ -66,6 +78,24 @@ class projetosController extends controller {
       $ajax_return['current_page'] = $current_page;
     } else {
       $ajax_return['error'] = 'Projetos não encontrados!';
+    }
+
+    echo json_encode($ajax_return);
+  }
+
+  public function project()
+  {
+    $projects = new Projects();
+    $ajax_return = [];
+
+    if (!empty($_GET['slug'])) {
+      $slug = addslashes($_GET['slug']);
+
+      $project = $projects->getSlug($slug);
+
+      $ajax_return['data'] = $project;
+    } else {
+      $ajax_return['error'] = 'Projeto não encontrado!';
     }
 
     echo json_encode($ajax_return);

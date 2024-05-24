@@ -155,6 +155,7 @@ $(function() {
 
       if (project.is_discount) {
         price_discount = (project.price * project.discount_percent) / 100;
+        price_discount = project.price - price_discount;
       }
 
       linkProject.innerHTML = `
