@@ -20,9 +20,13 @@
       .CartTitle {
         margin-bottom: 20px;
 
-        h1 {
+        h1, span {
           @include font-size(24, 34);
           letter-spacing: 1px;
+
+          span {
+            display: initial;
+          }
         }
       }
 
