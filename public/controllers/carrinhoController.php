@@ -5,4 +5,18 @@ class carrinhoController extends controller {
   {
     $this->loadTemplate('cart');
   }
+
+  public function comprar()
+  {
+    $ajax_return = [];
+
+    if (!empty($_SESSION['user'])) {
+      $ajax_return['data'] = 'Sucesso!';
+      unset($_SESSION['user']);
+    } else {
+      $ajax_return['error'] = 'Não está logado!';
+    }
+
+    echo json_encode($ajax_return);
+  }
 }

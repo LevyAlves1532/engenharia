@@ -79,8 +79,10 @@ class Cart {
           h.appendChild(cartItemElement);
         });
 
-        const cartItemElement = this.cartItemProjectPage(project);
-        $('.CartList')[0].appendChild(cartItemElement);
+        if ($('.CartList').length > 0) {
+          const cartItemElement = this.cartItemProjectPage(project);
+          $('.CartList')[0].appendChild(cartItemElement);
+        }
       }
     } else {
       const htmlNoneProducts = '<p>Não há itens no carrinho!</p>';

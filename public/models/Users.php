@@ -87,7 +87,7 @@ class Users extends model {
 
   public function set($name, $email, $password, $id_user_type, $is_confirm)
   {
-    $user_types = new UserTypes();
+    $user_types  = new UserTypes();
     $user_type_data = $user_types->get($id_user_type);
 
     if (!$this->is_email($email) && $user_type_data !== []) {

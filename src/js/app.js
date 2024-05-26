@@ -1,3 +1,5 @@
+const GO_CHECKOUT_STORAGE = '@engenharia::go_checkout';
+
 $(function() {
   /**
    * Header Script - Start
@@ -94,26 +96,36 @@ $(function() {
 /**
  * Form - Start
  */
-function validateForm(form, inputsName, validateFunc) {
+function validateForm(form, inputsName, validateFunc, errorClass = null) {
   let isValid = true;
 
   const formData = new FormData(form);
   
-  inputsName.forEach(inputName => {
+  inputsName.forEach((inputName, index) => {
     const element = document.querySelector(`input[name="${inputName}"]`) || document.querySelector(`select[name="${inputName}"]`)
     || document.querySelector(`textarea[name="${inputName}"]`);
     const validInput = validateFunc[inputName](formData.get(inputName), element);
     if (validInput.error) isValid = false;
 
-    showError(element, validInput.label);
+    if (!errorClass) {
+      showError(element, validInput.label);
+    } else {
+      showError(element, validInput.label, errorClass[index]);
+    }
   });
 
   return isValid;
 }
 
-function showError(element, label) {
-  const main = element.type === 'password' ? $(element).parent().parent() : $(element).parent();
-  const errorDiv = main.find('.error');
+function showError(element, label, errorClass = null) {
+  let errorDiv;
+
+  if (!errorClass) {
+    const main = element.type === 'password' ? $(element).parent().parent() : $(element).parent();
+    errorDiv = main.find('.error');
+  } else {
+    errorDiv = $(`.${errorClass}`);
+  }
 
   if (label) {
     errorDiv.html(`<p class="text-danger mt-2">${label}</p>`);
