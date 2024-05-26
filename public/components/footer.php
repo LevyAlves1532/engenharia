@@ -52,7 +52,7 @@
     </div>
 
     <div class="Footer__container_copyright">
-      <p>©️ <?= date("Y") ?> All rights reserved.</p>
+      <p>©️ <?= date("Y") ?> Todos os Direitos Reservados.</p>
     </div>
   </div>
 </footer>

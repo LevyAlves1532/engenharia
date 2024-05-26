@@ -22,8 +22,8 @@ $(function() {
     const hrefLink = $(linkMenu).find('a').attr('href').replace(BASE_URL, "");
 
     const activeLinkMenu = 'active-link-menu';
-
-    if (href.length !== 0 && href.indexOf(hrefLink) > -1) {
+    
+    if (href.length !== 0 && (hrefLink !== '' && href.indexOf(hrefLink) > -1)) {
       $('.HeaderMenuList li').removeClass(activeLinkMenu);
       $(linkMenu).addClass(activeLinkMenu);
     } else if (href.length === 0 && hrefLink.length === 0) {
@@ -134,11 +134,11 @@ function showError(element, label, errorClass = null) {
   }
 }
 
-function clearInputs(form, inputsName, validateFunc) {
+function clearInputs(form, inputsName, validateFunc, errorClass = null) {
   const formData = new FormData(form);
   let isValid = true;
 
-  inputsName.forEach(inputName => {
+  inputsName.forEach((inputName, index) => {
     const value = formData.get(inputName);
     
     if (typeof value === "string" && (value.trim() === "" || value.trim() === "null")) {
@@ -151,7 +151,11 @@ function clearInputs(form, inputsName, validateFunc) {
       const validInput = validateFunc[inputName](value, element);
       if (validInput.error) isValid = false;
 
-      showError(element, validInput.label);
+      if (!errorClass) {
+        showError(element, validInput.label);
+      } else {
+        showError(element, validInput.label, errorClass[index]);
+      }
     }
   });
 
