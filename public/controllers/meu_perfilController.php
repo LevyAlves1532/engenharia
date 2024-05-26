@@ -46,4 +46,10 @@ class meu_perfilController extends controller {
 
     echo json_encode($ajax_return);
   }
+
+  public function sair()
+  {
+    unset($_SESSION['user']);
+    header('Location: ' . BASE);
+  }
 }

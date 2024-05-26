@@ -58,7 +58,10 @@
                   <div class="Input__error error-user-password"></div>
                 </label>
 
-                <button type="submit" class="Button">Fazer Cadastro</button>
+                <div class="FormButtons">
+                  <button type="submit" class="Button">Fazer Cadastro</button>
+                  <a href="<?= BASE ?>meu_perfil/sair" class="Button Button--outline">Sair</a>
+                </div>
               </form>
             </div>
           </div>
