@@ -13,12 +13,14 @@ preg_match("/{$conexao}/i", $url, $match);
 //defininco se esta em desenvolvimento ou produção
 if (!empty($match)) {
 	define("BASE", "http://localhost/projetos/Daniel/civil_engineer_portfolio/public/");
+	define('ACCESS_TOKEN_MERCADO_PAGO', 'TEST-422895419841354-053010-5c3259dbb8311a4eef64aca095dd9275-1685623783');
 	$config["dbname"] = "civil_engineer_daniel";
 	$config["host"] = "localhost";
 	$config["dbuser"] = "root";
 	$config["dbpass"] = "";
 } else {
 	define("BASE", "https://jsninjajourney.com.br/sites/engenharia-daniel/");
+	define('ACCESS_TOKEN_MERCADO_PAGO', '');
 	// $config["dbname"] = "";
 	// $config["host"] = "";
 	// $config["dbuser"] = "";

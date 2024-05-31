@@ -6,6 +6,15 @@ class Cart {
     this.DEFAULT_CART_NAME_LOCAL = '@engenharia::cart';
   }
 
+  getJSONCart() {
+    return JSON.stringify(this.cart);
+  }
+
+  clearCart() {
+    this.cart = [];
+    this.saveStorage();
+  }
+
   init() {
     this.loadStorage();
     this.saveStorage();

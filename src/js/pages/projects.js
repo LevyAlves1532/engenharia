@@ -140,9 +140,11 @@ $(function() {
     }
 
     function renderProjects(projects) {
-      $('.ProjectsContent__products_list').html('');
+      if ($('.ProjectsContent__products_list').length > 0) {
+        $('.ProjectsContent__products_list').html('');
 
-      projects.forEach(project => $('.ProjectsContent__products_list')[0].appendChild(createProject(project)));
+        projects.forEach(project => $('.ProjectsContent__products_list')[0].appendChild(createProject(project)));
+      }
     }
 
     function createProject(project) {
@@ -219,22 +221,24 @@ $(function() {
 
     function renderPagination(json) {
       $('#pages-qtd').text(`+${json.qtd_projects}`);
-      $('#list-pages').html('');
+      if ($('#list-pages').length > 0) {
+        $('#list-pages').html('');
 
-      for (let x=json.current_page;x<(json.current_page + 3);x++) {
-        const real_pagination = x - 1;
-        if (real_pagination === 0) continue;
-        if (real_pagination > json.qtd_pages) continue;
-        
-        const li = document.createElement('li');
-        li.innerHTML = `<p>${real_pagination < 10 ? `0${real_pagination}` : real_pagination}</p>`
-        li.onclick = function() {
-          params.current_page = real_pagination;
-          listenProjects();
+        for (let x=json.current_page;x<(json.current_page + 3);x++) {
+          const real_pagination = x - 1;
+          if (real_pagination === 0) continue;
+          if (real_pagination > json.qtd_pages) continue;
+          
+          const li = document.createElement('li');
+          li.innerHTML = `<p>${real_pagination < 10 ? `0${real_pagination}` : real_pagination}</p>`
+          li.onclick = function() {
+            params.current_page = real_pagination;
+            listenProjects();
+          }
+          if (json.current_page === real_pagination) li.classList.add('active-dot');
+
+          $('#list-pages')[0].appendChild(li);
         }
-        if (json.current_page === real_pagination) li.classList.add('active-dot');
-
-        $('#list-pages')[0].appendChild(li);
       }
     }
   }

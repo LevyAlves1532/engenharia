@@ -1,0 +1,15 @@
+.InputDouble {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  &__label {
+    width: 100%;
+    @include font-size(16);
+    color: $third;
+  }
+
+  label {
+    flex: 1;
+  }
+}

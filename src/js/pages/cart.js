@@ -11,7 +11,10 @@ $(function() {
         if (json.error) {
           localStorage.setItem(GO_CHECKOUT_STORAGE, 'true');
           window.location.href = BASE_URL + 'conta';
+          return;
         }
+
+        window.location.href = BASE_URL + 'checkout';
       },
     })
   });

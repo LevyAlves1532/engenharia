@@ -1,0 +1,31 @@
+.WrapperCheckout {
+  padding-top: 128px;
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+
+    .CheckoutTitle {
+      margin-bottom: 40px;
+
+      h1 {
+        @include font-size(44, 54);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+
+    .CheckoutMethods {
+      max-width: 768px;
+      width: 100%;
+
+      #form-checkout {
+        .Button {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}
