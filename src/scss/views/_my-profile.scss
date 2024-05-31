@@ -115,6 +115,8 @@
               }
 
               &__list {
+                margin-bottom: 20px;
+
                 .MyProfileProduct {
                   display: flex;
                   gap: 20px;
@@ -142,6 +144,33 @@
                     p {
                       @include font-size(16);
                       color: $third;
+                    }
+                  }
+                }
+              }
+
+              &__footer {
+                span {
+                  @include font-size(16);
+                  font-family: $fontTitle;
+                  color: $third;
+                  margin-bottom: 10px;
+                }
+
+                table {
+                  tbody {
+                    tr {
+                      td {
+                        @include font-size(12);
+                        color: $third;
+                        font-family: $fontText;
+
+                        &:first-child {
+                          padding-right: 20px;
+                          font-weight: 600;
+                          font-family: $fontTitle;
+                        }
+                      }
                     }
                   }
                 }

@@ -90,6 +90,7 @@ $(function() {
             success: (json) => {
               if (json.status) {
                 cart.clearCart();
+                window.location.href = BASE_URL + 'meu_perfil?tab=historic';
               }
             }
           });

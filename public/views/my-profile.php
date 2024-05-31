@@ -1,18 +1,26 @@
+<?php
+
+  echo '<pre>';
+  print_r($payments);
+  echo '</pre>';
+
+?>
+
 <main class="WrapperMyProfile">
   <div class="WrapperMyProfile__container">
     <div class="WrapperMyProfile__container_title">
-      <h1>My Profile</h1>
+      <h1>Meu Perfil</h1>
     </div>
 
     <div class="WrapperMyProfile__container_content">
       <div class="MyProfileTabBox" id="tab-box-my-profile">
         <div class="MyProfileTabBox__tabs">
-          <button class="active-tab" data-tab="profile">Perfil</button>
-          <button data-tab="historic">Histórico</button>
+          <button <?= (!isset($_GET['tab']) || (!empty($_GET['tab']) && $_GET['tab'] === 'profile')) ? 'class="active-tab"' : '' ?> data-tab="profile">Perfil</button>
+          <button <?= (!empty($_GET['tab']) && $_GET['tab'] === 'historic') ? 'class="active-tab"' : '' ?> data-tab="historic">Histórico</button>
         </div>
 
         <div class="MyProfileTabBox__content">
-          <div class="MyProfileTabBox__content_item active-tab" data-tab-name="profile">
+          <div class="MyProfileTabBox__content_item <?= (!isset($_GET['tab']) || (!empty($_GET['tab']) && $_GET['tab'] === 'profile')) ? 'active-tab' : '' ?>" data-tab-name="profile">
             <div class="ProfileForm">
               <form id="profile-form">
                 <label class="Input">
@@ -59,36 +67,84 @@
                 </label>
 
                 <div class="FormButtons">
-                  <button type="submit" class="Button">Fazer Cadastro</button>
+                  <button type="submit" class="Button">Editar Perfil</button>
                   <a href="<?= BASE ?>meu_perfil/sair" class="Button Button--outline">Sair</a>
                 </div>
               </form>
             </div>
           </div>
           
-          <div class="MyProfileTabBox__content_item" data-tab-name="historic">
-            <div class="MyProfileHistoric">
-              <div class="MyProfileHistoric__header">
-                <p>Total Price:</p>
-                <span>R$ 124,00</span>
-              </div>
-
-              <div class="MyProfileHistoric__list">
-                <a href="<?= BASE ?>projetos/produto/general-construction" class="MyProfileProduct">
-                  <div class="MyProfileProduct__image">
-                    <img src="https://img.freepik.com/fotos-gratis/renderizacao-3d-do-modelo-de-casa-isometrica_23-2150799647.jpg?t=st=1713817554~exp=1713821154~hmac=f793eba460c8d491ed4ab22085b3df9dc786476bcece379887d84029dc1b97c6&w=740" alt="">
+          <div class="MyProfileTabBox__content_item <?= (!empty($_GET['tab']) && $_GET['tab'] === 'historic') ? 'active-tab' : '' ?>" data-tab-name="historic">
+            <?php if (count($payments) > 0): ?>
+              <?php 
+                foreach($payments as $payment): 
+                $total_value = 0;
+              ?>
+                <div class="MyProfileHistoric">
+                  <div class="MyProfileHistoric__header">
+                    <p>Preço Total:</p>
+                    <span>R$ <?= number_format($payment['total_value'], 2, ',', '.') ?> - <?= date('H:i d/m/Y', strtotime($payment['created_at'])) ?></span>
                   </div>
 
-                  <div class="MyProfileProduct__title">
-                    <p>General Construction</p>
+                  <div class="MyProfileHistoric__list">
+                    <?php if (count($payment['projects']) > 0): ?>
+                      <?php 
+                        foreach($payment['projects'] as $project): 
+                        
+                        $price = 0;
+
+                        if ($project['is_discount'] === 1) {
+                          $discount = ($project['price'] * $project['discount_percent']) / 100;
+                          $price = $project['price'] - $discount;
+                        } else {
+                          $price = $project['price'];
+                        }
+
+                        $total_value += $price;
+                      ?>
+                        <a href="<?= BASE ?>projetos/produto/<?= $project['slug'] ?>" class="MyProfileProduct">
+                          <div class="MyProfileProduct__image">
+                            <img src="<?= $project['cover'] ?>" alt="">
+                          </div>
+
+                          <div class="MyProfileProduct__title">
+                            <p><?= $project['title'] ?></p>
+                          </div>
+
+                          <div class="MyProfileProduct__price">
+                            <p>R$ <?= number_format($price, 2, ',', '.') ?></p>
+                          </div>
+                        </a>
+                      <?php endforeach; ?>
+                    <?php endif; ?>
                   </div>
 
-                  <div class="MyProfileProduct__price">
-                    <p>R$ 124,00</p>
+                  <div class="MyProfileHistoric__footer">
+                    <span>Mais Informações:</span>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>Qtd. Vezes (x):</td>
+                          <td><?= $payment['installments'] ?></td>
+                        </tr>
+                        <tr>
+                          <td>Parcelas:</td>
+                          <td>R$ <?= number_format($payment['installments_amount'], 2, ',', '.') ?></td>
+                        </tr>
+                        <tr>
+                          <td>Status:</td>
+                          <td><?= $payment['status'] === 'approved' ? 'Aprovado' : 'Rejeitado' ?></td>
+                        </tr>
+                        <tr>
+                          <td>Juros do Cartão:</td>
+                          <td>R$ <?= number_format(($payment['total_value'] - $total_value), 2, ',', '.') ?> - <?= number_format((($payment['total_value'] - $total_value) * 100) / $total_value, 1, ',', '.') ?>%</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
-                </a>
-              </div>
-            </div>
+                </div>
+              <?php endforeach; ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>

@@ -6,12 +6,14 @@ class meu_perfilController extends controller {
     $data = [];
 
     $users = new Users();
+    $payments = new Payments();
 
     if (empty($_SESSION['user'])) {
       header('Location: ' . BASE);
     }
 
     $data['user'] = $users->get($_SESSION['user']['id']);
+    $data['payments'] = $payments->getAllFromIdUser($_SESSION['user']['id']);
 
     $this->loadTemplate('my-profile', $data);
   }
