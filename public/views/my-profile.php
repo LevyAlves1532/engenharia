@@ -1,11 +1,3 @@
-<?php
-
-  echo '<pre>';
-  print_r($payments);
-  echo '</pre>';
-
-?>
-
 <main class="WrapperMyProfile">
   <div class="WrapperMyProfile__container">
     <div class="WrapperMyProfile__container_title">
@@ -144,6 +136,8 @@
                   </div>
                 </div>
               <?php endforeach; ?>
+            <?php else: ?>
+              <p>Você não comprou nenhum projeto!</p>
             <?php endif; ?>
           </div>
         </div>

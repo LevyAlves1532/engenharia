@@ -47,7 +47,9 @@
         <?php endif; ?>
 
         <div class="ProductPrices__button">
-          <button class="Button" data-slug="<?= $slug ?>" id="add-cart">Adicionar ao Carrinho +</button>
+          <button class="Button" data-slug="<?= $slug ?>" <?= !isset($buy_project) ? 'id="add-cart"' : '' ?>>
+            <?= !isset($buy_project) ? 'Adicionar ao Carrinho +' : 'Você adquiriu o projeto' ?>
+          </button>
         </div>
 
         <div class="ProductPrices__data">
@@ -72,6 +74,18 @@
           </div>
         </div>
       </div>
+
+      <?php if (isset($buy_project)): ?>
+        <div class="ProductFiles">
+          <div class="ProductFiles__title">
+            <h2>Arquivos do Projeto</h2>
+          </div>
+
+          <div class="ProductFiles__action">
+            <a href="<?= BASE ?>projetos/baixar_arquivos/<?= $slug ?>" class="Button" id="download-files" data-slug="<?= $slug ?>">Baixar Arquivos</a>
+          </div>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
 </main>

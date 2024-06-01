@@ -49,6 +49,8 @@ $(function() {
     $('#tab-box-my-profile .MyProfileTabBox__content_item').removeClass(tabActiveClass);
     $(`#tab-box-my-profile div[data-tab-name="${tab}"]`).addClass(tabActiveClass);
     $(this).addClass(tabActiveClass);
+
+    history.pushState(null, null, BASE_URL + 'meu_perfil?tab=' + tab);
   });
 
   $('#profile-form').on('submit', function(e) {

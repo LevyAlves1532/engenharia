@@ -125,7 +125,7 @@ class Projects extends model {
 
     $project_carousel = new ProjectCarousel();
 
-    $sql = 'SELECT projects.* FROM projects  WHERE projects.slug = :slug';
+    $sql = 'SELECT * FROM projects  WHERE slug = :slug';
     $sql = $this->db->prepare($sql);
     $sql->bindValue(':slug', $slug);
     $sql->execute();

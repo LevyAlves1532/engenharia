@@ -71,7 +71,7 @@ class checkoutController extends controller {
       $payment_id = $payments->set($_SESSION['user']['id'], $payment->card->first_six_digits, $payment->card->cardholder->name, $payment->payment_method->id, $_POST['email'], $payment->installments, $payment->transaction_details->installment_amount, $payment->transaction_details->total_paid_amount, $payment->status, json_encode($payment));
 
       foreach ($cart as $cart_item) {
-        $payment_projects->set($payment_id, $cart_item->id, $cart_item->is_discount, $cart_item->price, $cart_item->discount_percent);
+        $payment_projects->set($_SESSION['user']['id'], $payment_id, $cart_item->id, $cart_item->is_discount, $cart_item->price, $cart_item->discount_percent);
       }
   
       echo json_encode([ "status" => $payment->status === 'approved' ? true : false ]);

@@ -9,14 +9,25 @@ class projetosController extends controller {
   {
     $data = [];
 
+    $payment_projects = new PaymentProjects();
+
     if (!empty($slug)) {
       $projects = new Projects();
 
       $project = $projects->getSlug(addslashes($slug));
 
       if ($project === []) header('Location: ' . BASE . 'projetos');
+
       $data['project'] = $project;
       $data['slug'] = $slug;
+      
+      if (!empty($_SESSION['user'])) {
+        $buy_project = $payment_projects->is_buy($_SESSION['user']['id'], $project['id']);
+
+        if ($buy_project) {
+          $data['buy_project'] = true;
+        }
+      }
     }
 
     $this->loadTemplate('product', $data);
@@ -99,5 +110,44 @@ class projetosController extends controller {
     }
 
     echo json_encode($ajax_return);
+  }
+
+  public function baixar_arquivos($slug = null)
+  {
+    $projects = new Projects();
+    $project_files = new ProjectFiles();
+
+    if (!empty($slug)) {
+      $project = $projects->getSlug($slug);
+
+      if ($project !== []) {
+        $files = $project_files->getAllFromIdProject($project['id']);
+
+        $zip = new ZipArchive();
+        $zipName = $project['slug'] . '.zip';
+
+        if ($zip->open($zipName, ZipArchive::CREATE) === TRUE) {
+            foreach ($files as $file) {
+                $fileContent = file_get_contents($file['file']);
+                $fileName = basename($file['file']);
+                $zip->addFromString($fileName, $fileContent);
+            }
+            $zip->close();
+        }
+
+        header('Content-Type: application/zip');
+        header('Content-disposition: attachment; filename='.$zipName);
+        header('Content-Length: ' . filesize($zipName));
+        readfile($zipName);
+
+        // Excluir o arquivo zip após o download
+        unlink($zipName);
+      }
+
+      echo 'ok';
+      header('Location: ' . BASE . 'projetos/produto' . $slug);
+    } else {
+      header('Location: ' . BASE . 'projetos');
+    }
   }
 }

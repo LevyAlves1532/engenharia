@@ -98,6 +98,7 @@
       .ProductPrices {
         padding: 20px;
         border: 1px solid $gray;
+        margin-bottom: 20px;
 
         &__discount {
           margin-bottom: 10px;
@@ -157,7 +158,30 @@
             }
           }
         }
-      }      
+      }
+      
+      .ProductFiles {
+        padding: 20px;
+        border: 1px solid $gray;
+
+        &__title {
+          margin-bottom: 10px;
+
+          h2 {
+            @include font-size(16);
+            font-weight: 600;
+            font-family: $fontTitle;
+            color: $third;
+          }
+        }
+
+        &__action {
+          a {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+      }
     }
   }
 }
