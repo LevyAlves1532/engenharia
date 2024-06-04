@@ -5,13 +5,30 @@
     <p>Pagamentos</p>
   </div>
 
-  <div class="AdmHeaderPage">
+  <div class="AdmHeaderPage mb-3">
     <div class="AdmHeaderPage__title">
       <h1>Pagamentos</h1>
     </div>
   </div>
 
   <div class="AdmPaymentsTable">
-
+    <table id="payments-table" class="table table-dark table-hover table-striped display">
+      <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Cartão</th>
+            <th>Valor Total</th>
+            <th>Ação</th>
+          </tr>
+      </thead>
+      <tfoot>
+          <tr>
+            <th>Nome</th>
+            <th>Cartão</th>
+            <th>Valor Total</th>
+            <th>Ação</th>
+          </tr>
+      </tfoot>
+    </table>
   </div>
 </main>

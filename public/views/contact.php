@@ -2,7 +2,7 @@
   <section class="ContactFaq">
     <div class="ContactFaq__container">
       <div class="ContactFaq__container_title">
-        <h1>All the Question</h1>
+        <h1>Perguntas Frequentes</h1>
       </div>
 
       <div class="ContactFaq__container_list">

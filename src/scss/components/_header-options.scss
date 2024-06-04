@@ -161,6 +161,7 @@
 
             @include respond-to($tb) {
               padding-top: 60px;
+              max-height: unset;
 
               flex: 1;
             }
