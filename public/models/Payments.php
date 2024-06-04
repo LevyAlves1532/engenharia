@@ -98,6 +98,22 @@ class Payments extends model {
     return $arr;
   }
 
+  public function getProfitMonth($month)
+  {
+    $arr = [];
+
+    $sql = 'SELECT SUM(payments.total_value) as profit_month FROM payments WHERE MONTH(created_at) = :month';
+    $sql = $this->db->prepare($sql);
+    $sql->bindValue(':month', $month);
+    $sql->execute();
+
+    if ($sql->rowCount() > 0) {
+      $arr = $sql->fetch(PDO::FETCH_ASSOC);
+    }
+
+    return $arr;
+  }
+
   public function set($id_user, $card_number, $card_name, $card_bank, $email, $installments, $installments_amount, $total_value, $status, $mp_json)
   {
     $sql = 'INSERT INTO payments SET id_user = :id_user, card_number = :card_number, card_name = :card_name, card_bank = :card_bank, email = :email, installments = :installments, installments_amount = :installments_amount, total_value = :total_value, status = :status, mp_json = :mp_json';
