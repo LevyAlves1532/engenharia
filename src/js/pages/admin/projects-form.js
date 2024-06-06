@@ -210,6 +210,10 @@ $(function() {
                   $('#files-projects')[0].appendChild(button);
                 });
               }
+
+              alertLib('Projeto editado com sucesso!');
+            } else if (!response.status && response.return.error && isAdd) {
+              alertLib(response.return.error);
             }
           },
         });

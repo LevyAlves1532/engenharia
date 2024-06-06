@@ -125,6 +125,8 @@ class usersAdminController extends controller {
       $keys_post = array_keys($post);
 
       $users->up($id, $keys_post, $post);
+
+      $this->array_ajax['status'] = true;
     } else {
       $this->array_ajax['status'] = false;
       $this->array_ajax['return'] = ['error' => 'Está faltando parâmetros!'];

@@ -131,7 +131,7 @@ class posts_instagramAdminController extends controller {
       } else {
         $keys_post = array_keys($post);
         $posts_instagram->up($id, $keys_post, $post);
-        exit;
+        $this->array_ajax['status'] = true;
       }
     } else {
       $this->array_ajax['status'] = false;

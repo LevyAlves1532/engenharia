@@ -174,3 +174,21 @@ function convertInBRL(number) {
 /**
  * Convert number in value br - End
  */
+
+/**
+ * Alert - Start
+ */
+function alertLib(message) {
+  Swal.mixin({
+    customClass: {
+      confirmButton: "Button",
+    },
+    buttonsStyling: false,
+  }).fire({
+    text: message,
+    confirmButtonText: "Fechar",
+  });
+}
+/**
+ * Alert - End
+ */

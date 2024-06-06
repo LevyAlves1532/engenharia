@@ -90,11 +90,15 @@ $(function() {
           processData: false,
           dataType: 'json',
           success: function(response) {
-            console.log('ok');
             if (response.status && isAdd) {
               window.location.href = BASE_URL + 'admin/feedbacks';
-            } else if (response.status && response.return.path) {
+            } else if (response.status && response.return && response.return.path) {
               $('#text-cover').html(response.return.path);
+              alertLib('Feedback editado com sucesso!');
+            } else if (response.status && !isAdd) {
+              alertLib('Feedback editado com sucesso!');
+            } else if (!response.status && response.return.error && isAdd) {
+              alertLib(response.return.error);
             }
           },
         });

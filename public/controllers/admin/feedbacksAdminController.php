@@ -140,7 +140,7 @@ class feedbacksAdminController extends controller {
       } else {
         $keys_post = array_keys($post);
         $feedbacks->up($id, $keys_post, $post);
-        exit;
+        $this->array_ajax['status'] = true;
       }
     } else {
       $this->array_ajax['status'] = false;

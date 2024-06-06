@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="<?= BASE ?>assets/css/libs/bootstrap.min.css">
     <link rel="stylesheet" href="<?= BASE ?>assets/css/libs/data-tables.min.css">
     <link rel="stylesheet" href="<?= BASE; ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?= BASE; ?>assets/css/libs/sweetalert2.min.css">
   </head>
   <body>
 
@@ -38,6 +39,7 @@
     <script src="<?= BASE ?>assets/js/libs/data-tables.min.js"></script>
     <script src="<?= BASE ?>assets/js/libs/chart.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
+    <script src="<?= BASE ?>assets/js/libs/sweetalert2.min.js"></script>
     <script src="<?= BASE ?>assets/js/main.min.js"></script>
 
   </body>

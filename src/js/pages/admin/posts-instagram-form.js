@@ -56,8 +56,13 @@ $(function() {
           success: function(response) {
             if (response.status && isAdd) {
               window.location.href = BASE_URL + 'admin/posts_instagram';
-            } else if (response.status && response.return.path) {
+            } else if (response.status && response.return && response.return.path) {
               $('.form-text').html(response.return.path);
+              alertLib('Post editado com sucesso!');
+            } else if (response.status && !isAdd) {
+              alertLib('Post editado com sucesso!');
+            } else if (!response.status && response.return.error && isAdd) {
+              alertLib(response.return.error);
             }
           },
         });

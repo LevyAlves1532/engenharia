@@ -70,6 +70,10 @@ $(function(){
           success: function(response) {
             if (response.status && isAdd) {
               window.location.href = BASE_URL + 'admin/users';
+            } else if (response.status && !isAdd) {
+              alertLib('Usuário editado com sucesso!');
+            } else if (!response.status && response.return.error && isAdd) {
+              alertLib(response.return.error);
             }
           },
         });

@@ -57,6 +57,12 @@ select {
   outline: 0;
 }
 
+.swal2-html-container {
+  @include font-size(16);
+  font-family: $fontTitle;
+  color: $third;
+}
+
 .AdminTemplate {
   width: 100%;
   height: auto;

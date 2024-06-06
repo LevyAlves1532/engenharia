@@ -66,8 +66,13 @@ $(function() {
           success: function(response) {
             if (response.status && isAdd) {
               window.location.href = BASE_URL + 'admin/team';
-            } else if (response.status && response.return.path) {
+            } else if (response.status && response.return && response.return.path) {
               $('.form-text').html(response.return.path);
+              alertLib('Time editado com sucesso!');
+            } else if (response.status && !isAdd) {
+              alertLib('Time editado com sucesso!');
+            } else if (!response.status && response.return.error && isAdd) {
+              alertLib(response.return.error);
             }
           },
         });

@@ -97,7 +97,7 @@ class faqAdminController extends controller {
 
       $keys_post = array_keys($post);
       $faq->up($id, $keys_post, $post);
-      exit;
+      $this->array_ajax['status'] = true;
     } else {
       $this->array_ajax['status'] = false;
       $this->array_ajax['return'] = ['error' => 'Está faltando parâmetros!'];

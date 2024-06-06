@@ -50,8 +50,10 @@ $(function() {
           success: function(response) {
             if (response.status && isAdd) {
               window.location.href = BASE_URL + 'admin/faq';
-            } else if (response.status && response.return.path) {
-              $('#text-cover').html(response.return.path);
+            } else if (response.status && !isAdd) {
+              alertLib('Pergunta editada com sucesso!');
+            } else if (!response.status && response.return.error && isAdd) {
+              alertLib(response.return.error);
             }
           },
         });

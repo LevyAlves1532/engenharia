@@ -22,8 +22,36 @@
       width: 100%;
 
       #form-checkout {
-        .Button {
+        .FormButton {
           margin-top: 30px;
+
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          &__spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid $third;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+
+            @keyframes rotation {
+              0% {
+                  transform: rotate(0deg);
+              }
+              100% {
+                  transform: rotate(360deg);
+              }
+            }
+
+            &--hidden {
+              display: none;
+            }
+          }
         }
       }
     }

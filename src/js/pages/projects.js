@@ -129,7 +129,18 @@ $(function() {
         data: { ...params },
         dataType: 'json',
         success: (json) => {
-          if (json.error) return;
+          if (json.error) {
+            Swal.mixin({
+              customClass: {
+                confirmButton: "Button",
+              },
+              buttonsStyling: false,
+            }).fire({
+              text: json.error,
+              confirmButtonText: "Fechar",
+            });
+            return;
+          }
 
           if (json.data.length > 0) {
             renderProjects(json.data);

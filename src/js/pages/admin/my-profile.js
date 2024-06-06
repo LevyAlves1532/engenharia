@@ -47,15 +47,21 @@ $(function() {
 
       const formData = clearInputs(this, inputsName, validateFunc);
 
-      console.log(formData);
-
-      $.ajax({
-        url: BASE_URL + 'admin/users/edit',
-        type: 'post',
-        data: formData,
-        contentType: false,
-        processData: false,
-      });
+      if (formData) {
+        $.ajax({
+          url: BASE_URL + 'admin/users/edit',
+          type: 'post',
+          data: formData,
+          contentType: false,
+          processData: false,
+          dataType: 'json',
+          success: (response) => {
+            if (response.status) {
+              alertLib('Conta editada com sucesso!');
+            }
+          },
+        });
+      }
     });
   }
 });

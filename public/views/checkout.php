@@ -141,7 +141,10 @@
                 </label>
               </div>
 
-              <button type="submit" class="Button" id="form-checkout__submit">Finalizar Pagamento</button>
+              <div class="FormButton">
+                <button type="submit" class="Button" id="form-checkout__submit">Finalizar Pagamento</button>
+                <div class="FormButton__spinner FormButton__spinner--hidden"></div>
+              </div>
             </form>
           </div>
         </div>

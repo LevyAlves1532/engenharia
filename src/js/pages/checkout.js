@@ -57,6 +57,8 @@ $(function() {
         onSubmit: event => {
           event.preventDefault();
 
+          $('.FormButton__spinner').removeClass('FormButton__spinner--hidden');
+
           const {
             paymentMethodId: payment_method_id,
             issuerId: issuer_id,
@@ -92,6 +94,8 @@ $(function() {
                 cart.clearCart();
                 window.location.href = BASE_URL + 'meu_perfil?tab=historic';
               }
+
+              $('.FormButton__spinner').addClass('FormButton__spinner--hidden');
             }
           });
         },
