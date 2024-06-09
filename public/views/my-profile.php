@@ -131,8 +131,20 @@
                           <td>Juros do Cartão:</td>
                           <td>R$ <?= number_format(($payment['total_value'] - $total_value), 2, ',', '.') ?> - <?= number_format((($payment['total_value'] - $total_value) * 100) / $total_value, 1, ',', '.') ?>%</td>
                         </tr>
+                        <tr>
+                          <td>Nº de Pedidos:</td>
+                          <td><?= json_decode($payment['mp_json'])->id ?></td>
+                        </tr>
                       </tbody>
                     </table>
+                    <?php if (empty($payment['reimbursement'])): ?>
+                      <a href="<?= BASE ?>meu_perfil/reembolso/<?= base64_encode($payment['id']) ?>" class="Button">Solicitar Reembolso</a>
+                    <?php endif; ?>
+                    <?php if (!empty($payment['reimbursement'])): ?>
+                      <div class="MyProfileHistoric__footer_reimbursement">
+                        <p><span><?= $payment['reimbursement']['status'] ?></span> - <a href="<?= BASE ?>meu_perfil/ver_reembolso/<?= base64_encode($payment['reimbursement']['id']) ?>">Ver solicitação</a></p>
+                      </div>
+                    <?php endif; ?>
                   </div>
                 </div>
               <?php endforeach; ?>

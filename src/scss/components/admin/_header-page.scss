@@ -14,5 +14,10 @@
       @include font-size(34, 44);
       font-weight: 600;
     }
+
+    h2 {
+      @include font-size(24, 34);
+      font-weight: 600;
+    }
   }
 }

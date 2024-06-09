@@ -1,6 +1,7 @@
 <?php
 
   $total_value = 0;
+  $mp_json = json_decode($payment['mp_json']);
 
 ?>
 
@@ -16,6 +17,7 @@
   <div class="AdmHeaderPage mb-5">
     <div class="AdmHeaderPage__title">
       <h1>Pagamento</h1>
+      <h2>Nº do Pedido: <?= $mp_json->id ?></h2>
     </div>
   </div>
 
@@ -57,6 +59,7 @@
         <tr>
           <th>Projeto</th>
           <th>Valor Total</th>
+          <th>Status</th>
         </tr>
     </thead>
     <tbody>
@@ -74,17 +77,20 @@
                   $discount = ($project['price'] * $project['discount_percent']) / 100;
                   $price = $project['price'] - $discount;
               ?>
-                <p><?= number_format($price, 2, ',', '.') ?> - <strike><?= number_format($project['price'], 2, ',', '.') ?></strike></p>
+                <p>R$ <?= number_format($price, 2, ',', '.') ?> - <strike><?= number_format($project['price'], 2, ',', '.') ?></strike></p>
               <?php 
                 } else { 
                   $price = $project['price'];
               ?>
-                <p><?= number_format($price, 2, ',', '.') ?></p>
+                <p>R$ <?= number_format($price, 2, ',', '.') ?></p>
               <?php 
                 } 
 
                 $total_value += $price;
               ?>
+            </td>
+            <td>
+              <?= $project['is_download'] === 1 ? 'Fez download' : 'Não fez download' ?>
             </td>
           </tr>
         <?php endforeach; ?>
@@ -94,6 +100,7 @@
         <tr>
           <th>Projeto</th>
           <th>Valor Total</th>
+          <th>Status</th>
         </tr>
     </tfoot>
   </table>

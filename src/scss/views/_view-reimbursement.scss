@@ -1,0 +1,77 @@
+.WrapperViewReimbursement {
+  padding-top: 128px;
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    padding: 60px 20px;
+    margin: 0 auto;
+
+    .ViewReimbursementTitle {
+      margin-bottom: 40px;
+
+      h1 {
+        @include font-size(44, 54);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+
+    .ViewReimbursementBody {
+      &__box {
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: $fifth;
+
+        &_status {
+          padding-bottom: 10px;
+          border-bottom: 1px solid $fourth;
+          margin-bottom: 10px;
+
+          p {
+            @include font-size(16);
+            color: $third;
+            font-weight: 600;
+
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            span {
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+
+              &.approved {
+                background-color: chartreuse;
+              }
+
+              &.reproved {
+                background-color: brown;
+              }
+            }
+          }
+        }
+
+        &_response {
+          p {
+            @include font-size(16, 26);
+          }
+        }
+      }
+
+      &__text {
+        @include font-size(16);
+        color: $gray_dark;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+
+        a {
+          @include font-size(16);
+          color: $third;
+        }
+      }
+    }
+  }
+}

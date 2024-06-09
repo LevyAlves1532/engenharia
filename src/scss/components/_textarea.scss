@@ -1,0 +1,44 @@
+.Textarea {
+  &__label {
+    margin-bottom: 10px;
+    @include font-size(16);
+    color: $third;
+  }
+
+  &__content {
+    width: 100%;
+    border: 1px solid $gray;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: text;
+    padding: 10px;
+    transition: all ease 0.8s;
+
+    display: flex;
+
+    textarea {
+      min-width: 100%;
+      min-height: 200px;
+      @include font-size(16);
+    }
+  }
+
+  &__error {
+    margin-top: 10px;
+
+    p {
+      @include font-size(12);
+      color: $red;
+    }
+  }
+
+  &:hover {
+    .Textarea__content {
+      border-color: $third;
+
+      textarea {
+        color: $third;
+      }
+    }
+  }
+}

@@ -114,13 +114,16 @@ class projetosController extends controller {
 
   public function baixar_arquivos($slug = null)
   {
+    $payment_projects = new PaymentProjects();
     $projects = new Projects();
     $project_files = new ProjectFiles();
 
     if (!empty($slug)) {
       $project = $projects->getSlug($slug);
+      $is_buy = $payment_projects->is_buy($_SESSION['user']['id'], $project['id']);
 
-      if ($project !== []) {
+      if ($project !== [] && $is_buy) {
+        $payment_projects->mark_download($_SESSION['user']['id'], $project['id']);
         $files = $project_files->getAllFromIdProject($project['id']);
 
         $zip = new ZipArchive();

@@ -1,0 +1,34 @@
+.WrapperReimbursement {
+  padding-top: 128px;
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    padding: 60px 20px;
+    margin: 0 auto;
+
+    .ReimbursementTitle {
+      margin-bottom: 40px;
+
+      h1 {
+        @include font-size(44, 54);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+
+    .ReimbursementToggle {
+      max-width: 768px;
+
+      #form-reimbursement {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        button {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

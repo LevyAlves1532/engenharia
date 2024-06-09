@@ -1,0 +1,8 @@
+.AdmReimbursementView {
+  #reimbursement-form {
+    p {
+      @include font-size(12);
+      color: $gray_dark;
+    }
+  }
+}

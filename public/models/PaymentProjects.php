@@ -30,6 +30,16 @@ class PaymentProjects extends model {
     $sql->execute();
   }
 
+  public function mark_download($id_user, $id_project)
+  {
+    $sql = 'UPDATE payment_projects SET is_download = :is_download WHERE MD5(id_user) = :id_user AND MD5(id_project) = :id_project';
+    $sql = $this->db->prepare($sql);
+    $sql->bindValue(':is_download', 1);
+    $sql->bindValue(':id_user', md5($id_user));
+    $sql->bindValue(':id_project', md5($id_project));
+    $sql->execute();
+  }
+
   public function is_buy($id_user, $id_project)
   {
     $is = false;

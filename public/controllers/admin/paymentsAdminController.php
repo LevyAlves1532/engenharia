@@ -42,7 +42,7 @@ class paymentsAdminController extends controller {
       return [
         $payment['name'], 
         $payment['card_bank'], 
-        number_format($payment['total_value'], 2, ',', '.'), 
+        'R$ ' . number_format($payment['total_value'], 2, ',', '.'), 
         '
           <div class="dropdown">
             <button class="btn btn-outline-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

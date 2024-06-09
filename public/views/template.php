@@ -29,6 +29,7 @@
     <script src="<?= BASE ?>assets/js/libs/slick.min.js"></script>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <script src="<?= BASE ?>assets/js/libs/sweetalert2.min.js"></script>
+    <script src="<?= BASE ?>assets/js/libs/jquery.mask.min.js"></script>
     <script src="<?= BASE ?>assets/js/main.min.js"></script>
 
   </body>
