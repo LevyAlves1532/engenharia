@@ -15,6 +15,11 @@ $(function() {
         url: BASE_URL + 'projetos/project?slug=' + slug,
         dataType: 'json',
         success: (json) => {
+          if (json.data.is_logged === 0) {
+            window.location.href = BASE_URL + 'conta/';
+            return;
+          }
+
           cart.pushProject(json.data);
 
           $('#add-cart').text('Ver no Carrinho');

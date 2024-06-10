@@ -74,7 +74,7 @@ $(function() {
           formData.append('token', token);
           formData.append('issuer_id', issuer_id);
           formData.append('payment_method_id', payment_method_id);
-          formData.append('transaction_amount',  Number(amount));
+          formData.append('transaction_amount',  Number(amount).toFixed(2));
           formData.append('installments', Number(installments));
           formData.append('description', 'Compra de Projetos em Engenharia');
           formData.append('email', email);

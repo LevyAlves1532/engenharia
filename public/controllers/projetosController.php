@@ -23,7 +23,7 @@ class projetosController extends controller {
       
       if (!empty($_SESSION['user'])) {
         $buy_project = $payment_projects->is_buy($_SESSION['user']['id'], $project['id']);
-
+        
         if ($buy_project) {
           $data['buy_project'] = true;
         }
@@ -36,6 +36,8 @@ class projetosController extends controller {
   public function list()
   {
     $projects = new Projects();
+    $payment_projects = new PaymentProjects();
+
     $ajax_return = [];
     $filters = [];
 
@@ -91,12 +93,24 @@ class projetosController extends controller {
       $ajax_return['error'] = 'Projetos não encontrados!';
     }
 
+    foreach ($ajax_return['data'] as $key => $project) {
+			if (!empty($_SESSION['user'])) {
+				$ajax_return['data'][$key]['is_buy'] = $payment_projects->is_buy($_SESSION['user']['id'], $project['id']) ? 1 : 0;
+				$ajax_return['data'][$key]['is_logged'] = 1;
+			} else {
+				$ajax_return['data'][$key]['is_buy'] = 0;
+				$ajax_return['data'][$key]['is_logged'] = 0;
+			}
+		}
+
     echo json_encode($ajax_return);
   }
 
   public function project()
   {
     $projects = new Projects();
+    $payment_projects = new PaymentProjects();
+
     $ajax_return = [];
 
     if (!empty($_GET['slug'])) {
@@ -105,6 +119,8 @@ class projetosController extends controller {
       $project = $projects->getSlug($slug);
 
       $ajax_return['data'] = $project;
+      $ajax_return['data']['is_buy'] = (!empty($_SESSION['user']) && $payment_projects->is_buy($_SESSION['user']['id'], $project['id'])) ? 1 : 0;
+      $ajax_return['data']['is_logged'] = !empty($_SESSION['user']) ? 1 : 0;
     } else {
       $ajax_return['error'] = 'Projeto não encontrado!';
     }

@@ -2,7 +2,10 @@ $(function() {
   const href = window.location.href;
 
   if (href.indexOf('projetos') > -1 && href.indexOf('admin') === -1) {
-    const initialParams = { current_page: 1 };
+    const cart = new Cart();
+    cart.init();
+
+    const initialParams = localStorage.getItem(PARAMS_LISTEN_PROJECTS_STORAGE) ? JSON.parse(localStorage.getItem(PARAMS_LISTEN_PROJECTS_STORAGE)) : { current_page: 1 };
 
     let search = '';
     let params = { ...initialParams };
@@ -124,6 +127,8 @@ $(function() {
     });
 
     function listenProjects() {
+      localStorage.setItem(PARAMS_LISTEN_PROJECTS_STORAGE, JSON.stringify(params));
+
       $.ajax({
         url: BASE_URL + `projetos/list?search=${search}`,
         data: { ...params },
@@ -154,7 +159,11 @@ $(function() {
       if ($('.ProjectsContent__products_list').length > 0) {
         $('.ProjectsContent__products_list').html('');
 
-        projects.forEach(project => $('.ProjectsContent__products_list')[0].appendChild(createProject(project)));
+        projects.forEach(project => {
+          let projectHTML = createProject(project);
+          projectHTML = renderButton(projectHTML, project);
+          $('.ProjectsContent__products_list')[0].appendChild(projectHTML);
+        });
       }
     }
 
@@ -222,7 +231,7 @@ $(function() {
           </div>
 
           <div class="Project__info_button">
-            <button class="Button">Ver Produto</button>
+            
           </div>
         </div>
       `;
@@ -251,6 +260,33 @@ $(function() {
           $('#list-pages')[0].appendChild(li);
         }
       }
+    }
+
+    function renderButton(projectHTML, project) {
+      const button = document.createElement('button');
+      button.classList.add('Button');
+
+      if (project.is_buy === 1 || cart.cart.find(cart_project => cart_project.slug === project.slug)) {
+        button.innerText = 'Ver Produto';
+      } else {
+        button.innerText = 'Adicionar Produto';
+
+        if (project.is_logged === 1) {
+          button.onclick = function(e) {
+            e.preventDefault();
+            cart.pushProject(project);
+            window.location.href = BASE_URL + 'projetos/produto/' + project.slug;
+          }
+        } else {
+          button.onclick = function(e) {
+            e.preventDefault();
+            window.location.href = BASE_URL + 'conta/';
+          }
+        }
+      }
+
+      projectHTML.querySelector('.Project__info_button').appendChild(button);
+      return projectHTML;
     }
   }
 })

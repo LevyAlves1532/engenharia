@@ -1,6 +1,10 @@
 const GO_CHECKOUT_STORAGE = '@engenharia::go_checkout';
+const PARAMS_LISTEN_PROJECTS_STORAGE = '@engenharia::params_listen_projects';
 
 $(function() {
+  const cart = new Cart();
+  cart.init();
+
   /**
    * Header Script - Start
    */
@@ -90,6 +94,16 @@ $(function() {
   });
   /**
    * Menu admin - End
+   */
+
+  /**
+   * Clear Storage Projects - Start
+   */
+  if (window.location.href.indexOf(BASE_URL + 'projetos') === -1) {
+    localStorage.removeItem(PARAMS_LISTEN_PROJECTS_STORAGE);
+  }
+  /**
+   * Clear Storage Projects - End
    */
 })
 

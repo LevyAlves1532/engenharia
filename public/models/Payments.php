@@ -102,13 +102,21 @@ class Payments extends model {
   {
     $arr = [];
 
-    $sql = 'SELECT SUM(payments.total_value) as profit_month FROM payments WHERE MONTH(created_at) = :month';
+    $reimbursement = new Reimbursement();
+
+    $sql = 'SELECT SUM(payments.total_value) as profit_month FROM payments WHERE MONTH(payments.created_at) = :month';
     $sql = $this->db->prepare($sql);
     $sql->bindValue(':month', $month);
     $sql->execute();
 
     if ($sql->rowCount() > 0) {
       $arr = $sql->fetch(PDO::FETCH_ASSOC);
+
+      $minus_profit_month = $reimbursement->getMinusProfitMonth($month);
+
+      if (!empty($arr['profit_month']) && !empty($minus_profit_month) && !empty($minus_profit_month['minus_profit_month'])) {
+        $arr['profit_month'] = $arr['profit_month'] - $minus_profit_month['minus_profit_month'];
+      }
     }
 
     return $arr;
