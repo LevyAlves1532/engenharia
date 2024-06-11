@@ -58,7 +58,7 @@ $(function() {
       dataType: 'json',
       success: (json) => {
         if (json.error) {
-          console.error(json.error);
+          alertLib(json.error);
           return;
         }
 
@@ -92,7 +92,7 @@ $(function() {
         const goCheckoutStorage = localStorage.getItem(GO_CHECKOUT_STORAGE);
 
         if (json.error) {
-          console.error(json.error);
+          alertLib(json.error);
           return;
         }
 

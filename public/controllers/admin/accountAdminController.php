@@ -6,7 +6,7 @@ class accountAdminController extends controller
   {
     $data = [];
 
-    if (!empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+    if (!empty($_SESSION['user_admin'])) {
       $user_admin = $_SESSION['user_admin'];
       $permissions = json_decode($user_admin['permissions']);
 
@@ -28,8 +28,6 @@ class accountAdminController extends controller
 
     if (!empty($_SESSION['user_admin'])) {
       $user = $_SESSION['user_admin']['id'];
-    } else {
-      $user = $_COOKIE['user_admin']['id'];
     }
 
     $data['user'] = $users->get($user);
@@ -52,10 +50,6 @@ class accountAdminController extends controller
 
       $user = $users->getWithEmailAndPass($email, $password);
 
-      if (!empty($_POST['remember'])) {
-        setcookie('user_admin', $user['id'], time() + (86400 * 7));
-      }
-
       if ($user !== []) {
         $_SESSION['user_admin'] = $user;
       } else {
@@ -73,7 +67,6 @@ class accountAdminController extends controller
   public function logout()
   {
     unset($_SESSION['user_admin']);
-    unset($_COOKIE['user_admin']);
     header('Location: ' . BASE . 'admin/');
   }
 }

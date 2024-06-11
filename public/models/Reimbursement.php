@@ -110,22 +110,6 @@ class Reimbursement extends model {
     return $arr;
   }
 
-  public function getMinusProfitMonth($month)
-  {
-    $arr = [];
-
-    $sql = 'SELECT SUM(payments.total_value) as minus_profit_month FROM reimbursement INNER JOIN payments ON payments.id = reimbursement.id_payment WHERE MONTH(reimbursement.created_at) = :month AND reimbursement.status = 1';
-    $sql = $this->db->prepare($sql);
-    $sql->bindValue(':month', $month);
-    $sql->execute();
-
-    if ($sql->rowCount() > 0) {
-      $arr = $sql->fetch(PDO::FETCH_ASSOC);
-    }
-
-    return $arr;
-  }
-
   public function set($id_user, $id_payment, $phone, $motive)
   {
     $sql = 'INSERT INTO reimbursement SET id_user = :id_user, id_payment = :id_payment, phone = :phone, motive = :motive';

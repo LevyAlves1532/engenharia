@@ -17,7 +17,7 @@
   <div class="AdmHeaderPage mb-5">
     <div class="AdmHeaderPage__title">
       <h1>Pagamento</h1>
-      <h2>Nº do Pedido: <?= $mp_json->id ?></h2>
+      <h2>Nº do Pedido: <?= $mp_json->id ?> <?= $payment['status'] === 'refunded' ? ' - Reembolsado' : '' ?></h2>
     </div>
   </div>
 

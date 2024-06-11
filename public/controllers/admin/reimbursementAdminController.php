@@ -88,6 +88,7 @@ class reimbursementAdminController extends controller {
 
   public function edit()
   {
+    $payments = new Payments();
     $reimbursement = new Reimbursement();
 
     if (isset($_POST['status']) && !empty($_POST['response']) && !empty($_POST['ir'])) {
@@ -95,8 +96,19 @@ class reimbursementAdminController extends controller {
       $response = addslashes($_POST['response']);
       $id_reimbursement = addslashes(base64_decode($_POST['ir']));
 
-      $reimbursement->up($response, $status, $id_reimbursement);
+      $reimbursement_item = $reimbursement->get($id_reimbursement);
 
+      if ($status === '1') {
+        $payments->up('refunded', $reimbursement_item['id_payment']);
+      } else {
+        $payment = $payments->get($reimbursement_item['id_payment']);
+        $mp_json = json_decode($payment['mp_json']);
+        $payments->up($mp_json->status, $reimbursement_item['id_payment']);
+      }
+
+      $reimbursement->up($response, $status, $id_reimbursement);
+      
+      $this->array_ajax['status'] = true;
       $this->array_ajax['return'] = 'Reembolso alterado com sucesso!';
     } else {
       $this->array_ajax['status'] = false;

@@ -50,7 +50,7 @@ class contaController extends controller {
 
         $ajax_return['data'] = 'Usuário logado!';
       } else {
-        $ajax_return['error'] = 'Nenhum usuário encontrado!';  
+        $ajax_return['error'] = 'E-mail ou senha estão incorretos!';  
       }
     } else {
       $ajax_return['error'] = 'Preencha os campos corretamente!';

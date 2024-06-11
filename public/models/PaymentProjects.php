@@ -44,7 +44,7 @@ class PaymentProjects extends model {
   {
     $is = false;
 
-    $sql = 'SELECT * FROM payment_projects WHERE MD5(id_user) = :id_user AND MD5(id_project) = :id_project';
+    $sql = 'SELECT payment_projects.id FROM payment_projects INNER JOIN payments ON payments.id = payment_projects.id_payment WHERE MD5(payment_projects.id_user) = :id_user AND MD5(payment_projects.id_project) = :id_project AND payments.status = "approved"';
     $sql = $this->db->prepare($sql);
     $sql->bindValue(':id_user', md5($id_user));
     $sql->bindValue(':id_project', md5($id_project));

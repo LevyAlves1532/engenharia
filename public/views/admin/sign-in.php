@@ -38,7 +38,7 @@
                 <div class="error"></div>
               </div>
 
-              <div class="mb-3">
+              <div class="mb-4">
                 <label for="password" class="form-label">Senha:</label>
                 <div class="input-group">
                   <input type="password" class="form-control" placeholder="Sua senha..." name="password" id="password">
@@ -48,13 +48,6 @@
                   </button>
                 </div>
                 <div class="error"></div>
-              </div>
-
-              <div class="form-check mb-3 d-flex justify-content-center align-items-center">
-                <input class="form-check-input" type="checkbox" name="remember" id="remember">
-                <label class="form-check-label" for="remember">
-                  Lembre-se de mim
-                </label>
               </div>
 
               <button type="submit" class="SignInBox__form--button btn btn-outline-secondary">Fazer Login</button>

@@ -117,7 +117,7 @@
       <div class="error"></div>
     </div>
     <div class="mb-3">
-      <p>O processo de reembolso é feito em dentro do mercado pago, acesse sua conta e reembolse a partir da identificação da compra!</p>
+      <p>O processo de reembolso é feito dentro do mercado pago, acesse sua conta e reembolse a partir da identificação da compra!</p>
     </div>
     <div class="d-flex justify-content-end gap-3">
       <button type="submit" class="btn btn-outline-success">Salvar</button>

@@ -104,19 +104,13 @@ class Payments extends model {
 
     $reimbursement = new Reimbursement();
 
-    $sql = 'SELECT SUM(payments.total_value) as profit_month FROM payments WHERE MONTH(payments.created_at) = :month';
+    $sql = 'SELECT SUM(payments.total_value) as profit_month FROM payments WHERE MONTH(payments.created_at) = :month AND payments.status = "approved"';
     $sql = $this->db->prepare($sql);
     $sql->bindValue(':month', $month);
     $sql->execute();
 
     if ($sql->rowCount() > 0) {
       $arr = $sql->fetch(PDO::FETCH_ASSOC);
-
-      $minus_profit_month = $reimbursement->getMinusProfitMonth($month);
-
-      if (!empty($arr['profit_month']) && !empty($minus_profit_month) && !empty($minus_profit_month['minus_profit_month'])) {
-        $arr['profit_month'] = $arr['profit_month'] - $minus_profit_month['minus_profit_month'];
-      }
     }
 
     return $arr;
@@ -139,5 +133,14 @@ class Payments extends model {
     $sql->execute();
 
     return $this->db->lastInsertId();
+  }
+
+  public function up($status, $id)
+  {
+    $sql = 'UPDATE payments SET status = :status WHERE MD5(id) = :id';
+    $sql = $this->db->prepare($sql);
+    $sql->bindValue(':status', $status);
+    $sql->bindValue(':id', md5($id));
+    $sql->execute();
   }
 }
