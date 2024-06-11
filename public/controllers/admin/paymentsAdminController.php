@@ -1,20 +1,42 @@
 <?php
 
 class paymentsAdminController extends controller {
+  private $permissions_user_payments = [];
+
   public function __construct()
   {
-    if (empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+    if (!empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+      $user_admin = $_SESSION['user_admin'];
+      $permissions = json_decode($user_admin['permissions']);
+
+      if (!property_exists($permissions, 'payments')) {
+        unset($_SESSION['user_admin']);
+        header('Location: ' . BASE . 'admin/');
+      }
+
+      $this->permissions_user_payments = $permissions->payments;
+    } else {
       header('Location: ' . BASE . 'admin/account/sign_in');
     }
   }
 
   public function index()
   {
+    if (!in_array('READ', $this->permissions_user_payments)) {
+      header('Location: ' . BASE . 'admin/');
+      exit;
+    }
+
     $this->loadTemplateAdmin('payments-list');
   }
 
   public function view($id)
   {
+    if (!in_array('READ', $this->permissions_user_payments)) {
+      header('Location: ' . BASE . 'admin/payments/');
+      exit;
+    }
+
     $data = [];
 
     $payments = new Payments();

@@ -1,13 +1,45 @@
 <?php
 
 class faqAdminController extends controller {
+  private $permissions_user_faq = [];
+
+  public function __construct()
+  {
+    if (!empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+      $user_admin = $_SESSION['user_admin'];
+      $permissions = json_decode($user_admin['permissions']);
+
+      if (!property_exists($permissions, 'faq')) {
+        unset($_SESSION['user_admin']);
+        header('Location: ' . BASE . 'admin/');
+      }
+
+      $this->permissions_user_faq = $permissions->faq;
+    } else {
+      header('Location: ' . BASE . 'admin/account/sign_in');
+    }
+  }
+
   public function index()
   {
+    if (!in_array('READ', $this->permissions_user_faq)) {
+      header('Location: ' . BASE . 'admin/');
+      exit;
+    }
+
     $this->loadTemplateAdmin('faq-list');
   }
 
   public function form($id = null)
   {
+    if (empty($id) && !in_array('INSERT', $this->permissions_user_faq)) {
+      header('Location: ' . BASE . 'admin/faq');
+      exit;
+    } else if (!empty($id) && !in_array('UPDATE', $this->permissions_user_faq)) {
+      header('Location: ' . BASE . 'admin/faq');
+      exit;
+    }
+
     $data = [];
 
     $faq = new Faq();
@@ -108,6 +140,11 @@ class faqAdminController extends controller {
 
   public function delete($id)
   {
+    if (!in_array('DELETE', $this->permissions_user_faq)) {
+      header('Location: ' . BASE . 'admin/faq');
+      exit;
+    }
+
     if (!empty($id)) {
       $id_decoded = base64_decode($id);
 

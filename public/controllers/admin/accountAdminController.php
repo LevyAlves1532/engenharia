@@ -6,7 +6,20 @@ class accountAdminController extends controller
   {
     $data = [];
 
-    if (empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+    if (!empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+      $user_admin = $_SESSION['user_admin'];
+      $permissions = json_decode($user_admin['permissions']);
+
+      if (!property_exists($permissions, 'users')) {
+        unset($_SESSION['user_admin']);
+        header('Location: ' . BASE . 'admin/');
+      }
+
+      if (!in_array('UPDATE', $permissions->users)) {
+        unset($_SESSION['user_admin']);
+        header('Location: ' . BASE . 'admin/');
+      }
+    } else {
       header('Location: ' . BASE . 'admin/account/sign_in');
     }
 
@@ -14,9 +27,9 @@ class accountAdminController extends controller
     $user = null;
 
     if (!empty($_SESSION['user_admin'])) {
-      $user = $_SESSION['user_admin'];
+      $user = $_SESSION['user_admin']['id'];
     } else {
-      $user = $_COOKIE['user_admin'];
+      $user = $_COOKIE['user_admin']['id'];
     }
 
     $data['user'] = $users->get($user);
@@ -44,7 +57,7 @@ class accountAdminController extends controller
       }
 
       if ($user !== []) {
-        $_SESSION['user_admin'] = $user['id'];
+        $_SESSION['user_admin'] = $user;
       } else {
         $this->array_ajax['status'] = false;
         $this->array_ajax['return'] = ['error' => 'E-mail ou senha estão incorretos!'];  

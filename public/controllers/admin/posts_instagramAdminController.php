@@ -1,20 +1,45 @@
 <?php
 
 class posts_instagramAdminController extends controller {
+  private $permissions_user_posts_instagram = [];
+
   public function __construct()
   {
-    if (empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+    if (!empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+      $user_admin = $_SESSION['user_admin'];
+      $permissions = json_decode($user_admin['permissions']);
+
+      if (!property_exists($permissions, 'posts_instagram')) {
+        unset($_SESSION['user_admin']);
+        header('Location: ' . BASE . 'admin/');
+      }
+
+      $this->permissions_user_posts_instagram = $permissions->posts_instagram;
+    } else {
       header('Location: ' . BASE . 'admin/account/sign_in');
     }
   }
   
   public function index()
   {
+    if (!in_array('READ', $this->permissions_user_posts_instagram)) {
+      header('Location: ' . BASE . 'admin/');
+      exit;
+    }
+
     $this->loadTemplateAdmin('posts-instagram-list');
   }
 
   public function form($id = null)
   {
+    if (empty($id) && !in_array('INSERT', $this->permissions_user_posts_instagram)) {
+      header('Location: ' . BASE . 'admin/posts_instagram');
+      exit;
+    } else if (!empty($id) && !in_array('UPDATE', $this->permissions_user_posts_instagram)) {
+      header('Location: ' . BASE . 'admin/posts_instagram');
+      exit;
+    }
+    
     $data = [];
 
     $posts_instagram = new PostsInstagram();
@@ -143,6 +168,11 @@ class posts_instagramAdminController extends controller {
 
   public function delete($id)
   {
+    if (!in_array('DELETE', $this->permissions_user_posts_instagram)) {
+      header('Location: ' . BASE . 'admin/posts_instagram');
+      exit;
+    }
+
     if (!empty($id)) {
       $id_decoded = base64_decode($id);
 

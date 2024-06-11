@@ -1,8 +1,32 @@
 <?php
 
 class reimbursementAdminController extends controller {
+  private $permissions_user_reimbursement = [];
+
+  public function __construct()
+  {
+    if (!empty($_SESSION['user_admin']) && empty($_COOKIE['user_admin'])) {
+      $user_admin = $_SESSION['user_admin'];
+      $permissions = json_decode($user_admin['permissions']);
+
+      if (!property_exists($permissions, 'reimbursement')) {
+        unset($_SESSION['user_admin']);
+        header('Location: ' . BASE . 'admin/');
+      }
+
+      $this->permissions_user_reimbursement = $permissions->reimbursement;
+    } else {
+      header('Location: ' . BASE . 'admin/account/sign_in');
+    }
+  }
+
   public function index()
   {
+    if (!in_array('READ', $this->permissions_user_reimbursement)) {
+      header('Location: ' . BASE . 'admin/');
+      exit;
+    }
+
     $this->loadTemplateAdmin('reimbursement-list');
   }
 
@@ -44,6 +68,11 @@ class reimbursementAdminController extends controller {
 
   public function view($id = null)
   {
+    if (!in_array('READ', $this->permissions_user_reimbursement)) {
+      header('Location: ' . BASE . 'admin/reimbursement');
+      exit;
+    }
+
     $data = [];
 
     $reimbursement = new Reimbursement();
