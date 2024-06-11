@@ -109,6 +109,7 @@ class teamAdminController extends controller {
         $path = uploadFile($photo);
         $team->set($path, $name, $profession);
 
+        $this->array_ajax['status'] = true;
         $this->array_ajax['return'] = ['data' => 'Pessoa adicionado ao time com sucesso!'];
       } else {
         $this->array_ajax['status'] = false;
@@ -150,6 +151,7 @@ class teamAdminController extends controller {
           $keys_post = array_keys($post);
           $team->up($id, $keys_post, $post);
 
+          $this->array_ajax['status'] = true;
           $this->array_ajax['return'] = ['path' => $path];
         } else {
           $this->array_ajax['status'] = false;

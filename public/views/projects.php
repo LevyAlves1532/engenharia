@@ -121,9 +121,6 @@
 
           <div>
             <ul id="list-pages">
-              <li><p>01</p></li>
-              <li><p>02</p></li>
-              <li><p>03</p></li>
             </ul>
           </div>
         </div>
