@@ -1,10 +1,20 @@
 <?php
 
 class Projects extends model {
+  protected $is_active = [
+    'Desativado',
+    'Ativo',
+  ];
+
+  public function getIsActive($index)
+  {
+    return $this->is_active[$index];
+  }
+
   public function getAll($options)
   {
     $arr = [];
-    $columns = ['cover', 'title', 'price', 'id'];
+    $columns = ['cover', 'title', 'price', 'is_active', 'id'];
 
     $sql = 'SELECT * FROM projects';
 
@@ -175,21 +185,23 @@ class Projects extends model {
       }
 
       $sql .= implode(', ', $edit_params) . ' WHERE MD5(id) = "' . md5($id) . '"';
-      // echo $sql;
-      // exit;
+
       $this->db->query($sql);
     }
   }
 
-  public function delete($id)
+  public function toggle($id)
   {
     $project = $this->get($id);
 
-    if ($person_team !== []) {
-      $sql = 'DELETE FROM projects WHERE MD5(id) = :id';
+    if ($project !== []) {
+      $sql = 'UPDATE projects SET is_active = :is_active WHERE MD5(id) = :id';
       $sql = $this->db->prepare($sql);
+      $sql->bindValue(':is_active', $project['is_active'] === 1 ? 0 : 1);
       $sql->bindValue(':id', md5($id));
       $sql->execute();
+
+      $project['is_active'] = $project['is_active'] === 1 ? 0 : 1;
     }
 
     return $project;

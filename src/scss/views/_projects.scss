@@ -43,6 +43,8 @@
 
         .ProjectsContentFilter {
           @include respond-to($lp) {
+            max-width: 375px;
+            width: calc(100% - 40px);
             max-height: 60vh;
             padding: 20px;
             background-color: $white;

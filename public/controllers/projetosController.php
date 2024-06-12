@@ -39,7 +39,7 @@ class projetosController extends controller {
     $payment_projects = new PaymentProjects();
 
     $ajax_return = [];
-    $filters = [];
+    $filters = ['is_active = 1'];
 
     $current_page = intval(addslashes($_GET['current_page']));
 

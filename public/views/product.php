@@ -47,8 +47,12 @@
         <?php endif; ?>
 
         <div class="ProductPrices__button">
-          <button class="Button" data-slug="<?= $slug ?>" <?= !isset($buy_project) ? 'id="add-cart"' : '' ?>>
-            <?= !isset($buy_project) ? 'Adicionar ao Carrinho +' : 'Você adquiriu o projeto' ?>
+          <button class="Button" data-slug="<?= $slug ?>" <?= (!isset($buy_project) && $project['is_active'] === 1) ? 'id="add-cart"' : '' ?>>
+            <?php if ($project['is_active'] === 1): ?>
+              <?= !isset($buy_project) ? 'Adicionar ao Carrinho +' : 'Você adquiriu o projeto' ?>
+            <?php else: ?>
+              Projeto indisponível
+            <?php endif; ?>
           </button>
         </div>
 

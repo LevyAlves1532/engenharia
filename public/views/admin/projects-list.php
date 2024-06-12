@@ -22,6 +22,7 @@
           <th>Capa</th>
           <th>Título</th>
           <th>Preço</th>
+          <th>Status</th>
           <th>Ação</th>
         </tr>
       </thead>
@@ -30,6 +31,7 @@
           <th>Capa</th>
           <th>Título</th>
           <th>Preço</th>
+          <th>Status</th>
           <th>Ação</th>
         </tr>
       </tfoot>

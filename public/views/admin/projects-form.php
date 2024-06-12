@@ -127,7 +127,7 @@
     </div>
     <div class="col-md-12 d-flex justify-content-end gap-3">
       <button type="submit" class="btn btn-outline-success"><?= (isset($project)) ? 'Editar o Projeto' : 'Adicionar o Projeto +' ?></button>
-      <?= (isset($project)) ? '<a href="' . BASE . 'admin/projects/delete/' . $id . '" class="btn btn-outline-danger">Deletar o Projeto</a>' : '' ?>
+      <?= (isset($project)) ? '<a href="' . BASE . 'admin/projects/toggle/' . $id . '" class="btn btn-outline-danger">' . ($project['is_active'] === 1 ? 'Desativar o Projeto' : 'Ativar o Projeto') . '</a>' : '' ?>
     </div>
   </form>
 </main>

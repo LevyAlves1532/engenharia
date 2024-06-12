@@ -70,12 +70,15 @@ class projectsAdminController extends controller {
     $count = $projects->getCount($_GET['search']['value']);
 
     function filter($project) {
+      $projects = new Projects();
+      
       return [
         '
           <img src="' . $project['cover'] . '" width="50" height="50" class="rounded" alt="" />
         ', 
         $project['title'], 
         $project['is_discount'] == 1 ? '<strike>' . number_format($project['price'], 2, ",", ".") . '</strike> - ' . number_format(floatval(str_replace(',', '.', $project['price'])) - floatval(str_replace(',', '.', $project['price'])) * intval(str_replace(',', '.', $project['discount_percent'])) / 100, 2, ",", ".") : number_format($project['price'], 2, ",", "."),
+        $projects->getIsActive($project['is_active']),
         '
           <div class="dropdown">
             <button class="btn btn-outline-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -83,7 +86,7 @@ class projectsAdminController extends controller {
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="' . BASE . 'admin/projects/form/' . base64_encode($project['id']) . '">Editar</a></li>
-              <li><a class="dropdown-item" href="' . BASE . 'admin/projects/delete/' . base64_encode($project['id']) . '">Deletar</a></li>
+              <li><a class="dropdown-item" href="' . BASE . 'admin/projects/toggle/' . base64_encode($project['id']) . '">' . ($project['is_active'] === 1 ? 'Desativar' : 'Ativar') . '</a></li>
             </ul>
           </div>
         '
@@ -317,7 +320,7 @@ class projectsAdminController extends controller {
     echo json_encode($this->array_ajax);
   }
 
-  public function delete($id = null)
+  public function toggle($id)
   {
     if (!in_array('DELETE', $this->permissions_user_projects)) {
       header('Location: ' . BASE . 'admin/projects');
@@ -328,22 +331,7 @@ class projectsAdminController extends controller {
       $id_decoded = base64_decode($id);
 
       $projects = new Projects();
-      $project_carousel = new ProjectCarousel();
-      $project_files = new ProjectFiles();
-
-      $project_carousel_list = $project_carousel->deleteAll($id_decoded);
-      $project_files_list = $project_files->deleteAll($id_decoded);
-      $project = $projects->delete($id_decoded);
-
-      foreach($project_carousel_list as $project_carousel_item) {
-        deleteFile($project_carousel_item['image']);
-      }
-
-      foreach($project_files_list as $project_delete_item) {
-        deleteFile($project_delete_item['file']);
-      }
-
-      deleteFile($project['cover']);
+      $projects->toggle($id_decoded);
     }
 
     header('Location: ' . BASE . 'admin/projects');
