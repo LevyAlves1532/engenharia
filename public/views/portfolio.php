@@ -17,7 +17,7 @@
     </div>
   </section>
 
-  <?php include 'components/projects.php'; ?>
+  <!-- <?php include 'components/projects.php'; ?> -->
 
   <section class="PortfolioFeedback">
     <div class="PortfolioFeedback__container">

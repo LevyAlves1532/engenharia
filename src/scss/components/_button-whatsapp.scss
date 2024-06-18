@@ -1,0 +1,30 @@
+.ButtonWhatsApp {
+  padding: 20px;
+  background-color: #00F00B;
+  border-radius: 999px;
+  transition: all ease 0.8s;
+  border: 1px solid #00F00B;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: $white;
+    transition: all ease 0.8s;
+  }
+
+  &:hover {
+    background-color: $white;
+
+    svg {
+      fill: #00F00B;
+    }
+  }
+}

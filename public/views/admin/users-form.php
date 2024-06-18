@@ -44,7 +44,7 @@
           if (count($types) > 0):
             foreach($types as $type):
               ?>
-                <option value="<?= base64_encode($type['id']) ?>" <?= ($user['type'] === $type['name']) ? 'selected' : '' ?>><?= $type['name'] ?></option>
+                <option value="<?= base64_encode($type['id']) ?>" <?= (isset($user) && $user['type'] === $type['name']) ? 'selected' : '' ?>><?= $type['name'] ?></option>
               <?php
             endforeach;
           endif;

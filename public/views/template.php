@@ -19,6 +19,8 @@
     <!-- Conteudos -->
     <?php $this->loadViewInTemplate($viewName, $viewData); ?>
 
+    <?php include "components/button-whatsapp.php"; ?>
+
     <?php include "components/footer.php"; ?>
 
     <script>
