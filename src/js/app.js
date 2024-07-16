@@ -1,6 +1,8 @@
 const GO_CHECKOUT_STORAGE = '@engenharia::go_checkout';
 const PARAMS_LISTEN_PROJECTS_STORAGE = '@engenharia::params_listen_projects';
 
+document.addEventListener('DOMContentLoaded', lazyLoading);
+
 $(function() {
   const cart = new Cart();
   cart.init();
@@ -205,4 +207,20 @@ function alertLib(message) {
 }
 /**
  * Alert - End
+ */
+
+/**
+ * Lazy Loading - Start
+ */
+function lazyLoading() {
+  const lazyBackgrounds = document.querySelectorAll('.lazy-background');
+  lazyBackgrounds.forEach(bg => {
+    const bgUrl = bg.getAttribute('data-bg');
+    if (bgUrl) {
+      bg.style.backgroundImage = bgUrl;
+    }
+  });
+}
+/**
+ * Lazy Loading - End
  */

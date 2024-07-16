@@ -11,7 +11,7 @@ class homeController extends controller
 
 		$this->loadTemplate('home', [
 			'banner' => [
-				'image' => BASE . 'assets/images/banner_home.png',
+				'image' => BASE . 'assets/images/banner_home.webp',
 				'subtitle' => 'Soluções de Engenharia Inovadoras e Sustentáveis',
 				'title' => 'Construindo o Futuro com Excelência',
 				'text' => 'Transformamos ideias em realidade com precisão e dedicação. Com uma abordagem sustentável e inovadora, oferecemos serviços de engenharia que atendem às necessidades do presente sem comprometer as gerações futuras. Seja para projetos residenciais, comerciais ou industriais, estamos comprometidos em entregar resultados de alta qualidade que superam as expectativas.',

@@ -1,5 +1,5 @@
 <?php if (isset($banner) && !empty($banner)): ?>
-<section class="Banner" style="background-image: url(<?= $banner["image"] ?>)">
+<section class="Banner lazy-background" data-bg="url(<?= $banner["image"] ?>)">
   <div class="Banner__container">
     <div class="BannerInfo">
       <?php if (!empty($banner["subtitle"])): ?>

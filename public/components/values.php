@@ -1,4 +1,4 @@
-<seciton class="Values">
+<seciton class="Values lazy-background" data-bg="url(<?= BASE ?>/assets/images/apertar-maos.webp)">
   <div class="Values__container">
     <div class="Values__container_title">
       <h2>Nossos <span>Valores</span></h2>

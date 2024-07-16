@@ -1,7 +1,10 @@
 <seciton class="About">
   <div class="About__container">
     <div class="AboutImage">
-      <img src="<?= BASE ?>assets/images/escritorio.jpg" alt="">
+      <picture>
+        <source type="image/webp" srcset="<?= BASE ?>assets/images/escritorio.webp" />
+        <img src="<?= BASE ?>assets/images/escritorio.jpg" alt="Meu Escritório">
+      </picture>
     </div>
 
     <div class="AboutInfo">
@@ -41,7 +44,7 @@
       </div>
 
       <div class="AboutInfo__button">
-        <a href="<?= BASE ?>contato" class="Button Button--secondary">Começe Agora</a>
+        <a href="<?= BASE ?>contato" class="Button Button--secondary">Comece Agora</a>
       </div>
     </div>
   </div>

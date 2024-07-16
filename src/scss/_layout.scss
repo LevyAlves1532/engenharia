@@ -59,6 +59,13 @@ textarea {
   font-family: $fontText;
 }
 
+.lazy-background {
+  min-height: 300px;
+  background-color: $gray;
+  background-size: cover;
+  background-position: center;
+}
+
 .swal2-html-container {
   @include font-size(16);
   font-family: $fontTitle;

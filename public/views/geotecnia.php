@@ -51,13 +51,16 @@
     </div>
   </section>
 
-  <div class="GeotecniaSeparatorImage" style="background-image: url(<?= BASE ?>assets/images/fundo_geotecnia.jpg);"></div>
+  <div class="GeotecniaSeparatorImage lazy-background" data-bg="url(<?= BASE ?>assets/images/fundo_geotecnia.webp)"></div>
 
   <div class="GeotecniaServices">
     <div class="GeotecniaServices__container">
       <div class="GeotecniaServicesBlock">
         <div class="GeotecniaServicesBlock__image">
-          <img src="<?= BASE ?>assets/images/investigacao_geotecnia.jpg" alt="">
+          <picture>
+            <source type="image/webp" srcset="<?= BASE ?>assets/images/investigacao_geotecnia.webp" />
+            <img src="<?= BASE ?>assets/images/investigacao_geotecnia.png" loading="lazy" alt="Investigação Geotecnia">
+          </picture>
         </div>
 
         <div class="GeotecniaServicesBlock__info">
@@ -78,7 +81,10 @@
       
       <div class="GeotecniaServicesBlock GeotecniaServicesBlock--invert">
         <div class="GeotecniaServicesBlock__image">
-          <img src="<?= BASE ?>assets/images/monitoramento_geotecnia.jpg" alt="">
+          <picture>
+            <source type="image/webp" srcset="<?= BASE ?>assets/images/monitoramento_geotecnia.webp" />
+            <img src="<?= BASE ?>assets/images/monitoramento_geotecnia.jpg" loading="lazy" alt="Monitoramento Geotecnia">
+          </picture>
         </div>
 
         <div class="GeotecniaServicesBlock__info">
@@ -99,7 +105,10 @@
 
       <div class="GeotecniaServicesBlock">
         <div class="GeotecniaServicesBlock__image">
-          <img src="<?= BASE ?>assets/images/gestao_geotecnia.jpg" alt="">
+          <picture>
+            <source type="image/webp" srcset="<?= BASE ?>assets/images/gestao_geotecnia.webp" />
+            <img src="<?= BASE ?>assets/images/gestao_geotecnia.jpg" loading="lazy" alt="Gestão Geotecnia">
+          </picture>
         </div>
 
         <div class="GeotecniaServicesBlock__info">
