@@ -3,11 +3,11 @@ class homeController extends controller
 {
 	public function index()
 	{
-		// $projects = new Projects();
+		$projects = new Projects();
 		$feedbacks = new Feedbacks();
 
 		$all_feedbacks = $feedbacks->getTwo();
-		// $all_projects = $projects->getThree();
+		$all_projects = $projects->getThree();
 
 		$this->loadTemplate('home', [
 			'banner' => [
@@ -24,7 +24,7 @@ class homeController extends controller
 					'label' => 'Veja nosso Portfolio',
 				],
 			],
-			// 'projects' => $all_projects,
+			'projects' => $all_projects,
 			'feedbacks' => $all_feedbacks,
 		]);
 	}

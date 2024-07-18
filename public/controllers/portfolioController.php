@@ -6,11 +6,11 @@ class portfolioController extends controller {
     $data = [];
 
     $posts_instagram = new PostsInstagram();
-    // $projects = new Projects();
+    $projects = new Projects();
     $feedbacks = new Feedbacks();
 
     $data['posts'] = $posts_instagram->getAllNoneFilters();
-    // $data['projects'] = $projects->getThree();
+    $data['projects'] = $projects->getThree();
     $data['feedbacks'] = $feedbacks->getAllNoneFilters();
 
     $this->loadTemplate('portfolio', $data);

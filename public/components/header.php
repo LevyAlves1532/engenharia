@@ -38,7 +38,7 @@
           <ul class="HeaderMenuList">
             <li><a href="<?= BASE ?>">Inicio</a></li>
             <li><a href="<?= BASE ?>sobre">Sobre</a></li>
-            <!-- <li><a href="<?= BASE ?>projetos">Projetos</a></li> -->
+            <li><a href="<?= BASE ?>projetos">Projetos</a></li>
             <li><a href="<?= BASE ?>geotecnia">Geotecnia</a></li>
             <li><a href="<?= BASE ?>portfolio">Portfolio</a></li>
             <li><a href="<?= BASE ?>contato">Contato</a></li>

@@ -18,7 +18,7 @@
     </li>
   </ul>
 
-  <!-- <ul class="HeaderOptions__buttons">
+  <ul class="HeaderOptions__buttons">
     <li><a href="<?= BASE ?><?= !empty($user) ? 'meu_perfil' : 'conta' ?>"><?= !empty($user) ? 'Olá, ' . $user['name'] : 'Fazer Login' ?></a></li>
     <li>
       <button class="button-cart-open">
@@ -50,5 +50,5 @@
         </div>
       </div>
     </li>
-  </ul> -->
+  </ul>
 </div>
