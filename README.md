@@ -1,5 +1,5 @@
 
-![Logo do projeto](https://github.com/LevyAlves1532/engenharia_daniel/blob/alternative/images/engenharia_logo.png)
+![Logo do projeto](https://github.com/LevyAlves1532/engenharia/blob/master/images/engenharia_logo.png)
 
 ## Institucional Engenharia
 O projeto institucional engenharia focado na apresentação de uma empresa voltada a engenhari civil. Foi desenvolvido para um cliente, este é um projeto fullstack onde temos o frontend e o backend em um mesmo projeto, utilizei a estrutura MVC no PHP para construir essa aplicação, além disso fiz uma área voltada para os administradores para gerenciar algumas nforamções do site, no site há a possiblidade de comprar projetos de engenharia, para isso é necessário que o usuário faça login na aplicação para finalizar foi feita integração com o mercado pago, para fazer a compra dos projetos.
@@ -58,12 +58,12 @@ Há integrações no banco de dados, caso você queira testar todas as funcional
 
 ## Preview do Projeto
 
-![Página Home](https://github.com/LevyAlves1532/engenharia_daniel/blob/alternative/images/home.jpeg)
-![Página Sobre](https://github.com/LevyAlves1532/engenharia_daniel/blob/alternative/images/about.jpeg)
-![Página de Projetos](https://github.com/LevyAlves1532/engenharia_daniel/blob/alternative/images/projects.jpeg)
-![Página de Portfolio](https://github.com/LevyAlves1532/engenharia_daniel/blob/alternative/images/portfolio.jpeg)
-![Página de Contato](https://github.com/LevyAlves1532/engenharia_daniel/blob/alternative/images/contact.jpeg)
-![Dashboard](https://github.com/LevyAlves1532/engenharia_daniel/blob/alternative/images/dashboard.jpeg)
+![Página Home](https://github.com/LevyAlves1532/engenharia/blob/master/images/home.jpeg)
+![Página Sobre](https://github.com/LevyAlves1532/engenharia/blob/master/images/about.jpeg)
+![Página de Projetos](https://github.com/LevyAlves1532/engenharia/blob/master/images/projects.jpeg)
+![Página de Portfolio](https://github.com/LevyAlves1532/engenharia/blob/master/images/portfolio.jpeg)
+![Página de Contato](https://github.com/LevyAlves1532/engenharia/blob/master/images/contact.jpeg)
+![Dashboard](https://github.com/LevyAlves1532/engenharia/blob/master/images/dashboard.jpeg)
 
 ## Funcionalidades do Projeto
 
