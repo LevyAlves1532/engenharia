@@ -7,7 +7,7 @@
 
   <?php include 'components/goals.php'; ?>
 
-  <!-- <?php include 'components/projects.php'; ?> -->
+  <?php include 'components/projects.php'; ?>
 
   <section class="HomeFeedback">
     <div class="HomeFeedback__container">

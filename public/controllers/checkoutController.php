@@ -12,17 +12,7 @@ class checkoutController extends controller {
       header('Location: ' . BASE . 'carrinho');
     }
 
-    $data = [];
-
-    $data['card'] = [
-      'securityCode' => '123',
-      'expirationYear' => '11/25',
-      'holderName' => 'FULANO DEL GENBRE',
-      'identificationNumber' => '58428309060',
-      'holderEmail' => 'fulano.genbre@gmail.com',
-    ];
-
-    $this->loadTemplate('checkout', $data);
+    $this->loadTemplate('checkout');
   }
 
   public function process_payment()
