@@ -1,8 +1,7 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 $config = array();
 
@@ -12,19 +11,19 @@ preg_match("/{$conexao}/i", $url, $match);
 
 //defininco se esta em desenvolvimento ou produção
 if (!empty($match)) {
-	define("BASE", "http://localhost/projetos/Daniel/civil_engineer_portfolio/public/");
-	define('ACCESS_TOKEN_MERCADO_PAGO', 'TEST-422895419841354-053010-5c3259dbb8311a4eef64aca095dd9275-1685623783');
-	$config["dbname"] = "civil_engineer_daniel";
-	$config["host"] = "localhost";
-	$config["dbuser"] = "root";
-	$config["dbpass"] = "";
+	define("BASE", $_ENV['HOMOLOG_BASE_URL']);
+	define('ACCESS_TOKEN_MERCADO_PAGO', $_ENV['HOMOLOG_ACCESS_TOKEN_MERCADO_PAGO']);
+	$config["dbname"] = $_ENV['HOMOLOG_DBNAME'];
+	$config["host"] = $_ENV['HOMOLOG_HOST'];
+	$config["dbuser"] = $_ENV['HOMOLOG_DBUSER'];
+	$config["dbpass"] = $_ENV['HOMOLOG_DBPASS'];
 } else {
-	define("BASE", "http://www.levy-projects.infinityfreeapp.com/engenharia_daniel/");
-	define('ACCESS_TOKEN_MERCADO_PAGO', 'TEST-422895419841354-053010-5c3259dbb8311a4eef64aca095dd9275-1685623783');
-	$config["dbname"] = "if0_36721860_civil_engineer_daniel";
-	$config["host"] = "sql309.infinityfree.com";
-	$config["dbuser"] = "if0_36721860";
-	$config["dbpass"] = "EUcdUxMBOIbA";
+	define("BASE", $_ENV['BASE_URL']);
+	define('ACCESS_TOKEN_MERCADO_PAGO', $_ENV['ACCESS_TOKEN_MERCADO_PAGO']);
+	$config["dbname"] = $_ENV['DBNAME'];
+	$config["host"] = $_ENV['HOST'];
+	$config["dbuser"] = $_ENV['DBUSER'];
+	$config["dbpass"] = $_ENV['DBPASS'];
 }
 
 global $db;
@@ -35,20 +34,5 @@ try {
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
 	echo "Falhou " . $e->getMessage();
-	exit;
-}
-
-$mail = new PHPMailer(true);
-
-try {
-	$mail->isSMTP();
-	$mail->Host = 'localhost';
-	$mail->SMTPAuth = false;
-	$mail->SMTPAuthTLS = false;
-	$mail->Port = 25;
-
-	global $mail;
-} catch(Exception $e) {
-	echo "Error de email!";
 	exit;
 }
