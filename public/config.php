@@ -13,18 +13,18 @@ preg_match("/{$conexao}/i", $url, $match);
 //defininco se esta em desenvolvimento ou produção
 if (!empty($match)) {
 	define("BASE", "http://localhost/projetos/Daniel/civil_engineer_portfolio/public/");
-	define('ACCESS_TOKEN_MERCADO_PAGO', 'TEST-422895419841354-053010-5c3259dbb8311a4eef64aca095dd9275-1685623783');
+	define('ACCESS_TOKEN_MERCADO_PAGO', '');
 	$config["dbname"] = "civil_engineer_daniel";
 	$config["host"] = "localhost";
 	$config["dbuser"] = "root";
 	$config["dbpass"] = "";
 } else {
-	define("BASE", "http://www.levy-projects.infinityfreeapp.com/engenharia_daniel/");
-	define('ACCESS_TOKEN_MERCADO_PAGO', 'TEST-422895419841354-053010-5c3259dbb8311a4eef64aca095dd9275-1685623783');
-	$config["dbname"] = "if0_36721860_civil_engineer_daniel";
-	$config["host"] = "sql309.infinityfree.com";
-	$config["dbuser"] = "if0_36721860";
-	$config["dbpass"] = "EUcdUxMBOIbA";
+	define("BASE", "");
+	define('ACCESS_TOKEN_MERCADO_PAGO', '');
+	$config["dbname"] = "";
+	$config["host"] = "";
+	$config["dbuser"] = "";
+	$config["dbpass"] = "";
 }
 
 global $db;
